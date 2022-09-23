@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Actors
+  - name: Enemies
+    uniqueID: 3194918773
+    locked: 0
+  - name: Weapons
+    uniqueID: 296422775
+    locked: 0
+  - name: Player
     uniqueID: 1278825641
     locked: 0
