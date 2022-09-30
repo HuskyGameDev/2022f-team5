@@ -5,15 +5,19 @@ using System;
 
 public class BasicAttack : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 10;
     public Rigidbody2D proj;
-    private Rigidbody2D player;
+    private GameObject player;
+
+    void Awake()
+    {
+        //player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
-        //proj.velocity = player.velocity * speed;
+       
     }
 
     // Update is called once per frame

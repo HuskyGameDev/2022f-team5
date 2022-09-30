@@ -5,14 +5,13 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
 
-    private float moveSpeed = 2f;
-    public Rigidbody2D rb;
+    private float moveSpeed = 2;
     Transform target;
-    Vector2 movement;
-
+    
+    //
     private void Awake()
     {
-         
+        target = GameObject.Find("Player").GetComponent<Transform>();
     }
 
     // Start is called before the first frame update
@@ -21,9 +20,10 @@ public class FollowPlayer : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        //update the position of the enemy to be closer to the player
+        transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.fixedDeltaTime);
     }
+
 }
