@@ -12,6 +12,7 @@ public class FollowPlayer : MonoBehaviour
     private void Awake()
     {
         target = GameObject.Find("Player").GetComponent<Transform>();
+        //moveSpeed = SpiderEnemy.speed;
     }
 
     // Start is called before the first frame update
