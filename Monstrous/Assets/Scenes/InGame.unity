@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 185671646}
   - component: {fileID: 185671645}
   m_Layer: 0
-  m_Name: Circle (1)
+  m_Name: SpiderEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -651,7 +651,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &743913826
 GameObject:
