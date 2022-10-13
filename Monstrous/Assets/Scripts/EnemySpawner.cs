@@ -1,9 +1,11 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    
     public GameObject enemyTemp;
 
     public GameObject zombieFab;
@@ -21,10 +23,11 @@ public class EnemySpawner : MonoBehaviour
 
     private GameObject[] enemies;
 
+
     void Start()
     {
-        StartCoroutine(spawnEnemy(spawnInterval, enemies[Random(0, 3)]));
-        enemies = { enemyTemp, zombieFab, spidFab };
+        enemies = new GameObject[3] { enemyTemp, zombieFab, spidFab};
+        StartCoroutine(spawnEnemy(spawnInterval, enemies[Random.Range(0, 3)]));
     }
     
     // Update is called once per frame
@@ -39,4 +42,5 @@ public class EnemySpawner : MonoBehaviour
         GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-5f, 5), Random.Range(-5f, 5), 0), Quaternion.identity);
         StartCoroutine(spawnEnemy(spawnInterval, enemyTemp));
     }
+    
 }
