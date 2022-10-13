@@ -7,11 +7,12 @@ public class BasicAttack : MonoBehaviour
 {
     public float speed = 10;
     public Rigidbody2D proj;
-    private GameObject player;
-
+    private Vector2 direction;
+    
     void Awake()
     {
-        //player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        direction.x = Input.GetAxisRaw("Horizontal");
+        direction.y = Input.GetAxisRaw("Vertical");
     }
 
     // Start is called before the first frame update
@@ -21,8 +22,8 @@ public class BasicAttack : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        proj.MovePosition(proj.position + direction * speed * Time.fixedDeltaTime);
     }
 }

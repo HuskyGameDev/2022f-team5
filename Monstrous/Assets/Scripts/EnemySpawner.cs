@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject enemyTemp;
+    public GameObject enemyTemp;
+
+    public GameObject zombieFab;
+
+    public GameObject spidFab;
 
     //used for later enemy types
-    //[SerializeField]
-    //private GameObject zombieFab;
     //[SerializeField]
     //private GameObject skeleFab;
     //[SerializeField]
     //private GameObject vampFab;
-    //[SerializeField]
-    //private GameObject spidFab;
 
     //how long between enemySpawns
     private float spawnInterval = 3.5f;
 
-    // Start is called before the first frame update
+    private GameObject[] enemies;
+
     void Start()
     {
-        StartCoroutine(spawnEnemy(spawnInterval, enemyTemp));
+        StartCoroutine(spawnEnemy(spawnInterval, enemies[Random(0, 3)]));
+        enemies = { enemyTemp, zombieFab, spidFab };
     }
-
+    
     // Update is called once per frame
     void Update()
     {

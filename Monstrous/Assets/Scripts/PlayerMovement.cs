@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     //public Animator animator;
+    [SerializeField]
     public Vector2 movement;
 
     void Start()
