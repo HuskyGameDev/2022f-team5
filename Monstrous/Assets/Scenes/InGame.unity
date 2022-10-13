@@ -671,6 +671,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382528921dc1f5b438bd065fc36f5b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyTemp: {fileID: 6040528396874739707, guid: 80d5e636405f6be43b10aa63146cf2a7, type: 3}
+  zombieFab: {fileID: 1037476648381245672, guid: 42a2d1bd16222b648985e0f776d3095c, type: 3}
+  spidFab: {fileID: 2118126249402630671, guid: cc932c2bf73a747459472d9819e3e14c, type: 3}
 --- !u!1 &1549941010
 GameObject:
   m_ObjectHideFlags: 0
