@@ -17,6 +17,8 @@ public class BasicAttack : MonoBehaviour
         direction.x = temp.x - proj.position.x;
         direction.y = temp.y - proj.position.y;
         direction.Normalize();
+
+
     }
     // Start is called before the first frame update
     void Start()
