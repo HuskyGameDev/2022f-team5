@@ -8,9 +8,22 @@ public abstract class Enemy : MonoBehaviour {
     public float speed;
     public float contactDamage;
 
-    public Animator anim;
+    public Rigidbody2D body;
+    public Rigidbody2D player;
 
     public void Start() {
-        anim = GetComponent<Animator>();
+        body = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        Debug.Log("on creation of " + this.gameObject.name + ", player is " + player.name);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(this.gameObject.name + " collided with " + other.name);
+        if (other.attachedRigidbody == player)
+        {
+            
+            Destroy(this.gameObject);
+        }
     }
 }
