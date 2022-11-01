@@ -26,8 +26,9 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        enemies = new GameObject[3] { enemyTemp, zombieFab, spidFab};
-        StartCoroutine(spawnEnemy(spawnInterval, enemies[Random.Range(0, 3)]));
+        //removed enemyTemp as a possible spawn because it didn't have the enemy class methods needed for collision
+        enemies = new GameObject[2] {zombieFab, spidFab};
+        StartCoroutine(spawnEnemy(spawnInterval, enemies[Random.Range(0, 2)]));
     }
     
     // Update is called once per frame
@@ -40,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(interval);
         GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-5f, 5), Random.Range(-5f, 5), 0), Quaternion.identity);
-        StartCoroutine(spawnEnemy(spawnInterval, enemies[Random.Range(0, 3)]));
+        StartCoroutine(spawnEnemy(spawnInterval, enemies[Random.Range(0, 2)]));
     }
     
 }

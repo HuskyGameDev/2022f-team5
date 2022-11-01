@@ -17,13 +17,15 @@ public abstract class Enemy : MonoBehaviour {
         Debug.Log("on creation of " + this.gameObject.name + ", player is " + player.name);
     }
 
-    private void OnTriggerEnter(Collider other)
+    //called when other enters this, NOT when this enters other
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(this.gameObject.name + " collided with " + other.name);
-        if (other.attachedRigidbody == player)
+        if ( other.CompareTag("ProjAtk") )
         {
-            
+            Debug.Log(this.gameObject.name + " collided with " + other.name);
             Destroy(this.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     //variables
     public float moveSpeed = 5f;
@@ -35,4 +35,17 @@ public class PlayerMovement : MonoBehaviour
         //movement
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
+    //this = player
+    //other = enemy
+    //called when other enters this, NOT when this enters other
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(this.gameObject.name + " collided with " + other.name);
+        if ( other.CompareTag("Enemy") )
+        {
+            Debug.Log("Take Damage");
+        }
+    }
+    
 }
