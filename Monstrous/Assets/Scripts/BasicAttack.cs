@@ -5,17 +5,20 @@ using System;
 
 public class BasicAttack : MonoBehaviour
 {
-    public float speed = 10;
     public Rigidbody2D proj;
     private Vector2 direction;
     [SerializeField] private Camera mainCamera;
 
+    public float speed = 10;
+    public float damage = 34;
+
     void Awake()
     {
         mainCamera = Camera.main;
-        Vector3 temp = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        direction.x = temp.x - proj.position.x;
-        direction.y = temp.y - proj.position.y;
+        Vector2 temp = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        //direction.x = temp.x - proj.position.x;
+        //direction.y = temp.y - proj.position.y;
+        direction = temp - proj.position;
         direction.Normalize();
 
 

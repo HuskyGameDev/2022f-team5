@@ -9,7 +9,7 @@ public class SpiderEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        base.Start();
+       base.Start();
     }
 
     // Update is called once per frame
