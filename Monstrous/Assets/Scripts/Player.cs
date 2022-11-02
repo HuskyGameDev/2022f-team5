@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
   public HealthBar healthBar;
   public bool playerTakeDamage;
 
+    //stats
+    private float pHealth = 100;
+    
     void Start()
     {
         gameObject.tag = "Player";
@@ -60,11 +63,27 @@ public class Player : MonoBehaviour
     //called when other enters this, NOT when this enters other
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(this.gameObject.name + " collided with " + other.name);
+        //Debug.Log(this.gameObject.name + " collided with " + other.name);
         if ( other.CompareTag("Enemy") )
         {
-            Debug.Log("Take Damage");
+            //Debug.Log("Take Damage");
+            TakeDamage(other.gameObject.GetComponent<Enemy>().contactDamage);
         }
     }
     
+    private void TakeDamage(float dam)
+    {
+        pHealth = pHealth - dam;
+        Debug.Log(this.gameObject.name + " took " + dam + " damage, health: " + pHealth);
+        if (pHealth <= 0)
+        {
+            //Destroy(this.gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        //place code here to show game over screen or start menu on death
+    }
+
 }
