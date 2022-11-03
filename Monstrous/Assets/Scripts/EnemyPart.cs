@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyPart : MonoBehaviour
 {
+
+   [SerializeField] public float partValue;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -220,6 +220,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   amount: 1
+  expValue: 0
   MaxHealthUp: 0
   healthBar: {fileID: 1403696950}
   playerTakeDamage: 0

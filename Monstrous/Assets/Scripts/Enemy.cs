@@ -8,6 +8,8 @@ public abstract class Enemy : MonoBehaviour {
     public float speed;
     public float contactDamage;
 
+    public GameObject enemyPart;
+
     public Rigidbody2D body;
     public Rigidbody2D player;
     private bool isColliding = false; //used to prevent taking damage multiple times a single projectile;
@@ -57,5 +59,6 @@ public abstract class Enemy : MonoBehaviour {
     private void OnDestroy()
     {
         //place code here to drop a part on death
+        GameObject EnemyPart = Instantiate(enemyPart, this.gameObject.GetComponent<Transform>().position, Quaternion.identity, null);
     }
 }

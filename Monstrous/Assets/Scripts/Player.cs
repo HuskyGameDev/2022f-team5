@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public int health=100;
     public int maxHealth=100;
     public int amount = 10;
+    public float expValue = 0.0f;
+
   public bool MaxHealthUp;
   public HealthBar healthBar;
   public bool playerTakeDamage;
@@ -68,6 +70,10 @@ public class Player : MonoBehaviour
         {
             //Debug.Log("Take Damage");
             TakeDamage(other.gameObject.GetComponent<Enemy>().contactDamage);
+        } else if ( other.CompareTag("Pickup") )
+        {
+            GainExp(other.gameObject.GetComponent<EnemyPart>().partValue);
+            Destroy(other.gameObject);
         }
     }
     
@@ -78,6 +84,16 @@ public class Player : MonoBehaviour
         if (pHealth <= 0)
         {
             //Destroy(this.gameObject);
+        }
+    }
+
+    private void GainExp(float exp)
+    {
+        expValue = expValue + exp;
+        if (expValue >= 100)
+        {
+            Debug.Log("You Have Leveled Up!");
+            expValue -= 100;
         }
     }
 

@@ -125,6 +125,8 @@ MonoBehaviour:
   health: 80
   speed: 2.8
   contactDamage: 11
+  partValue: 5
+  enemyPart: {fileID: 7773269717199489643, guid: 1bbf2d39be64fb446bef64186ce87d51, type: 3}
   body: {fileID: 2118126249402630668}
   player: {fileID: 0}
 --- !u!114 &2118126249402630670
