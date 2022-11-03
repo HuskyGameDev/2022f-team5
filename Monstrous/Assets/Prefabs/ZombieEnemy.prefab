@@ -125,8 +125,9 @@ MonoBehaviour:
   health: 100
   speed: 2.3
   contactDamage: 17
-  partValue: 7
-  enemyPart: {fileID: 7773269717199489643, guid: 1bbf2d39be64fb446bef64186ce87d51, type: 3}
+  enemyType: zombie
+  spiderPart: {fileID: 0}
+  zombiePart: {fileID: 7773269717199489643, guid: 8a2159efd4968944e8498c8a84e58b46, type: 3}
   body: {fileID: 0}
   player: {fileID: 0}
 --- !u!114 &1037476648381245673

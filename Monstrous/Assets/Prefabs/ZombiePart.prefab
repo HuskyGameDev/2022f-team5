@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1293720053534844621}
   - component: {fileID: -2533320254494646735}
   m_Layer: 0
-  m_Name: PartPrefab
+  m_Name: ZombiePart
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,11 +73,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2106598751
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 0.1986917, g: 0.8479927, b: 0.8962264, a: 1}
+  m_Color: {r: 0.06367925, g: 0.5, b: 0.12112866, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0028ccdee741d4ca5d497fbfb1c2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partValue: 75
+  partValue: 100
