@@ -46,8 +46,14 @@ public abstract class Enemy : MonoBehaviour {
         Debug.Log(this.gameObject.name + " took " + dam + " damage, health: " + health);
         if (health <= 0)
         {
+            dropPart();
             Destroy(this.gameObject);
         }
+    }
+
+    private void dropPart()
+    {
+        GameObject EnemyPart = Instantiate(enemyPart, this.gameObject.GetComponent<Transform>().position, Quaternion.identity, null);
     }
 
     private IEnumerator stopColliding()
@@ -56,9 +62,5 @@ public abstract class Enemy : MonoBehaviour {
         isColliding = false;
     }
 
-    private void OnDestroy()
-    {
-        //place code here to drop a part on death
-        GameObject EnemyPart = Instantiate(enemyPart, this.gameObject.GetComponent<Transform>().position, Quaternion.identity, null);
-    }
+    
 }
