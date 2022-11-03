@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 96596568}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 478991627}
   - component: {fileID: 478991628}
   - component: {fileID: 478991629}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: -361, y: -228}
+=======
+  m_AnchoredPosition: {x: -578, y: 305}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &478991628
@@ -448,7 +452,7 @@ GameObject:
   - component: {fileID: 520707500}
   - component: {fileID: 520707499}
   - component: {fileID: 520707498}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,7 +952,7 @@ GameObject:
   - component: {fileID: 1375426603}
   - component: {fileID: 1375426605}
   - component: {fileID: 1375426604}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PB_Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5971,7 +5975,7 @@ GameObject:
   - component: {fileID: 1670721950}
   - component: {fileID: 1670721952}
   - component: {fileID: 1670721951}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6160,7 +6164,7 @@ GameObject:
   - component: {fileID: 2131220963}
   - component: {fileID: 2131220965}
   - component: {fileID: 2131220964}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
