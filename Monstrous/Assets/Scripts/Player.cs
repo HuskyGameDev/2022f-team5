@@ -5,30 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    //variables
-    public float moveSpeed = 5f;
+    
+    // objects
     public Rigidbody2D rb;
     //public Animator animator;
+    public HealthBar healthBar;
+    public HealthBar expBar;
+    public AudioSource steps1;
+    public AudioSource steps2;
+
+    // variables
+    public float moveSpeed = 5f;
     [SerializeField]
     public Vector2 movement;
+    private bool isColliding = false; //used to prevent taking damage multiple times a single enemy;
     
-    
-   private bool isColliding = false; //used to prevent taking damage multiple times a single enemy;
-
-    public float expValue = 0;
-
-    public bool MaxHealthUp;
-    public HealthBar healthBar;
-    
-    public HealthBar expBar;
-    //stats
+    // stats
     private float pHealth = 100;
     private float pMaxHealth = 100;
-    
+    public float expValue = 0;
+
     void Start()
     {
         gameObject.tag = "Player";
-
+        steps1.enabled = false;
+        steps2.enabled = false;
     }
 
     // Update is called once per frame
@@ -49,6 +50,15 @@ public class Player : MonoBehaviour
     {
         //movement
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if( ! (movement.Equals( Vector2.zero ) ) )
+        {
+            steps1.enabled = true;
+            steps1.loop = true;
+        }
+        else
+        {
+            steps1.enabled = false;
+        }
     }
 
     
