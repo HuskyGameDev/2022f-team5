@@ -11,17 +11,19 @@ public class Player : MonoBehaviour
     //public Animator animator;
     [SerializeField]
     public Vector2 movement;
-    public int health=100;
-    public int maxHealth=100;
-    public int amount = 10;
-    public float expValue = 0.0f;
+    
+    
+   private bool isColliding = false; //used to prevent taking damage multiple times a single enemy;
 
-  public bool MaxHealthUp;
-  public HealthBar healthBar;
-  public bool playerTakeDamage;
+    public float expValue = 0;
 
+    public bool MaxHealthUp;
+    public HealthBar healthBar;
+    
+    public HealthBar expBar;
     //stats
     private float pHealth = 100;
+    private float pMaxHealth = 100;
     
     void Start()
     {
@@ -40,12 +42,6 @@ public class Player : MonoBehaviour
         //animator.SetFloat("Vertical",   movement.y);
         //animator.SetFloat("Speed",      movement.sqrMagnitude);
 
-    if (Input.GetKey(KeyCode.LeftShift))
-        {
-            TakeDamage(); 
-        }
-
-    
     }
 
     //called a number of times per second
@@ -55,9 +51,7 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    public void TakeDamage(){
-   health = health- amount;                
-   healthBar.UpdateHealthBar(health);  }
+    
 
 
     //this = player
@@ -68,19 +62,26 @@ public class Player : MonoBehaviour
         //Debug.Log(this.gameObject.name + " collided with " + other.name);
         if ( other.CompareTag("Enemy") )
         {
+             if (isColliding) return;
+            isColliding = true;
+
             //Debug.Log("Take Damage");
             TakeDamage(other.gameObject.GetComponent<Enemy>().contactDamage);
+
+            StartCoroutine(stopColliding());
+
         } else if ( other.CompareTag("Pickup") )
         {
             GainExp(other.gameObject.GetComponent<EnemyPart>().partValue);
             Destroy(other.gameObject);
         }
+     
     }
     
     private void TakeDamage(float dam)
     {
         pHealth = pHealth - dam;
-        Debug.Log(this.gameObject.name + " took " + dam + " damage, health: " + pHealth);
+       healthBar.UpdateHealthBar(pHealth);
         if (pHealth <= 0)
         {
             //Destroy(this.gameObject);
@@ -89,17 +90,27 @@ public class Player : MonoBehaviour
 
     private void GainExp(float exp)
     {
+        Debug.Log(exp);
         expValue = expValue + exp;
-        if (expValue >= 100)
+        
+        if (expValue >= 1000)
         {
             Debug.Log("You Have Leveled Up!");
-            expValue -= 100;
+            expValue = expValue- 1000; 
         }
+        expBar.UpdateHealthBar(expValue);
     }
 
     private void OnDestroy()
     {
         //place code here to show game over screen or start menu on death
     }
+    
+    private IEnumerator stopColliding()
+    {
+        yield return new WaitForEndOfFrame();
+        isColliding = false;
+    }
+
 
 }

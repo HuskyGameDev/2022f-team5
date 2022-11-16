@@ -4,7 +4,7 @@ public class HealthBar : MonoBehaviour
 {
   public Slider slider;
   public Player player;  
-  public void UpdateHealthBar(int health) {
+  public void UpdateHealthBar(float health) {
    slider.value=health;
   }
  
