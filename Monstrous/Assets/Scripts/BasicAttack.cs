@@ -20,6 +20,7 @@ public class BasicAttack : MonoBehaviour
         //direction.y = temp.y - proj.position.y;
         direction = temp - proj.position;
         direction.Normalize();
+        StartCoroutine(despawnProj());
     }
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,15 @@ public class BasicAttack : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         proj.MovePosition(proj.position + direction * speed * Time.fixedDeltaTime);
+
+    }
+
+    IEnumerator despawnProj(){
+        yield return new WaitForSeconds(5);
+        Destroy(proj.gameObject);
+        
+
     }
 }
