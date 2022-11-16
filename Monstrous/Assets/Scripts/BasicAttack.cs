@@ -9,7 +9,7 @@ public class BasicAttack : MonoBehaviour
     private Vector2 direction;
     [SerializeField] private Camera mainCamera;
 
-    public float speed = 10;
+    public float speed = 20;
     public float damage = 34;
 
     void Awake()

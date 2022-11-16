@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    
+    public Transform player;
     public GameObject enemyTemp;
 
     public GameObject zombieFab;
@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator spawnEnemy(float interval, GameObject enemy)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-5f, 5), Random.Range(-5f, 5), 0), Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(player.position.x-15, player.position.x+15), Random.Range(player.position.y-10, player.position.y+10), 0), Quaternion.identity);
         StartCoroutine(spawnEnemy(spawnInterval, enemies[Random.Range(0, 2)]));
     }
     
