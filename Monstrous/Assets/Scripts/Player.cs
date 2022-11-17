@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public HealthBar expBar;
     public AudioSource steps1;
     public AudioSource steps2;
+    public GameObject upgrades;
 
     // variables
     public float moveSpeed = 5f;
@@ -61,9 +62,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    
-
-
     //this = player
     //other = enemy
     //called when other enters this, NOT when this enters other
@@ -103,10 +101,11 @@ public class Player : MonoBehaviour
         Debug.Log(exp);
         expValue = expValue + exp;
         
-        if (expValue >= 1000)
+        if (expValue >= 100)
         {
+            LevelUp();
             Debug.Log("You Have Leveled Up!");
-            expValue = expValue- 1000; 
+            expValue = expValue- 100; 
         }
         expBar.UpdateHealthBar(expValue);
     }
@@ -122,5 +121,8 @@ public class Player : MonoBehaviour
         isColliding = false;
     }
 
-
+    private void LevelUp()
+    {
+        upgrades.SetActive(true);
+    }
 }
