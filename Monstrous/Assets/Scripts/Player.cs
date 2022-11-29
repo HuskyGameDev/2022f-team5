@@ -16,15 +16,15 @@ public class Player : MonoBehaviour
     public GameObject upgrades;
 
     // variables
-    public float moveSpeed = 5f;
     [SerializeField]
     public Vector2 movement;
     private bool isColliding = false; //used to prevent taking damage multiple times a single enemy;
     
     // stats
-    private float pHealth = 100;
-    private float pMaxHealth = 100;
+    public float pHealth = 100;
+    public float pMaxHealth = 100;
     public float expValue = 0;
+    public float moveSpeed = 5f;
 
     void Start()
     {
