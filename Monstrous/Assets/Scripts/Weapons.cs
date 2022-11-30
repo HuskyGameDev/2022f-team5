@@ -6,7 +6,11 @@ public class Weapons : MonoBehaviour
 {
     public Transform start;
     public GameObject shot;
-    private float update;
+    
+    //- -variables for basic attack- -
+    private float baseAttackAS;
+    //private float baseAttackVel;
+    public float baseAttackBaseDam = 34;
 
     // Start is called before the first frame update
     void Start()
@@ -17,15 +21,15 @@ public class Weapons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        update += Time.deltaTime;
-        if (update > 1.0f)
+        baseAttackAS += Time.deltaTime;
+        if (baseAttackAS > 1.0f)
         {
-            update = 0.0f;
-            Shoot();
+            baseAttackAS = 0.0f;
+            BaseAttackShoot();
         }
     }
 
-    void Shoot()
+    void BaseAttackShoot()
     {
         Instantiate(shot, start.position, start.rotation);
     }

@@ -10,10 +10,11 @@ public class BasicAttack : MonoBehaviour
     [SerializeField] private Camera mainCamera;
 
     public float speed = 20;
-    public float damage = 34;
+    public float damage;
 
     void Awake()
     {
+        damage = GameObject.FindWithTag("Player").GetComponent<Weapons>().baseAttackBaseDam;
         mainCamera = Camera.main;
         Vector2 temp = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         //direction.x = temp.x - proj.position.x;

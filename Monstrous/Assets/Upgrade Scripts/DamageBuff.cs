@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageBuff : UpgradeAbst
+public class DamageBuff : MonoBehaviour
 {
-    public float healthInc = 20;
+    public float damageInc = 5;
 
-    public override void Upgrade(GameObject target)
+    public void Upgrade(GameObject tar)
     {
-        Player play = target.GetComponent<Player>();
-        float proportion = play.pHealth / play.pMaxHealth;
-        play.pMaxHealth += healthInc;
-        play.pHealth = play.pMaxHealth * proportion;
-        play.healthBar.UpdateHealthBar(play.pHealth);
+        tar.GetComponent<Weapons>().baseAttackBaseDam += damageInc;
     }
 }

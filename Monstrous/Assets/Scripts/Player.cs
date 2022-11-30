@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     public Vector2 movement;
     private bool isColliding = false; //used to prevent taking damage multiple times a single enemy;
+    bool facingRight = false;
     
     // stats
     public float pHealth = 100;
@@ -38,12 +39,16 @@ public class Player : MonoBehaviour
     {
         //input
         movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");          
+        movement.y = Input.GetAxisRaw("Vertical");
 
-        //animator.SetFloat("Horizontal", movement.x);
-        //animator.SetFloat("Vertical",   movement.y);
-        //animator.SetFloat("Speed",      movement.sqrMagnitude);
-
+        if(movement.x > 0 && !facingRight)
+        {
+            flipChar();
+        }
+        else if(movement.x < 0 && facingRight)
+        {
+            flipChar();
+        }
     }
 
     //called a number of times per second
@@ -124,5 +129,13 @@ public class Player : MonoBehaviour
     private void LevelUp()
     {
         upgrades.SetActive(true);
+    }
+
+    private void flipChar()
+    {
+        Vector3 currentScale = this.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
+        facingRight = !facingRight;
     }
 }
