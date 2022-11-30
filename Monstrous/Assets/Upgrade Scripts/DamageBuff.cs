@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageBuff : MonoBehaviour
 {
-    public float damageInc = 5;
+public float damageInc = 5;
 
     public void Upgrade(GameObject tar)
     {
