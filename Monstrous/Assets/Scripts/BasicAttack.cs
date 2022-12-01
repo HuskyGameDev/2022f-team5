@@ -37,10 +37,9 @@ public class BasicAttack : MonoBehaviour
 
     }
 
-    IEnumerator despawnProj(){
+    IEnumerator despawnProj()
+    {
         yield return new WaitForSeconds(5);
         Destroy(proj.gameObject);
-        
-
     }
 }
