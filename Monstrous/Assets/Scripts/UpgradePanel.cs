@@ -25,12 +25,14 @@ public class UpgradePanel : MonoBehaviour
     void OnEnable()
     {
         Time.timeScale = 0f;
+        AudioListener.pause = true;
         Paused = true;
     }
 
     void OnDisable()
     {
         Time.timeScale = 1f;
+        AudioListener.pause = false;
         Paused = false;
     }
 

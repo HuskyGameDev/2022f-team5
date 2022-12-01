@@ -7,10 +7,11 @@ public class CameraMovement : MonoBehaviour {
 	public Transform target;
 	public float smoothing;
 	public Vector2 maxPosition;
-	public Vector2 minPosition;
+	public Vector2 minPosition;	
 	
-	
-	void FixedUpdate () {
+	void FixedUpdate () 
+	{
+		Debug.Log(transform.position);
 		if(transform.position != target.position)
 		{
 			//sets cameras goal position to the target

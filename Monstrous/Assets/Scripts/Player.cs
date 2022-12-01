@@ -98,6 +98,7 @@ public class Player : MonoBehaviour
         if (pHealth <= 0)
         {
             //Destroy(this.gameObject);
+            SceneManager.LoadScene("Menu");
         }
     }
 
