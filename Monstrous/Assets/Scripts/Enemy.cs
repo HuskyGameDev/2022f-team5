@@ -22,7 +22,7 @@ public abstract class Enemy : MonoBehaviour {
         player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         //Debug.Log("on creation of " + this.gameObject.name + ", player is " + player.name);
 
-        Debug.Log(this.gameObject.name + " has " + health);
+        //Debug.Log(this.gameObject.name + " has " + health);
     }
 
     //called when other enters this, NOT when this enters other

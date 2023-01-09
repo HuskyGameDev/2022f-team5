@@ -6,11 +6,13 @@ public class Weapons : MonoBehaviour
 {
     public Transform start;
     public GameObject shot;
-    
+
     //- -variables for basic attack- -
-    private float baseAttackAS;
-    //private float baseAttackVel;
+    public float baseAttackAS = 1.0f;
+    private float timing = 0.0f;
     public float baseAttackBaseDam = 34;
+    public int baseAttackNumShots = 5;
+    private float baseAttackShotDur = 0.5f; //the length of time during which all shots are fired per attack
 
     // Start is called before the first frame update
     void Start()
@@ -21,16 +23,24 @@ public class Weapons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        baseAttackAS += Time.deltaTime;
-        if (baseAttackAS > 1.0f)
+        timing += Time.deltaTime;
+        if (timing > baseAttackAS)
         {
-            baseAttackAS = 0.0f;
+            timing = 0.0f;
             BaseAttackShoot();
         }
     }
 
     void BaseAttackShoot()
     {
-        Instantiate(shot, start.position, start.rotation);
+        StartCoroutine(ShootShot(baseAttackNumShots) );
+    }
+
+    private IEnumerator ShootShot(int shots) //if anybody has a better name for this feel free to refactor
+    {
+        Instantiate(shot, start.position, Quaternion.identity);
+        yield return new WaitForSeconds((float)(baseAttackShotDur / baseAttackNumShots));
+        if(shots > 1)
+            StartCoroutine(ShootShot(shots - 1));
     }
 }

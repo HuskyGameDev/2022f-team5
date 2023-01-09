@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour {
 	
 	void FixedUpdate () 
 	{
-		Debug.Log(transform.position);
+		//Debug.Log(transform.position);
 		if(transform.position != target.position)
 		{
 			//sets cameras goal position to the target
