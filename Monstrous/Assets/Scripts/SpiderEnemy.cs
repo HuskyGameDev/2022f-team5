@@ -17,6 +17,4 @@ public class SpiderEnemy : Enemy
     {
         //enemy movement
     }
-
-    
 }

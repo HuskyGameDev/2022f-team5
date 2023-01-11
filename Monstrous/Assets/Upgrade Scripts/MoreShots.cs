@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoreShots : MonoBehaviour
+public class MoreShots : UpgradeAbs
 {
-    public void Upgrade(GameObject tar)
+    public void DoUpgrade(GameObject tar)
     {
         tar.GetComponent<Weapons>().baseAttackNumShots++;
     }

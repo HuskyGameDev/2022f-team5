@@ -8,6 +8,11 @@ public class UpgradePanel : MonoBehaviour
     private float fixedDeltaTime;
     public static bool Paused = false;
 
+    public GameObject slot1;
+    public GameObject slot2;
+    public GameObject slot3;
+
+
     //when this panel is awakened by the player leveling up, generate an upgrade in each slot
     void Awake()
     {

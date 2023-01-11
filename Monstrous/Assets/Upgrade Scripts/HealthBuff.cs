@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBuff : MonoBehaviour
+public class HealthBuff : UpgradeAbs
 {
     public float healthInc = 20;
 
-    public void Upgrade(GameObject target)
+    public void DoUpgrade(GameObject target)
     {
         Player play = target.GetComponent<Player>();
         float proportion = play.pHealth / play.pMaxHealth;

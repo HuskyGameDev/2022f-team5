@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedBuff : MonoBehaviour
+public class SpeedBuff : UpgradeAbs
 {
     public float speedInc = .2f;
 
-    public void Upgrade(GameObject target)
+    public void DoUpgrade(GameObject target)
     {
         Player play = target.GetComponent<Player>();
         play.moveSpeed += speedInc;
