@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 264843835}
   m_Layer: 5
   m_Name: MoreShots
-  m_TagString: Untagged
+  m_TagString: Upgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
   movement: {x: 0, y: 0}
   pHealth: 100
   pMaxHealth: 100
-  expValue: 0
+  expValue: 99
   moveSpeed: 3
 --- !u!212 &299809663
 SpriteRenderer:
@@ -2158,7 +2158,7 @@ GameObject:
   - component: {fileID: 1252957755}
   m_Layer: 5
   m_Name: IncreaseDamage
-  m_TagString: Untagged
+  m_TagString: Upgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2873,6 +2873,7 @@ MonoBehaviour:
   slot1: {fileID: 0}
   slot2: {fileID: 0}
   slot3: {fileID: 0}
+  loader: {fileID: 1349847033}
 --- !u!114 &1349847033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3257,7 +3258,7 @@ GameObject:
   - component: {fileID: 1447537926}
   m_Layer: 5
   m_Name: IncreaseHealth
-  m_TagString: Untagged
+  m_TagString: Upgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3736,7 +3737,7 @@ GameObject:
   - component: {fileID: 1955503190}
   m_Layer: 5
   m_Name: IncreaseSpeed
-  m_TagString: Untagged
+  m_TagString: Upgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4097,7 +4098,7 @@ GameObject:
   - component: {fileID: 2086492692}
   m_Layer: 5
   m_Name: IncreaseAttackSpeed
-  m_TagString: Untagged
+  m_TagString: Upgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

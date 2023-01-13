@@ -6,7 +6,7 @@ public class DamageBuff : UpgradeAbs
 {
     public float damageInc = 5;
 
-    public void DoUpgrade(GameObject tar)
+    protected override void DoUpgrade(GameObject tar)
     {
         tar.GetComponent<Weapons>().baseAttackBaseDam += damageInc;
     }

@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
 
     private void GainExp(float exp)
     {
-        Debug.Log(exp);
+        //Debug.Log(exp);
         expValue = expValue + exp;
         
         if (expValue >= 100)

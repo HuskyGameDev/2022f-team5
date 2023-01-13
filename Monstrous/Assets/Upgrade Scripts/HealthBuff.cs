@@ -6,7 +6,7 @@ public class HealthBuff : UpgradeAbs
 {
     public float healthInc = 20;
 
-    public void DoUpgrade(GameObject target)
+    protected override void DoUpgrade(GameObject target)
     {
         Player play = target.GetComponent<Player>();
         float proportion = play.pHealth / play.pMaxHealth;

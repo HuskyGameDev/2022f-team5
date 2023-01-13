@@ -6,7 +6,7 @@ public class SpeedBuff : UpgradeAbs
 {
     public float speedInc = .2f;
 
-    public void DoUpgrade(GameObject target)
+    protected override void DoUpgrade(GameObject target)
     {
         Player play = target.GetComponent<Player>();
         play.moveSpeed += speedInc;

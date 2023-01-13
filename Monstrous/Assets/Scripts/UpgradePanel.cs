@@ -12,8 +12,8 @@ public class UpgradePanel : MonoBehaviour
     public GameObject slot2;
     public GameObject slot3;
 
+    public UpgradeLoader loader;
 
-    //when this panel is awakened by the player leveling up, generate an upgrade in each slot
     void Awake()
     {
         this.fixedDeltaTime = Time.fixedDeltaTime;
@@ -27,11 +27,17 @@ public class UpgradePanel : MonoBehaviour
         
     }
 
+    //when this panel is awakened by the player leveling up, generate an upgrade in each slot
     void OnEnable()
     {
         Time.timeScale = 0f;
         AudioListener.pause = true;
         Paused = true;
+
+        List<GameObject> slots = loader.GetUpgrades();
+        slot1 = slots[0];
+        slot2 = slots[1];
+        slot3 = slots[2];
     }
 
     void OnDisable()
