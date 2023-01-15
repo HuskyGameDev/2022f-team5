@@ -8,6 +8,10 @@ TagManager:
   - ProjAtk
   - Pickup
   - Upgrade
+  - DataHolder
+  - Loader
+  - Door
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -15,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Door
   - 
   - 
   - 
