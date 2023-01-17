@@ -8,9 +8,16 @@ public class UpgradePanel : MonoBehaviour
     private float fixedDeltaTime;
     public static bool Paused = false;
 
+    public Transform frame;
+
     public GameObject slot1;
     public GameObject slot2;
     public GameObject slot3;
+
+    private Vector2 pos1 = new Vector2(0, 130);
+    private Vector2 pos2 = new Vector2(0, 0);
+    private Vector2 pos3 = new Vector2(0, -130);
+
 
     public UpgradeLoader loader;
 
@@ -34,10 +41,8 @@ public class UpgradePanel : MonoBehaviour
         AudioListener.pause = true;
         Paused = true;
 
-        List<GameObject> slots = loader.GetUpgrades();
-        slot1 = slots[0];
-        slot2 = slots[1];
-        slot3 = slots[2];
+        placeUpgrades( loader.GetUpgrades() );
+        
     }
 
     void OnDisable()
@@ -51,5 +56,19 @@ public class UpgradePanel : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void placeUpgrades(List<GameObject> slots)
+    {
+        slot1 = slots[0];
+        slot2 = slots[1];
+        slot3 = slots[2];
+
+        slot1.transform.SetParent(frame);
+        slot1.GetComponent<RectTransform>().anchoredPosition = pos1;
+        slot2.transform.SetParent(frame);
+        slot2.GetComponent<RectTransform>().anchoredPosition = pos2;
+        slot3.transform.SetParent(frame);
+        slot3.GetComponent<RectTransform>().anchoredPosition = pos3;
     }
 }
