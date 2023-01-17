@@ -7,7 +7,7 @@ public class FollowPlayer : MonoBehaviour
 
     private float moveSpeed = 2;
     Transform target;
-    
+
     //
     private void Awake()
     {
@@ -27,4 +27,5 @@ public class FollowPlayer : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.fixedDeltaTime);
     }
 
+    
 }
