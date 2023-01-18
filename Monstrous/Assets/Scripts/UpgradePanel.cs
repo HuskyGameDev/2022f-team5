@@ -14,9 +14,9 @@ public class UpgradePanel : MonoBehaviour
     public GameObject slot2;
     public GameObject slot3;
 
-    private Vector2 pos1 = new Vector2(0, 130);
-    private Vector2 pos2 = new Vector2(0, 0);
-    private Vector2 pos3 = new Vector2(0, -130);
+    private Vector3 pos1 = new Vector3(0, 40, 0);
+    private Vector3 pos2 = new Vector3(0, 0, 0);
+    private Vector3 pos3 = new Vector3(0, -40, 0);
 
 
     public UpgradeLoader loader;
@@ -65,10 +65,16 @@ public class UpgradePanel : MonoBehaviour
         slot3 = slots[2];
 
         slot1.transform.SetParent(frame);
-        slot1.GetComponent<RectTransform>().anchoredPosition = pos1;
         slot2.transform.SetParent(frame);
-        slot2.GetComponent<RectTransform>().anchoredPosition = pos2;
         slot3.transform.SetParent(frame);
-        slot3.GetComponent<RectTransform>().anchoredPosition = pos3;
+
+        slot1.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -230f, 900f);
+        slot1.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 50f, 170f);
+
+        slot2.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -230f, 900f);
+        slot2.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 295f, 170f);
+
+        slot3.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -230f, 900f);
+        slot3.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 50f, 170f);
     }
 }
