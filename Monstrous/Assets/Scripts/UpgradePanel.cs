@@ -9,17 +9,14 @@ public class UpgradePanel : MonoBehaviour
     public static bool Paused = false;
 
     public Transform frame;
+    public Transform reserve;
 
     public GameObject slot1;
     public GameObject slot2;
     public GameObject slot3;
 
-    private Vector3 pos1 = new Vector3(0, 40, 0);
-    private Vector3 pos2 = new Vector3(0, 0, 0);
-    private Vector3 pos3 = new Vector3(0, -40, 0);
-
-
     public UpgradeLoader loader;
+
 
     void Awake()
     {
