@@ -6,57 +6,123 @@ using Monstrous.Data;
 namespace Monstrous.Generation{
     public class LevelGenerator : MonoBehaviour{
 
+        //Variables
         public int seed;
+        public float scale = 3;
         private DataHolder data;
+        private BackgroundData bgData;
         private Player player;
         private System.Random prng;
         private float offsetX;
         private float offsetY;
         [SerializeField] Vector2 movement = new Vector2();
+        private int leftIndex = 0;
+        private int rightIndex;
+        private int topIndex = 0;
+        private int bottomIndex;
 
-        // Start is called before the first frame update
-        void Start(){
+        void Awake(){
+            //Creates a psudo-random number generator based on the seed
             prng = new System.Random(seed);
+            //Chooses the offsets in perlin noise
             offsetX = prng.Next(-100000, 100000);
             offsetY = prng.Next(-100000, 100000);
+            //Gets needed components
             data = GameObject.FindWithTag("DataHolder").GetComponent<DataHolder>();
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
-            generate();
+            bgData = gameObject.GetComponent<BackgroundData>();
+            //Sets scrolling variables
+            rightIndex = bgData.width - 1;
+            bottomIndex = bgData.height - 1;
+            //Generates the initial map
+            generateAll();
         }
 
+        //Updates and moves parts of the map depending on player movement
         void FixedUpdate(){
+            //Gets the movement from the player
             movement += player.movement * player.moveSpeed * Time.fixedDeltaTime;
+            //Moves the leftmost column to the right and regenerates the tiles while the player is moving to the right
             while (movement.x > 1){
-                transform.position = new Vector3(transform.position.x + 1, transform.position.y, 0);
+                foreach (GameObject loc in bgData.columns[leftIndex].row){
+                    loc.transform.position = new Vector3(loc.transform.position.x + bgData.width, loc.transform.position.y, 0);
+                }
                 movement.x -= 1;
-                //generate();
-            }if (movement.x < 1){
-                transform.position = new Vector3(transform.position.x - 1, transform.position.y, 0);
+                generate(bgData.columns[leftIndex].row);
+                rightIndex += 1;
+                leftIndex += 1;
+                if (rightIndex >= bgData.width) rightIndex = 0;
+                if (leftIndex >= bgData.width) leftIndex = 0;
+            }
+            //Moves the rightmost column to the left and regenerates the tiles while the player is moving to the left
+            while (movement.x < -1){
+                foreach (GameObject loc in bgData.columns[rightIndex].row){
+                    loc.transform.position = new Vector3(loc.transform.position.x - bgData.width, loc.transform.position.y, 0);
+                }
                 movement.x += 1;
-                //generate();
-            }if (movement.y > 1){
-                transform.position = new Vector3(transform.position.x, transform.position.y + 1, 0);
+                generate(bgData.columns[rightIndex].row);
+                rightIndex -= 1;
+                leftIndex -= 1;
+                if (rightIndex < 0) rightIndex = bgData.width - 1;
+                if (leftIndex < 0) leftIndex = bgData.width - 1;
+            }
+            //Moves the bottommost row to the top and regenerates the tiles while the player is moving up
+            while (movement.y > 1){
+                foreach (GameObject loc in bgData.rows[bottomIndex].row){
+                    loc.transform.position = new Vector3(loc.transform.position.x, loc.transform.position.y + bgData.height, 0);
+                }
                 movement.y -= 1;
-                //generate();
-            }if (movement.y < 1){
-                transform.position = new Vector3(transform.position.x, transform.position.y - 1, 0);
+                generate(bgData.rows[bottomIndex].row);
+                bottomIndex -= 1;
+                topIndex -= 1;
+                if (bottomIndex < 0) bottomIndex = bgData.height - 1;
+                if (topIndex < 0) topIndex = bgData.height - 1;
+            }
+            //Moves the topmost row to the bottom and regenerates the tiles while the player is moving down
+            while (movement.y < -1){
+                foreach (GameObject loc in bgData.rows[topIndex].row){
+                    loc.transform.position = new Vector3(loc.transform.position.x, loc.transform.position.y - bgData.height, 0);
+                }
                 movement.y += 1;
-                //generate();
+                generate(bgData.rows[topIndex].row);
+                bottomIndex += 1;
+                topIndex += 1;
+                if (bottomIndex >= bgData.height) bottomIndex = 0;
+                if (topIndex >= bgData.height) topIndex = 0;
             }
         }
 
-        public void generate(){
+        //Generates sprites on every node in the render area
+        public void generateAll(){
             foreach (Transform loc in transform){
-                float noise = Mathf.PerlinNoise((loc.position.x + offsetX) / 5, (loc.position.y + offsetY) / 5);
-                Debug.Log((loc.position.x + offsetX));
-                if (noise > 0.9f){
-                    loc.gameObject.GetComponent<SpriteRenderer>().sprite = data.floorTiles[0];
-                }else if (noise > 0.75f){
-                    loc.gameObject.GetComponent<SpriteRenderer>().sprite = data.floorTiles[1];
-                }else{
-                    loc.gameObject.GetComponent<SpriteRenderer>().sprite = data.floorTiles[2];
-                }
+                float noise = Mathf.PerlinNoise((loc.position.x + offsetX) / scale, (loc.position.y + offsetY) / scale);
+                //Sets the sprite of the node from the getSprite method
+                loc.gameObject.GetComponent<SpriteRenderer>().sprite = getSprite(noise);
             }
+        }
+
+        //Generates sprites on a specific array of nodes
+        public void generate(GameObject[] nodes){
+            foreach (GameObject node in nodes){
+                Transform loc = node.transform;
+                //Gets the noise value at the current node location
+                float noise = Mathf.PerlinNoise((loc.position.x + offsetX) / scale, (loc.position.y + offsetY) / scale);
+                //Sets the sprite of the node from the getSprite method
+                loc.gameObject.GetComponent<SpriteRenderer>().sprite = getSprite(noise);
+            }
+        }
+
+        //Selects the needed sprite from the noise value
+        private Sprite getSprite(float value){
+            Sprite sprite;
+            if (value > 0.8f){
+                sprite = data.floorTiles[0];
+            }else if (value > 0.6f){
+                sprite = data.floorTiles[1];
+            }else{
+                sprite = data.floorTiles[2];
+            }
+            return sprite;
         }
     }
 }
