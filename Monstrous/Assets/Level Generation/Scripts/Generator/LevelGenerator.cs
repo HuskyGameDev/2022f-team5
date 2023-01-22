@@ -61,7 +61,32 @@ namespace Monstrous.Generation{
             movement += player.movement * player.moveSpeed * Time.fixedDeltaTime;
             //Moves the leftmost column to the right and regenerates the tiles while the player is moving to the right
             if (imageGenerationMode){
-
+                Vector3 bgMove = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                bool moved = false;
+                while (movement.x > 1){
+                    movement.x -= 1;
+                    bgMove.x += 1;
+                    moved = true;
+                }
+                while (movement.x < -1){
+                    movement.x += 1;
+                    bgMove.x -= 1;
+                    moved = true;
+                }
+                while (movement.y > 1){
+                    movement.y -= 1;
+                    bgMove.y += 1;
+                    moved = true;
+                }
+                while (movement.y < -1){
+                    movement.y += 1;
+                    bgMove.y -= 1;
+                    moved = true;
+                }
+                if (moved){
+                    transform.position = bgMove;
+                    generateImage();
+                }
             }else{
                 while (movement.x > 1){
                     foreach (GameObject loc in bgData.columns[leftIndex].row){
@@ -149,11 +174,11 @@ namespace Monstrous.Generation{
         private void generateImage(){
             for (int i = 0; i < bgWidth; i++){
                 for (int j = 0; j < bgHeight; j++){
-                    float noise = Mathf.PerlinNoise(((player.transform.position.x + (i - (bgWidth / 2))) + offsetX) / scale, ((player.transform.position.y + (j - (bgHeight / 2))) + offsetY) / scale);
+                    float noise = Mathf.PerlinNoise((((int) player.transform.position.x + (i - (bgWidth / 2))) + offsetX) / scale, (((int) player.transform.position.y + (j - (bgHeight / 2))) + offsetY) / scale);
                     Texture2D texture = getSprite(noise).texture;
                     for (int k = 0; k < textureWidth; k++){
                         for (int l = 0; l < textureHeight; l++){
-                            background.SetPixel(k + i, l + j, texture.GetPixel(k, l));
+                            background.SetPixel(k + (textureWidth * i), l + (textureHeight * j), texture.GetPixel(k, l));
                         }
                     }
                 }
