@@ -38,7 +38,7 @@ public class BasicAttack : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collided){
-        if (collided.gameObject.tag != "Player" && collided.gameObject.tag != "Loader" && collided.gameObject.tag != "Room" && collided.gameObject.tag != "Pickup"){
+        if (collided.gameObject.tag != "Player" && collided.gameObject.tag != "Loader" && collided.gameObject.tag != "Room" && collided.gameObject.tag != "Pickup" && collided.gameObject.tag != "ProjAtk"){
             Destroy(gameObject);
         }
     }

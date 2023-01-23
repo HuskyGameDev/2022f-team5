@@ -174,7 +174,7 @@ namespace Monstrous.Generation{
         private void generateImage(){
             for (int i = 0; i < bgWidth; i++){
                 for (int j = 0; j < bgHeight; j++){
-                    float noise = Mathf.PerlinNoise((((int) player.transform.position.x + (i - (bgWidth / 2))) + offsetX) / scale, (((int) player.transform.position.y + (j - (bgHeight / 2))) + offsetY) / scale);
+                    float noise = Mathf.PerlinNoise(((transform.position.x + (i - (int) (bgWidth / 2))) + offsetX) / scale, ((transform.position.y + (j - (int) (bgHeight / 2))) + offsetY) / scale);
                     Texture2D texture = getSprite(noise).texture;
                     for (int k = 0; k < textureWidth; k++){
                         for (int l = 0; l < textureHeight; l++){

@@ -4320,7 +4320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302868166364597767, guid: afc83732536dea1468d5ffda5929a65f, type: 3}
       propertyPath: imageGenerationMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2406541564611626866, guid: afc83732536dea1468d5ffda5929a65f, type: 3}
       propertyPath: m_RootOrder
