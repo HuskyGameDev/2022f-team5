@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class Player : MonoBehaviour
     public float pMaxHealth = 100;
     public float expValue = 0;
     public float moveSpeed = 5f;
+    public float levelNum = 1f;
+    public float levelUpExp = 0f;
 
     void Start()
     {
@@ -104,16 +107,20 @@ public class Player : MonoBehaviour
 
     private void GainExp(float exp)
     {
-        //Debug.Log(exp);
+        Debug.Log(exp);
         expValue = expValue + exp;
-        
-        if (expValue >= 100)
+        //Exp curve 
+        levelUpExp = (float)(100+(levelNum/0.15)*(levelNum/0.15));
+         Debug.Log(levelUpExp);
+         Debug.Log(levelNum);
+        if (expValue >= levelUpExp)
         {
             LevelUp();
             Debug.Log("You Have Leveled Up!");
-            expValue = expValue- 100; 
+            expValue = expValue- levelUpExp; 
         }
         expBar.UpdateHealthBar(expValue);
+        expBar.UpdateHealthBarMax(levelUpExp);
     }
 
     private void OnDestroy()
@@ -130,6 +137,7 @@ public class Player : MonoBehaviour
     private void LevelUp()
     {
         upgrades.SetActive(true);
+        levelNum++;
     }
 
     private void flipChar()
