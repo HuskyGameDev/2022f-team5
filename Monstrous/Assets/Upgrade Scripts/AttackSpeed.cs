@@ -8,6 +8,6 @@ public class AttackSpeed : UpgradeAbs
 
     protected override void DoUpgrade(GameObject tar)
     {
-        tar.GetComponent<Weapons>().baseAttackAS /=.9f ;
+        tar.GetComponent<Weapons>().baseAttackAS /=1.1f ;
     }
 }
