@@ -11,6 +11,6 @@ namespace Monstrous.Data{
         public Sprite[] grassTiles;
         public Sprite[] secondaryTiles;
         public Sprite[] pathTiles;
-        public string[] enemies;
+        public GameObject[] enemies;
     }
 }

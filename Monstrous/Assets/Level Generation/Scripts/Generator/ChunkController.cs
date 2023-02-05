@@ -7,12 +7,15 @@ namespace Monstrous.Generation{
     public class ChunkController : MonoBehaviour
     {
         public GameObject chunk;
+        [Header("Dimensions")]
         public int bgWidth = 4;
         public int bgHeight = 3;
         public int chunkWidth = 16;
         public int chunkHeight = 16;
         public int textureWidth = 8;
         public int textureHeight = 8;
+        [Header("Generation Settings")]
+        public bool randomizeSeed = true;
         public int seed;
         public float scale = 3;
         public float biomeScale = 50;
@@ -21,7 +24,7 @@ namespace Monstrous.Generation{
         private System.Random prng;
         private float offsetX;
         private float offsetY;
-        [SerializeField] Vector2 movement = new Vector2(0, 0);
+        private Vector2 movement = new Vector2(0, 0);
 
         private int leftIndex = 0;
         private int rightIndex;
@@ -29,11 +32,12 @@ namespace Monstrous.Generation{
         private int bottomIndex = 0;
         private GameObject[,] nodes;
 
-        public void Start(){
+        public void Awake(){
             nodes = new GameObject[bgWidth, bgHeight];
             data = GameObject.FindWithTag("DataHolder").GetComponent<DataHolder>();
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
             //Creates a psudo-random number generator based on the seed
+            if (randomizeSeed) seed = Random.Range(-2147483648, 2147483647);
             prng = new System.Random(seed);
             //Chooses the offsets in perlin noise
             offsetX = prng.Next(-100000, 100000);
@@ -52,6 +56,7 @@ namespace Monstrous.Generation{
         public Biome getBiome(int x, int y){
             float noise = Mathf.PerlinNoise((x + offsetX) / biomeScale, (y + offsetY) / biomeScale);
             int index = (int) (noise * data.biomes.Length);
+            index = Mathf.Clamp(index, 0, data.biomes.Length - 1);
             return data.biomes[index];
         }
 

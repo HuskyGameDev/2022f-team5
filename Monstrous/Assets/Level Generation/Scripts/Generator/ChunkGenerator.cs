@@ -15,7 +15,6 @@ namespace Monstrous.Generation{
         private float scale;
         private DataHolder data;
         private Texture2D background;
-        private string biome;
 
         private void initialize(){
             background = new Texture2D(chunkWidth * textureWidth, chunkHeight * textureHeight);
@@ -37,7 +36,6 @@ namespace Monstrous.Generation{
         }
 
         public void generateImage(){
-            Biome biome = controller.getBiome((int) transform.position.x, (int) transform.position.y);
             for (int i = 0; i < chunkWidth; i++){
                 for (int j = 0; j < chunkHeight; j++){
                     float noise = Mathf.PerlinNoise(((transform.position.x + (i - (int) (chunkWidth / 2))) + offsetX) / scale, ((transform.position.y + (j - (int) (chunkHeight / 2))) + offsetY) / scale);

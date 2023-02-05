@@ -165,7 +165,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: b0439ed1a3b74ac4aaf1a010d64ad03d, type: 3}
     - {fileID: 21300000, guid: e289b6bb01507c846a2511296b13c2bc, type: 3}
     - {fileID: 21300000, guid: 1c445fa3e8a6f254db99aab95882b705, type: 3}
-    enemies: []
+    enemies:
+    - {fileID: 2118126249402630671, guid: cc932c2bf73a747459472d9819e3e14c, type: 3}
   - biomeID: rottingPlains
     grassTiles:
     - {fileID: 21300000, guid: 0b8d5a1d75d876e4ebe6462628535b11, type: 3}
@@ -179,6 +180,21 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 2bbdd395ce5759e4b902f0c0a7be6eae, type: 3}
     - {fileID: 21300000, guid: 34b423da622bf8d4982f27122b7affb4, type: 3}
     - {fileID: 21300000, guid: 8bd09156f6cbce44aa5470ef13f766ba, type: 3}
+    enemies:
+    - {fileID: 1037476648381245672, guid: 42a2d1bd16222b648985e0f776d3095c, type: 3}
+  - biomeID: desert
+    grassTiles:
+    - {fileID: 21300000, guid: 3be0e834ad39cb14ea65cd4600a1190d, type: 3}
+    - {fileID: 21300000, guid: cfa03e1031934524584a19bb64b4cba9, type: 3}
+    - {fileID: 21300000, guid: f7f28fe82e48dc746b08d45d9cca0947, type: 3}
+    secondaryTiles:
+    - {fileID: 21300000, guid: 3be0e834ad39cb14ea65cd4600a1190d, type: 3}
+    - {fileID: 21300000, guid: cfa03e1031934524584a19bb64b4cba9, type: 3}
+    - {fileID: 21300000, guid: f7f28fe82e48dc746b08d45d9cca0947, type: 3}
+    pathTiles:
+    - {fileID: 21300000, guid: 3be0e834ad39cb14ea65cd4600a1190d, type: 3}
+    - {fileID: 21300000, guid: cfa03e1031934524584a19bb64b4cba9, type: 3}
+    - {fileID: 21300000, guid: f7f28fe82e48dc746b08d45d9cca0947, type: 3}
     enemies: []
 --- !u!4 &58123881
 Transform:
@@ -2192,7 +2208,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1002996980
