@@ -15,6 +15,7 @@ namespace Monstrous.Generation{
         public int textureHeight = 8;
         public int seed;
         public float scale = 3;
+        public float biomeScale = 50;
         private DataHolder data;
         private Player player;
         private System.Random prng;
@@ -43,9 +44,15 @@ namespace Monstrous.Generation{
             for (int i = 0; i < bgWidth; i++){
                 for (int j = 0; j < bgHeight; j++){
                     nodes[i, j] = Instantiate(chunk, new Vector3(chunkWidth * (i - (bgWidth / 2)), chunkHeight * (j - (bgHeight / 2)), 0), Quaternion.identity, transform);
-                    nodes[i, j].GetComponent<ChunkGenerator>().setVariables(chunkWidth, chunkHeight, textureWidth, textureHeight, offsetX, offsetY, scale, data);
+                    nodes[i, j].GetComponent<ChunkGenerator>().setVariables(chunkWidth, chunkHeight, textureWidth, textureHeight, offsetX, offsetY, scale, data, this);
                 }
             }
+        }
+
+        public Biome getBiome(int x, int y){
+            float noise = Mathf.PerlinNoise((x + offsetX) / biomeScale, (y + offsetY) / biomeScale);
+            int index = (int) (noise * data.biomes.Length);
+            return data.biomes[index];
         }
 
         public void FixedUpdate(){

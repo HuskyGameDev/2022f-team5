@@ -5,7 +5,7 @@ using Monstrous.Data;
 
 namespace Monstrous.Generation{
     public class ChunkGenerator : MonoBehaviour{
-
+        private ChunkController controller;
         private int chunkWidth;
         private int chunkHeight;
         private int textureWidth;
@@ -15,6 +15,7 @@ namespace Monstrous.Generation{
         private float scale;
         private DataHolder data;
         private Texture2D background;
+        private string biome;
 
         private void initialize(){
             background = new Texture2D(chunkWidth * textureWidth, chunkHeight * textureHeight);
@@ -22,7 +23,7 @@ namespace Monstrous.Generation{
             generateImage();
         }
 
-        public void setVariables(int chunkWidth, int chunkHeight, int textureWidth, int textureHeight, float offsetX, float offsetY, float scale, DataHolder data){
+        public void setVariables(int chunkWidth, int chunkHeight, int textureWidth, int textureHeight, float offsetX, float offsetY, float scale, DataHolder data, ChunkController controller){
             this.chunkWidth = chunkWidth;
             this.chunkHeight = chunkHeight;
             this.textureWidth = textureWidth;
@@ -31,14 +32,16 @@ namespace Monstrous.Generation{
             this.offsetY = offsetY;
             this.scale = scale;
             this.data = data;
+            this.controller = controller;
             initialize();
         }
 
         public void generateImage(){
+            Biome biome = controller.getBiome((int) transform.position.x, (int) transform.position.y);
             for (int i = 0; i < chunkWidth; i++){
                 for (int j = 0; j < chunkHeight; j++){
                     float noise = Mathf.PerlinNoise(((transform.position.x + (i - (int) (chunkWidth / 2))) + offsetX) / scale, ((transform.position.y + (j - (int) (chunkHeight / 2))) + offsetY) / scale);
-                    Texture2D texture = getSprite(noise).texture;
+                    Texture2D texture = getSprite(noise, (int) (transform.position.x + (i - (int) (chunkWidth / 2))), (int) (transform.position.y + (j - (int) (chunkHeight / 2)))).texture;
                     for (int k = 0; k < textureWidth; k++){
                         for (int l = 0; l < textureHeight; l++){
                             background.SetPixel(k + (textureWidth * i), l + (textureHeight * j), texture.GetPixel(k, l));
@@ -50,14 +53,15 @@ namespace Monstrous.Generation{
             gameObject.GetComponent<SpriteRenderer>().sprite = Sprite.Create(background, new Rect(0, 0, background.width, background.height), new Vector2(0.5f, 0.5f), textureWidth);
         }
 
-        private Sprite getSprite(float value){
+        private Sprite getSprite(float value, int x, int y){
             Sprite sprite;
+            Biome biome = controller.getBiome(x, y);
             if (value > 0.8f){
-                sprite = data.pathTiles[Random.Range(0, data.pathTiles.Length - 1)];
+                sprite = biome.pathTiles[Random.Range(0, biome.pathTiles.Length - 1)];
             }else if (value > 0.6f){
-                sprite = data.floorTiles[1];
+                sprite = biome.secondaryTiles[Random.Range(0, biome.secondaryTiles.Length - 1)];
             }else{
-                sprite = data.grassTiles[Random.Range(0, data.grassTiles.Length - 1)];
+                sprite = biome.grassTiles[Random.Range(0, biome.grassTiles.Length - 1)];
             }
             return sprite;
         }
