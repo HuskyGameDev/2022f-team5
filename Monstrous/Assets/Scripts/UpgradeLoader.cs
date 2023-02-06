@@ -7,7 +7,7 @@ public class UpgradeLoader : MonoBehaviour
 {
     //a field for the gameobject of every upgrade in the game
 
-    private List<GameObject> upgradeList = new List<GameObject>();
+    private List<string> upgradeList = new List<string>();
     private bool listSet = false;
     Random rnd = new Random();
 
@@ -20,13 +20,13 @@ public class UpgradeLoader : MonoBehaviour
     {
         foreach (GameObject upObj in GameObject.FindGameObjectsWithTag("Upgrade"))
         {
-            upgradeList.Add(upObj);
+            upgradeList.Add(upObj.transform.name);
             Debug.Log(upObj + " : Look Here");
         }
         listSet = true;
     }
 
-    public List<GameObject> GetUpgrades()
+    public List<string> GetUpgrades()
     {
         if(!listSet)
         {
@@ -35,7 +35,7 @@ public class UpgradeLoader : MonoBehaviour
 
         shuffle();
 
-        return new List<GameObject> { upgradeList[0], upgradeList[1], upgradeList[2] };
+        return new List<string> { upgradeList[0], upgradeList[1], upgradeList[2] };
     }
 
     private void shuffle()
@@ -45,7 +45,7 @@ public class UpgradeLoader : MonoBehaviour
         {
             n--;
             int k = rnd.Next(n + 1);
-            GameObject value = upgradeList[k];
+            string value = upgradeList[k];
             upgradeList[k] = upgradeList[n];
             upgradeList[n] = value;
         }

@@ -2,28 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class UpgradePanel : MonoBehaviour
 {
     private float fixedDeltaTime;
     public static bool Paused = false;
-
-    public Transform frame;
-    public Transform reserve;
-
-    public GameObject slot1;
-    public GameObject slot2;
-    public GameObject slot3;
-
-    public UpgradeLoader loader;
-
-
-    void Awake()
-    {
-        this.fixedDeltaTime = Time.fixedDeltaTime;
-        Time.timeScale = 0f;
-        Paused = true;
-    }
+    private List<string> upgradeList = new List<string>();
+    private bool listSet = false;
+    Random rnd = new Random();
 
     // Start is called before the first frame update
     void Start()
@@ -31,47 +18,71 @@ public class UpgradePanel : MonoBehaviour
         
     }
 
+    void Awake()
+    {
+        //pause time while this is enabled
+        this.fixedDeltaTime = Time.fixedDeltaTime;
+        Time.timeScale = 0f;
+        Paused = true;
+    }
+
     //when this panel is awakened by the player leveling up, generate an upgrade in each slot
     void OnEnable()
     {
+        //pause time while this is enabled
         Time.timeScale = 0f;
         AudioListener.pause = true;
         Paused = true;
 
-        placeUpgrades( loader.GetUpgrades() );
-        
+        Debug.Log(GetUpgrades());
     }
 
     void OnDisable()
     {
+        //restart time when disabled
         Time.timeScale = 1f;
         AudioListener.pause = false;
         Paused = false;
+
+        //remove listeners
     }
 
-    // Update is called once per frame
-    void Update()
+    private void setList()
     {
-
+        foreach (GameObject upObj in GameObject.FindGameObjectsWithTag("Upgrade"))
+        {
+            upgradeList.Add(upObj.transform.name);
+            Debug.Log(upObj + " : Look Here");
+        }
+        listSet = true;
     }
 
-    private void placeUpgrades(List<GameObject> slots)
+    public List<string> GetUpgrades()
     {
-        slot1 = slots[0];
-        slot2 = slots[1];
-        slot3 = slots[2];
+        if (!listSet)
+        {
+            setList();
+        }
 
-        slot1.transform.SetParent(frame);
-        slot2.transform.SetParent(frame);
-        slot3.transform.SetParent(frame);
+        Debug.Log(upgradeList.Count);
 
-        slot1.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -230f, 900f);
-        slot1.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 50f, 170f);
+        Debug.Log("Before shuffle");
+        shuffle();
+        Debug.Log("After shuffle");
 
-        slot2.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -230f, 900f);
-        slot2.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 295f, 170f);
+        return new List<string> { upgradeList[0], upgradeList[1], upgradeList[2] };
+    }
 
-        slot3.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -230f, 900f);
-        slot3.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 50f, 170f);
+    private void shuffle()
+    {
+        int n = upgradeList.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rnd.Next(n + 1);
+            string value = upgradeList[k];
+            upgradeList[k] = upgradeList[n];
+            upgradeList[n] = value;
+        }
     }
 }
