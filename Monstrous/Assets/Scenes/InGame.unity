@@ -307,7 +307,6 @@ GameObject:
   - component: {fileID: 189868309}
   - component: {fileID: 189868308}
   - component: {fileID: 189868307}
-  - component: {fileID: 189868310}
   m_Layer: 5
   m_Name: Slot 2
   m_TagString: Untagged
@@ -430,20 +429,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189868305}
   m_CullTransparentMesh: 1
---- !u!114 &189868310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189868305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efbcb29131d0a0c4a97e1b0b0d5980e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisButton: {fileID: 189868307}
-  message: you clicked two
 --- !u!1 &191723601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1412,6 @@ GameObject:
   - component: {fileID: 706554471}
   - component: {fileID: 706554470}
   - component: {fileID: 706554469}
-  - component: {fileID: 706554468}
   m_Layer: 5
   m_Name: Slot 1
   m_TagString: Untagged
@@ -1456,20 +1440,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -150}
   m_SizeDelta: {x: -276, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &706554468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706554466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efbcb29131d0a0c4a97e1b0b0d5980e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisButton: {fileID: 706554469}
-  message: you clicked one
 --- !u!114 &706554469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2725,6 +2695,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4997a14f8fc2aa642bf2052550616f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot1: {fileID: 706554469}
+  slot2: {fileID: 189868307}
+  slot3: {fileID: 1705659154}
+  player: {fileID: 299809660}
 --- !u!1 &1403696949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3397,7 +3371,6 @@ GameObject:
   - component: {fileID: 1705659156}
   - component: {fileID: 1705659155}
   - component: {fileID: 1705659154}
-  - component: {fileID: 1705659157}
   m_Layer: 5
   m_Name: Slot 3
   m_TagString: Untagged
@@ -3520,20 +3493,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705659152}
   m_CullTransparentMesh: 1
---- !u!114 &1705659157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705659152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efbcb29131d0a0c4a97e1b0b0d5980e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisButton: {fileID: 1705659154}
-  message: you clicked three
 --- !u!1 &1795346618
 GameObject:
   m_ObjectHideFlags: 0
