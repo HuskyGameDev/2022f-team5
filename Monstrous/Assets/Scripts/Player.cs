@@ -27,8 +27,10 @@ public class Player : MonoBehaviour
     public float pMaxHealth = 100;
     public float expValue = 0;
     public float moveSpeed = 5f;
-    public float levelNum = 1f;
-    public float levelUpExp = 0f;
+
+    // 
+    public float levelNum = 0f;
+    public float levelUpExp = 100f;
 
     void Start()
     {
@@ -109,10 +111,12 @@ public class Player : MonoBehaviour
     {
         Debug.Log(exp);
         expValue = expValue + exp;
+
         //Exp curve 
-        levelUpExp = (float)(100+(levelNum/0.15)*(levelNum/0.15));
-         Debug.Log(levelUpExp);
-         Debug.Log(levelNum);
+        levelUpExp = (float)(100 + Mathf.Pow(levelNum/0.15f, 2f) );
+
+         //Debug.Log(levelUpExp);
+         //Debug.Log(levelNum);
         if (expValue >= levelUpExp)
         {
             LevelUp();
