@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2570576165038498564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2570576165038498570}
+  - component: {fileID: 2570576165038498571}
+  - component: {fileID: 2570576165038498569}
+  m_Layer: 0
+  m_Name: SceneData
+  m_TagString: DataHolder
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2570576165038498570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2570576165038498564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2570576165038498571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2570576165038498564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67868be0eba5a5840b8581869a64f98e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  biomes:
+  - biomeID: plains
+    grassTiles:
+    - {fileID: 21300000, guid: 3e855966a9b83e64880f43f74f7b00a5, type: 3}
+    - {fileID: 21300000, guid: e468a2dc8ee9b9749a947681beb19e34, type: 3}
+    - {fileID: 21300000, guid: bb0b20390225bde479eac3d4b29ca63b, type: 3}
+    secondaryTiles:
+    - {fileID: 21300000, guid: 500759d4d9638ac4e86200a3a38b6832, type: 3}
+    pathTiles:
+    - {fileID: 21300000, guid: b0439ed1a3b74ac4aaf1a010d64ad03d, type: 3}
+    - {fileID: 21300000, guid: e289b6bb01507c846a2511296b13c2bc, type: 3}
+    - {fileID: 21300000, guid: 1c445fa3e8a6f254db99aab95882b705, type: 3}
+    enemies:
+    - {fileID: 2118126249402630671, guid: cc932c2bf73a747459472d9819e3e14c, type: 3}
+  - biomeID: rottingPlains
+    grassTiles:
+    - {fileID: 21300000, guid: 0b8d5a1d75d876e4ebe6462628535b11, type: 3}
+    - {fileID: 21300000, guid: ba96ecd5740064149af348bd757b04b0, type: 3}
+    - {fileID: 21300000, guid: 24ad8f3c3ae274f438ec1447da110042, type: 3}
+    secondaryTiles:
+    - {fileID: 21300000, guid: c26b414b25fba99488413b255b8efde0, type: 3}
+    - {fileID: 21300000, guid: d61ec69a1caabb048a591c16c7196e2a, type: 3}
+    pathTiles:
+    - {fileID: 21300000, guid: 01286d9d7524f024eb3b35a33a221192, type: 3}
+    - {fileID: 21300000, guid: 2bbdd395ce5759e4b902f0c0a7be6eae, type: 3}
+    - {fileID: 21300000, guid: 34b423da622bf8d4982f27122b7affb4, type: 3}
+    - {fileID: 21300000, guid: 8bd09156f6cbce44aa5470ef13f766ba, type: 3}
+    enemies:
+    - {fileID: 1037476648381245672, guid: 42a2d1bd16222b648985e0f776d3095c, type: 3}
+  - biomeID: desert
+    grassTiles:
+    - {fileID: 21300000, guid: 3be0e834ad39cb14ea65cd4600a1190d, type: 3}
+    - {fileID: 21300000, guid: cfa03e1031934524584a19bb64b4cba9, type: 3}
+    - {fileID: 21300000, guid: f7f28fe82e48dc746b08d45d9cca0947, type: 3}
+    secondaryTiles:
+    - {fileID: 21300000, guid: 3be0e834ad39cb14ea65cd4600a1190d, type: 3}
+    - {fileID: 21300000, guid: cfa03e1031934524584a19bb64b4cba9, type: 3}
+    - {fileID: 21300000, guid: f7f28fe82e48dc746b08d45d9cca0947, type: 3}
+    pathTiles:
+    - {fileID: 21300000, guid: 3be0e834ad39cb14ea65cd4600a1190d, type: 3}
+    - {fileID: 21300000, guid: cfa03e1031934524584a19bb64b4cba9, type: 3}
+    - {fileID: 21300000, guid: f7f28fe82e48dc746b08d45d9cca0947, type: 3}
+    enemies: []
+--- !u!114 &2570576165038498569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2570576165038498564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382528921dc1f5b438bd065fc36f5b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemyTemp: {fileID: 6040528396874739707, guid: 80d5e636405f6be43b10aa63146cf2a7, type: 3}
+  zombieFab: {fileID: 1037476648381245672, guid: 42a2d1bd16222b648985e0f776d3095c, type: 3}
+  spidFab: {fileID: 2118126249402630671, guid: cc932c2bf73a747459472d9819e3e14c, type: 3}
