@@ -8,14 +8,14 @@ public class UpgradePanel : MonoBehaviour
 {
     private float fixedDeltaTime;
     public static bool Paused = false;
-    private List<string> upgradeList = new List<string>();
+    private List<UpgradeData> upgradeList = new List<UpgradeData>();
     private bool listSet = false;
     Random rnd = new Random();
 
     public Button slot1;
     public Button slot2;
     public Button slot3;
-    private List<string> currentUpgrades = new List<string>();
+    private List<UpgradeData> currentUpgrades = new List<UpgradeData>();
 
     // Start is called before the first frame update
     void Start()
@@ -63,13 +63,13 @@ public class UpgradePanel : MonoBehaviour
     {
         foreach (GameObject upObj in GameObject.FindGameObjectsWithTag("Upgrade"))
         {
-            upgradeList.Add(upObj.transform.name);
+            upgradeList.Add(new UpgradeData(upObj.transform.name, upObj.GetComponent<Image>().sprite) );
             Debug.Log(upObj + " : Look Here");
         }
         listSet = true;
     }
 
-    public List<string> GetUpgrades()
+    public List<UpgradeData> GetUpgrades()
     {
         if (!listSet)
         {
@@ -82,7 +82,7 @@ public class UpgradePanel : MonoBehaviour
         shuffle();
         Debug.Log("After shuffle");
 
-        return new List<string> { upgradeList[0], upgradeList[1], upgradeList[2] };
+        return new List<UpgradeData> { upgradeList[0], upgradeList[1], upgradeList[2] };
     }
 
     private void shuffle()
@@ -92,15 +92,15 @@ public class UpgradePanel : MonoBehaviour
         {
             n--;
             int k = rnd.Next(n + 1);
-            string value = upgradeList[k];
+            UpgradeData value = upgradeList[k];
             upgradeList[k] = upgradeList[n];
             upgradeList[n] = value;
         }
     }
 
-    private void assignUpgrade(Button butt, string upgrade)
+    private void assignUpgrade(Button butt, UpgradeData upgrade)
     {
-        switch(upgrade)
+        switch(upgrade.name)
         {
             case "AttackSpeed":
                 butt.onClick.AddListener(UpAttackSpeed);
@@ -118,11 +118,12 @@ public class UpgradePanel : MonoBehaviour
                 butt.onClick.AddListener(UpMoreShots);
                 break;
         }
+        butt.GetComponent<Image>().sprite = upgrade.image;
     }
 
-    private void unassignUpgrade(Button butt, string upgrade)
+    private void unassignUpgrade(Button butt, UpgradeData upgrade)
     {
-        switch (upgrade)
+        switch (upgrade.name)
         {
             case "AttackSpeed":
                 butt.onClick.RemoveListener(UpAttackSpeed);
