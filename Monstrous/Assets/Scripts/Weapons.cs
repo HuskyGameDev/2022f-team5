@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Weapons : MonoBehaviour
 {
+    [Header("Basic Attack")]
     public Transform start;
     public GameObject shot;
-
-    //- -variables for basic attack- -
     public float baseAttackAS = 1.0f;
     private float timing = 0.0f;
     public float baseAttackBaseDam = 34;
     public int baseAttackNumShots = 5;
     private float baseAttackShotDur = 0.5f; //the length of time during which all shots are fired per attack
+
+    [Header("Swing Attack")]
+    public Transform swingStart;
+
 
     // Start is called before the first frame update
     void Start()
