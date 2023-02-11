@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba0ebc9cd0b23441a2747d0d69e1560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunk: {fileID: 4932939116197280398, guid: 6f535f10522a54643b683d12f5e9d52e, type: 3}
+  chunk: {fileID: 4932939116197280398, guid: eff30d9e8a138744ebac61b9f94a987d, type: 3}
   bgWidth: 13
   bgHeight: 9
   chunkWidth: 4
@@ -55,3 +55,4 @@ MonoBehaviour:
   seed: 0
   scale: 5
   biomeScale: 100
+  structureFrequency: 4

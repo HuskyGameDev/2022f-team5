@@ -5,6 +5,7 @@ using Monstrous.Data;
 
 namespace Monstrous.Generation{
     public class ChunkGenerator : MonoBehaviour{
+        public GameObject structure;
         private ChunkController controller;
         private int chunkWidth;
         private int chunkHeight;
@@ -20,6 +21,7 @@ namespace Monstrous.Generation{
             background = new Texture2D(chunkWidth * textureWidth, chunkHeight * textureHeight);
             background.filterMode = FilterMode.Point;
             generateImage();
+            structureGenerator((int) transform.position.x, (int) transform.position.y);
         }
 
         public void setVariables(int chunkWidth, int chunkHeight, int textureWidth, int textureHeight, float offsetX, float offsetY, float scale, DataHolder data, ChunkController controller){
@@ -62,6 +64,13 @@ namespace Monstrous.Generation{
                 sprite = biome.grassTiles[Random.Range(0, biome.grassTiles.Length - 1)];
             }
             return sprite;
+        }
+
+        private void structureGenerator(int x, int y){
+            float num = Mathf.Tan(Mathf.Pow(y + offsetY, 2) - Mathf.Pow(x + offsetX, 2));
+            if (num != 0 && num < controller.structureFrequency / 20 && num > -controller.structureFrequency / 20){
+                Instantiate(structure, transform.position, Quaternion.identity, transform.parent);
+            }
         }
     }
 }

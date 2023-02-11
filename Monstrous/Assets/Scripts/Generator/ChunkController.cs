@@ -19,6 +19,7 @@ namespace Monstrous.Generation{
         public int seed;
         public float scale = 3;
         public float biomeScale = 50;
+        public float structureFrequency = 10;
         private DataHolder data;
         private Player player;
         private System.Random prng;
@@ -112,15 +113,6 @@ namespace Monstrous.Generation{
                 topIndex -= 1;
                 if (bottomIndex < 0) bottomIndex = bgHeight - 1;
                 if (topIndex < 0) topIndex = bgHeight - 1;
-            //     foreach (GameObject loc in bgData.rows[topIndex].row){
-            //         loc.transform.position = new Vector3(loc.transform.position.x, loc.transform.position.y - bgData.height, 0);
-            //     }
-            //     movement.y += 1;
-            //     generate(bgData.rows[topIndex].row);
-            //     bottomIndex += 1;
-            //     topIndex += 1;
-            //     if (bottomIndex >= bgData.height) bottomIndex = 0;
-            //     if (topIndex >= bgData.height) topIndex = 0;
             }
         }
     }
