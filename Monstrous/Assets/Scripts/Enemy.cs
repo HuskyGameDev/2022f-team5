@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public abstract class Enemy : MonoBehaviour {
 
     public float health;
     public float speed;
     public float contactDamage;
     public string enemyType;
-
+   
     public GameObject spiderPart;
     public GameObject zombiePart;
    
@@ -16,6 +16,8 @@ public abstract class Enemy : MonoBehaviour {
     public Rigidbody2D body;
     public Rigidbody2D player;
     private bool isColliding = false; //used to prevent taking damage multiple times a single projectile;
+    
+   
 
     public void Start() {
         body = GetComponent<Rigidbody2D>();

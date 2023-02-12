@@ -60,6 +60,7 @@ namespace Monstrous.Generation{
             index = Mathf.Clamp(index, 0, data.biomes.Length - 1);
             return data.biomes[index];
         }
+        
 
         public void FixedUpdate(){
             movement += player.movement * player.moveSpeed * Time.fixedDeltaTime;
