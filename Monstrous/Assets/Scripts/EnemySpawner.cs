@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
         biome = chunk.getBiome((int)player.position.x,(int)player.position.y);
       
-        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)]));
+        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)], Random.Range(1,4)));
     }
     
     // Update is called once per frame
@@ -45,13 +45,20 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
-    private IEnumerator spawnEnemy(float interval, GameObject enemy)
+    private IEnumerator spawnEnemy(float interval, GameObject enemy, int count)
     {
         biome = chunk.getBiome((int)player.position.x,(int)player.position.y);
 
         yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(player.position.x-15, player.position.x+15), Random.Range(player.position.y-10, player.position.y+10), 0), Quaternion.identity);
-        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)]));
+        Vector3 clusterhome = new Vector3(Random.Range(player.position.x-15, player.position.x+15), Random.Range(player.position.y-10, player.position.y+10), 0);
+        Vector3 noise = new Vector3 (0,0,0);
+
+        for(int i =0; i<count;i++){
+            noise.x=Random.Range(-2,2);
+            noise.y=Random.Range(-2,2);
+            GameObject newEnemy = Instantiate(enemy, clusterhome-noise , Quaternion.identity);
+        }
+        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)],Random.Range(1,4)));
     }
     
 }
