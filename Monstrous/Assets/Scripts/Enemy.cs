@@ -11,7 +11,9 @@ public abstract class Enemy : MonoBehaviour {
    
     public GameObject spiderPart;
     public GameObject zombiePart;
-   
+
+    public AudioSource damageSound;
+    public AudioClip deathSound;
 
     public Rigidbody2D body;
     public Rigidbody2D player;
@@ -22,6 +24,7 @@ public abstract class Enemy : MonoBehaviour {
     public void Start() {
         body = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        damageSound.enabled = false;
         //Debug.Log("on creation of " + this.gameObject.name + ", player is " + player.name);
 
         //Debug.Log(this.gameObject.name + " has " + health);
@@ -48,9 +51,16 @@ public abstract class Enemy : MonoBehaviour {
     private void takeDamage(float dam)
     {
         health = health - dam;
+        if (!damageSound.isPlaying)
+        {
+            damageSound.enabled = true;
+            damageSound.Play();
+        }
+        
         //Debug.Log(this.gameObject.GetComponent<Enemy>().enemyType + " took " + dam + " damage, health: " + health);
         if (health <= 0)
         {
+            AudioSource.PlayClipAtPoint(deathSound, gameObject.transform.position);
             dropPart(this.gameObject.GetComponent<Enemy>().enemyType);
             //Debug.Log("entering drop");
             Destroy(this.gameObject);
