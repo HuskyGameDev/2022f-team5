@@ -55,4 +55,4 @@ MonoBehaviour:
   seed: 0
   scale: 5
   biomeScale: 100
-  structureFrequency: 4
+  structureFrequency: 20

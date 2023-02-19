@@ -2961,8 +2961,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 299809664}
   smoothing: 1
-  maxPosition: {x: 55, y: 20}
-  minPosition: {x: -30, y: -20}
 --- !u!114 &1549941015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3439,9 +3437,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2279152817290122017, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
+      propertyPath: bgWidth
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279152817290122017, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
+      propertyPath: bgHeight
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279152817290122017, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
+      propertyPath: chunkWidth
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279152817290122017, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
+      propertyPath: chunkHeight
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279152817290122017, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
+      propertyPath: structureFrequency
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2279152817290122021, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
       propertyPath: m_Name
       value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279152817290122021, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}

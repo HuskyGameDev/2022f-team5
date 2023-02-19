@@ -21,7 +21,6 @@ namespace Monstrous.Generation{
             background = new Texture2D(chunkWidth * textureWidth, chunkHeight * textureHeight);
             background.filterMode = FilterMode.Point;
             generateImage();
-            structureGenerator((int) transform.position.x, (int) transform.position.y);
         }
 
         public void setVariables(int chunkWidth, int chunkHeight, int textureWidth, int textureHeight, float offsetX, float offsetY, float scale, DataHolder data, ChunkController controller){
@@ -51,6 +50,7 @@ namespace Monstrous.Generation{
             }
             background.Apply();
             gameObject.GetComponent<SpriteRenderer>().sprite = Sprite.Create(background, new Rect(0, 0, background.width, background.height), new Vector2(0.5f, 0.5f), textureWidth);
+            structureGenerator((int) transform.position.x, (int) transform.position.y);
         }
 
         private Sprite getSprite(float value, int x, int y){
@@ -67,7 +67,7 @@ namespace Monstrous.Generation{
         }
 
         private void structureGenerator(int x, int y){
-            float num = Mathf.Tan(Mathf.Pow(y + offsetY, 2) - Mathf.Pow(x + offsetX, 2));
+            float num = 5 * Mathf.Cos(x) + 2 * Mathf.Tan(y); //Mathf.Tan(Mathf.Pow(y + offsetY, 2) - Mathf.Pow(x + offsetX, 2));
             if (num != 0 && num < controller.structureFrequency / 20 && num > -controller.structureFrequency / 20){
                 Instantiate(structure, transform.position, Quaternion.identity, transform.parent);
             }
