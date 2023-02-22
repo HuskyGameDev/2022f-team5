@@ -5,7 +5,7 @@ using Monstrous.Data;
 
 namespace Monstrous.Generation{
     public class ChunkGenerator : MonoBehaviour{
-        public GameObject structure;
+        private GameObject structure;
         private ChunkController controller;
         private int chunkWidth;
         private int chunkHeight;
@@ -14,7 +14,6 @@ namespace Monstrous.Generation{
         private float offsetX;
         private float offsetY;
         private float scale;
-        private DataHolder data;
         private Texture2D background;
 
         private void initialize(){
@@ -23,7 +22,7 @@ namespace Monstrous.Generation{
             generateImage();
         }
 
-        public void setVariables(int chunkWidth, int chunkHeight, int textureWidth, int textureHeight, float offsetX, float offsetY, float scale, DataHolder data, ChunkController controller){
+        public void setVariables(int chunkWidth, int chunkHeight, int textureWidth, int textureHeight, float offsetX, float offsetY, float scale, ChunkController controller){
             this.chunkWidth = chunkWidth;
             this.chunkHeight = chunkHeight;
             this.textureWidth = textureWidth;
@@ -31,9 +30,14 @@ namespace Monstrous.Generation{
             this.offsetX = offsetX;
             this.offsetY = offsetY;
             this.scale = scale;
-            this.data = data;
             this.controller = controller;
             initialize();
+        }
+
+        public void move(Vector3 newLoc){
+            if (structure != null) Destroy(structure);
+            transform.position = newLoc;
+            generateImage();
         }
 
         public void generateImage(){
@@ -67,9 +71,20 @@ namespace Monstrous.Generation{
         }
 
         private void structureGenerator(int x, int y){
-            float num = 5 * Mathf.Cos(x) + 2 * Mathf.Tan(y); //Mathf.Tan(Mathf.Pow(y + offsetY, 2) - Mathf.Pow(x + offsetX, 2));
+            float num = 5 * Mathf.Cos(x + offsetX) + 2 * Mathf.Tan(y + offsetY); //Mathf.Tan(Mathf.Pow(y + offsetY, 2) - Mathf.Pow(x + offsetX, 2));
             if (num != 0 && num < controller.structureFrequency / 20 && num > -controller.structureFrequency / 20){
-                Instantiate(structure, transform.position, Quaternion.identity, transform.parent);
+                System.Random prng = new System.Random((int) (num * 10));
+                Biome biome = controller.getBiome(x, y);
+                int totalWeight = 0;
+                foreach (int weight in biome.structureWeights) totalWeight += weight;
+                int weightTarget = prng.Next(0, totalWeight);
+                int currentWeight = 0;
+                int i;
+                for (i = 0; i < biome.structureWeights.Length; i++){
+                    currentWeight += biome.structureWeights[i];
+                    if (weightTarget < currentWeight) break;
+                }
+                structure = Instantiate(biome.structures[i], transform.position, Quaternion.identity, transform.parent);
             }
         }
     }

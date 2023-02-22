@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 299809662}
   - component: {fileID: 299809661}
   - component: {fileID: 299809665}
-  - component: {fileID: 299809666}
+  - component: {fileID: 299809668}
   - component: {fileID: 299809667}
   m_Layer: 0
   m_Name: Player
@@ -682,7 +682,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &299809662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,32 +795,6 @@ MonoBehaviour:
   baseAttackBaseDam: 34
   baseAttackNumShots: 1
   swingStart: {fileID: 435621217}
---- !u!61 &299809666
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299809660}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.28, y: 13.76}
-    newSize: {x: 9.28, y: 13.76}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!82 &299809667
 AudioSource:
   m_ObjectHideFlags: 0
@@ -917,6 +891,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &299809668
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299809660}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9.28, y: 13.76}
+    newSize: {x: 9.28, y: 13.76}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10, y: 15}
+  m_EdgeRadius: 0
 --- !u!1 &332022177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,8 +1289,16 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structures.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[1].grassTiles.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[1].structures.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[2].enemies.Array.data[0]
@@ -1300,6 +1308,30 @@ PrefabInstance:
       propertyPath: biomes.Array.data[2].grassTiles.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[2].structures.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structures.Array.data[0]
+      value: 
+      objectReference: {fileID: 1549157941741390554, guid: 501fdd174e0010a42816c53ff16bfacb, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structures.Array.data[1]
+      value: 
+      objectReference: {fileID: 5317476302342926259, guid: 6cff4cd6de88c7246b688f78eb4a34b2, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structures.Array.data[2]
+      value: 
+      objectReference: {fileID: 3913731962679824365, guid: 356d1af589b8382468c2fd2439a91779, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[1].structures.Array.data[0]
+      value: 
+      objectReference: {fileID: 1549157941741390554, guid: 501fdd174e0010a42816c53ff16bfacb, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[2].structures.Array.data[0]
+      value: 
+      objectReference: {fileID: 1549157941741390554, guid: 501fdd174e0010a42816c53ff16bfacb, type: 3}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[0].secondaryTiles.Array.size
       value: 1
@@ -1311,6 +1343,38 @@ PrefabInstance:
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[2].secondaryTiles.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structureWeights.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[1].structureWeights.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[2].structureWeights.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structureWeights.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structureWeights.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structureWeights.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[1].structureWeights.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[2].structureWeights.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
@@ -3436,6 +3500,10 @@ PrefabInstance:
     - target: {fileID: 2279152817290122016, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279152817290122017, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
+      propertyPath: structureFrequency
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2279152817290122021, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
       propertyPath: m_Name

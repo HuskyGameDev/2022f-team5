@@ -49,7 +49,7 @@ namespace Monstrous.Generation{
             for (int i = 0; i < bgWidth; i++){
                 for (int j = 0; j < bgHeight; j++){
                     nodes[i, j] = Instantiate(chunk, new Vector3(chunkWidth * (i - (bgWidth / 2)), chunkHeight * (j - (bgHeight / 2)), 0), Quaternion.identity, transform);
-                    nodes[i, j].GetComponent<ChunkGenerator>().setVariables(chunkWidth, chunkHeight, textureWidth, textureHeight, offsetX, offsetY, scale, data, this);
+                    nodes[i, j].GetComponent<ChunkGenerator>().setVariables(chunkWidth, chunkHeight, textureWidth, textureHeight, offsetX, offsetY, scale, this);
                 }
             }
         }
@@ -66,9 +66,8 @@ namespace Monstrous.Generation{
             movement += player.movement * player.moveSpeed * Time.fixedDeltaTime;
             while (movement.x > chunkWidth){
                 for(int i = 0; i < bgHeight; i++){
-                    GameObject node = nodes[leftIndex, i];
-                    node.transform.position = new Vector3(node.transform.position.x + (bgWidth * chunkWidth), node.transform.position.y, 0);
-                    node.GetComponent<ChunkGenerator>().generateImage();
+                    ChunkGenerator node = nodes[leftIndex, i].GetComponent<ChunkGenerator>();
+                    node.move(new Vector3(node.transform.position.x + (bgWidth * chunkWidth), node.transform.position.y, 0));
                 }
                 movement.x -= chunkWidth;
                 rightIndex += 1;
@@ -79,9 +78,8 @@ namespace Monstrous.Generation{
             //Moves the rightmost column to the left and regenerates the tiles while the player is moving to the left
             while (movement.x < -chunkWidth){
                 for(int i = 0; i < bgHeight; i++){
-                    GameObject node = nodes[rightIndex, i];
-                    node.transform.position = new Vector3(node.transform.position.x - (bgWidth * chunkWidth), node.transform.position.y, 0);
-                    node.GetComponent<ChunkGenerator>().generateImage();
+                    ChunkGenerator node = nodes[rightIndex, i].GetComponent<ChunkGenerator>();
+                    node.move(new Vector3(node.transform.position.x - (bgWidth * chunkWidth), node.transform.position.y, 0));
                 }
                 movement.x += chunkWidth;
                 rightIndex -= 1;
@@ -92,9 +90,8 @@ namespace Monstrous.Generation{
             //Moves the bottommost row to the top and regenerates the tiles while the player is moving up
             while (movement.y > chunkHeight){
                 for(int i = 0; i < bgWidth; i++){
-                    GameObject node = nodes[i, bottomIndex];
-                    node.transform.position = new Vector3(node.transform.position.x, node.transform.position.y + (bgHeight * chunkHeight), 0);
-                    node.GetComponent<ChunkGenerator>().generateImage();
+                    ChunkGenerator node = nodes[i, bottomIndex].GetComponent<ChunkGenerator>();
+                    node.move(new Vector3(node.transform.position.x, node.transform.position.y + (bgHeight * chunkHeight), 0));
                 }
                 movement.y -= chunkHeight;
                 bottomIndex += 1;
@@ -105,9 +102,8 @@ namespace Monstrous.Generation{
             //Moves the topmost row to the bottom and regenerates the tiles while the player is moving down
             while (movement.y < -chunkHeight){
                 for(int i = 0; i < bgWidth; i++){
-                    GameObject node = nodes[i, topIndex];
-                    node.transform.position = new Vector3(node.transform.position.x, node.transform.position.y - (bgHeight * chunkHeight), 0);
-                    node.GetComponent<ChunkGenerator>().generateImage();
+                    ChunkGenerator node = nodes[i, topIndex].GetComponent<ChunkGenerator>();
+                    node.move(new Vector3(node.transform.position.x, node.transform.position.y - (bgHeight * chunkHeight), 0));
                 }
                 movement.y += chunkHeight;
                 bottomIndex -= 1;
