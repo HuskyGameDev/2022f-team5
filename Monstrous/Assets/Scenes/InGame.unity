@@ -1290,7 +1290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[0].structures.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[1].grassTiles.Array.size
@@ -1298,7 +1298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[1].structures.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[2].enemies.Array.data[0]
@@ -1325,9 +1325,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3913731962679824365, guid: 356d1af589b8382468c2fd2439a91779, type: 3}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structures.Array.data[3]
+      value: 
+      objectReference: {fileID: 6434226170534762625, guid: fabcb191585f4974ea99713b5bd88608, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structures.Array.data[4]
+      value: 
+      objectReference: {fileID: 1226886491697088564, guid: 810998c4054df7b4080f22e54619b821, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[1].structures.Array.data[0]
       value: 
       objectReference: {fileID: 1549157941741390554, guid: 501fdd174e0010a42816c53ff16bfacb, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[1].structures.Array.data[1]
+      value: 
+      objectReference: {fileID: 6471536164146169291, guid: 4640745dd5da2714d824b92e16835a34, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[1].structures.Array.data[2]
+      value: 
+      objectReference: {fileID: 1226886491697088564, guid: 810998c4054df7b4080f22e54619b821, type: 3}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[2].structures.Array.data[0]
       value: 
@@ -1346,11 +1362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[0].structureWeights.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[1].structureWeights.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[2].structureWeights.Array.size
@@ -1369,7 +1385,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structureWeights.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].structureWeights.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[1].structureWeights.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[1].structureWeights.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[1].structureWeights.Array.data[2]
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
