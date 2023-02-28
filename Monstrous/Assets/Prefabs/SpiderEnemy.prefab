@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: -1100048523
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a1c4fdecb8ef33f42a566c33e83a6a26, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 680a88cc25250694f8f4b26912d2d6b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,7 +134,6 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 535d1912a3500a145bdb22c01a739c3c, type: 3}
   body: {fileID: 2118126249402630668}
   player: {fileID: 0}
-  counter: 0
 --- !u!114 &2118126249402630670
 MonoBehaviour:
   m_ObjectHideFlags: 0

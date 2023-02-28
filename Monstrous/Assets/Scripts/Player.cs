@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public AudioSource steps1;
     public AudioSource steps2;
     public GameObject upgrades;
+    public SpriteRenderer sprite;
 
     // variables
     [SerializeField]
@@ -134,8 +135,10 @@ public class Player : MonoBehaviour
     
     private IEnumerator stopColliding()
     {
-        yield return new WaitForEndOfFrame();
+        sprite.material.color = Color.red;
+        yield return new WaitForSeconds(.5f);
         isColliding = false;
+        sprite.material.color = Color.white;
     }
 
     private void LevelUp()

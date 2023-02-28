@@ -701,6 +701,7 @@ MonoBehaviour:
   steps1: {fileID: 299809667}
   steps2: {fileID: 299809667}
   upgrades: {fileID: 1349847028}
+  sprite: {fileID: 299809663}
   movement: {x: 0, y: 0}
   pHealth: 100
   pMaxHealth: 100

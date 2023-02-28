@@ -15,6 +15,7 @@ public abstract class Enemy : MonoBehaviour {
     public AudioSource damageSound;
     public AudioClip deathSound;
 
+    public Animator animator;
     public Rigidbody2D body;
     public Rigidbody2D player;
     private bool isColliding = false; //used to prevent taking damage multiple times a single projectile;
