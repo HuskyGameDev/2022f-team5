@@ -39,11 +39,17 @@ public class UpgradePanel : MonoBehaviour
         AudioListener.pause = true;
         Paused = true;
 
-        currentUpgrades = GetUpgrades();
+        List<UpgradeData> selectionList = new List<UpgradeData>(currentUpgrades);
+        List<int> selectionWeights = new List<int>();
+        for (int i = 0; i < currentUpgrades.Count; i++) selectionWeights.Add(1);
+        //currentUpgrades = GetUpgrades();
         Debug.Log(currentUpgrades);
-        assignUpgrade(slot1, currentUpgrades[0]);
-        assignUpgrade(slot2, currentUpgrades[1]);
-        assignUpgrade(slot3, currentUpgrades[2]);
+        // assignUpgrade(slot1, currentUpgrades[0]);
+        // assignUpgrade(slot2, currentUpgrades[1]);
+        // assignUpgrade(slot3, currentUpgrades[2]);
+        assignUpgrade(slot1, getUpgradeByWeight(selectionList, selectionWeights));
+        assignUpgrade(slot2, getUpgradeByWeight(selectionList, selectionWeights));
+        assignUpgrade(slot3, getUpgradeByWeight(selectionList, selectionWeights));
     }
 
     void OnDisable()
@@ -96,6 +102,29 @@ public class UpgradePanel : MonoBehaviour
             upgradeList[k] = upgradeList[n];
             upgradeList[n] = value;
         }
+    }
+
+    //This method will (hopefully) replace shuffle
+    private UpgradeData getUpgradeByWeight(List<UpgradeData> upgrades, List<int> weights){
+        Debug.Log("Starting getUpgradeByWeight");
+        int totalWeight = 0;
+        foreach (int weight in weights) totalWeight += weight;
+        int weightTarget = rnd.Next(0, totalWeight);
+        int currentWeight = 0;
+        int i;
+        Debug.Log("Beginning of for loop");
+        for (i = 0; i < upgrades.Count; i++){
+            currentWeight += weights[i];
+            if (weightTarget < currentWeight) break;
+        }
+        Debug.Log("End of for loop");
+        Debug.Log("returnable");
+        UpgradeData returnable = upgrades[i];
+        Debug.Log("upgrades");
+        upgrades.RemoveAt(i);
+        Debug.Log("weights");
+        weights.RemoveAt(i);
+        return returnable;
     }
 
     private void assignUpgrade(Button butt, UpgradeData upgrade)
