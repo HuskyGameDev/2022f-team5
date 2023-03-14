@@ -16,7 +16,8 @@ public class EnemySpawner : MonoBehaviour
     public GameObject spidFab;
     public Biome biome;
     public ChunkController chunk;
-
+    public float timeElapsed;
+    public float diffScale=1;
     //used for later enemy types
     //[SerializeField]
     //private GameObject skeleFab;
@@ -40,9 +41,18 @@ public class EnemySpawner : MonoBehaviour
     }
     
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
+        timeElapsed += Time.deltaTime;
+
+        if (timeElapsed >= 10f) // increase difficulty every minute
+        {
+            diffScale *= 1.1f;
+            Debug.Log(diffScale);
+            timeElapsed = 0f;
+        }
+    
     }
 
     private IEnumerator spawnEnemy(float interval, GameObject enemy, int count)
@@ -57,8 +67,12 @@ public class EnemySpawner : MonoBehaviour
             noise.x=Random.Range(-2,2);
             noise.y=Random.Range(-2,2);
             GameObject newEnemy = Instantiate(enemy, clusterhome-noise , Quaternion.identity);
+            newEnemy.GetComponent<Enemy>().setDiff(diffScale);
         }
         StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)],Random.Range(1,4)));
+    }
+    public float getDiffScale(){
+        return diffScale;
     }
     
 }

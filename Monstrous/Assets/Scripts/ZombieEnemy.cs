@@ -13,8 +13,7 @@ public class ZombieEnemy : Enemy
 
     private void Update()
     {
-        // enemy movement
-
+        
     }
 
 }

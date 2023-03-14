@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public abstract class Enemy : MonoBehaviour {
 
+public class Enemy : MonoBehaviour {
+    
     public float health;
     public float speed;
     public float contactDamage;
     public string enemyType;
-   
+    public float diffScale;
+
     public GameObject spiderPart;
     public GameObject zombiePart;
 
@@ -18,6 +20,7 @@ public abstract class Enemy : MonoBehaviour {
     public Animator animator;
     public Rigidbody2D body;
     public Rigidbody2D player;
+    public EnemySpawner enemySpawner;
     private bool isColliding = false; //used to prevent taking damage multiple times a single projectile;
     
    
@@ -26,11 +29,19 @@ public abstract class Enemy : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         damageSound.enabled = false;
+        
+        health = health * diffScale;
+        speed = speed*diffScale;
+        contactDamage = (contactDamage+ (contactDamage * diffScale))/2;
+        Debug.Log(health);
         //Debug.Log("on creation of " + this.gameObject.name + ", player is " + player.name);
 
         //Debug.Log(this.gameObject.name + " has " + health);
     }
+    public void FixedUpdate(){
 
+
+    }
     //called when other enters this, NOT when this enters other
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -89,5 +100,7 @@ public abstract class Enemy : MonoBehaviour {
         isColliding = false;
     }
 
-    
+    public void setDiff(float diff){
+        diffScale = diff;
+    }
 }
