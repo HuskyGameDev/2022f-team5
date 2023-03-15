@@ -3535,6 +3535,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2279152817290122017, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
+      propertyPath: chunkWidth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279152817290122017, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
+      propertyPath: chunkHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279152817290122017, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
       propertyPath: structureFrequency
       value: 15
       objectReference: {fileID: 0}
