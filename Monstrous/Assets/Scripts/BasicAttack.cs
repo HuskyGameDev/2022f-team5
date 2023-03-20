@@ -12,6 +12,8 @@ public class BasicAttack : MonoBehaviour
     public float speed = 20;
     public float damage;
 
+    public GameObject projectileBreak;
+
     void Awake()
     {
         damage = GameObject.FindWithTag("Player").GetComponent<Weapons>().baseAttackBaseDam;
@@ -39,6 +41,7 @@ public class BasicAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collided){
         if (collided.gameObject.tag != "Player" && collided.gameObject.tag != "Loader" && collided.gameObject.tag != "Room" && collided.gameObject.tag != "Pickup" && collided.gameObject.tag != "ProjAtk"){
+            Instantiate(projectileBreak, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

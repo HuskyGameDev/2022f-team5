@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 296422775
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -124,6 +124,7 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   speed: 10
   damage: 34
+  projectileBreak: {fileID: 7247247948436603112, guid: b4bb7fb2bf8247947b8166094b4d881b, type: 3}
 --- !u!58 &-1883342127204975136
 CircleCollider2D:
   m_ObjectHideFlags: 0
