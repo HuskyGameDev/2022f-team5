@@ -22,8 +22,8 @@ public class Enemy : MonoBehaviour {
     public Rigidbody2D player;
     public EnemySpawner enemySpawner;
     private bool isColliding = false; //used to prevent taking damage multiple times a single projectile;
-    
-   
+
+    public SpriteRenderer sprite;
 
     public void Start() {
         body = GetComponent<Rigidbody2D>();
@@ -68,6 +68,8 @@ public class Enemy : MonoBehaviour {
             damageSound.enabled = true;
             damageSound.Play();
         }
+
+
         
         //Debug.Log(this.gameObject.GetComponent<Enemy>().enemyType + " took " + dam + " damage, health: " + health);
         if (health <= 0)
@@ -97,6 +99,9 @@ public class Enemy : MonoBehaviour {
     private IEnumerator stopColliding()
     {
         yield return new WaitForEndOfFrame();
+        sprite.material.color = Color.red;
+        yield return new WaitForSeconds(.5f);
+        sprite.material.color = Color.white;
         isColliding = false;
     }
 
