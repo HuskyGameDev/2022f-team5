@@ -17,12 +17,6 @@ public class UpgradePanel : MonoBehaviour
     public Button slot3;
     private List<UpgradeData> currentUpgrades = new List<UpgradeData>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     void Awake()
     {
         //pause time while this is enabled
@@ -39,17 +33,19 @@ public class UpgradePanel : MonoBehaviour
         AudioListener.pause = true;
         Paused = true;
 
-        List<UpgradeData> selectionList = new List<UpgradeData>(currentUpgrades);
+        if (!listSet)
+        {
+            setList();
+        }
+
+        List<UpgradeData> selectionList = new List<UpgradeData>();
+        for (int i = 0; i < upgradeList.Count; i++) selectionList.Add(upgradeList[i]);
         List<int> selectionWeights = new List<int>();
-        for (int i = 0; i < currentUpgrades.Count; i++) selectionWeights.Add(1);
-        //currentUpgrades = GetUpgrades();
-        Debug.Log(currentUpgrades);
-        // assignUpgrade(slot1, currentUpgrades[0]);
-        // assignUpgrade(slot2, currentUpgrades[1]);
-        // assignUpgrade(slot3, currentUpgrades[2]);
-        assignUpgrade(slot1, getUpgradeByWeight(selectionList, selectionWeights));
-        assignUpgrade(slot2, getUpgradeByWeight(selectionList, selectionWeights));
-        assignUpgrade(slot3, getUpgradeByWeight(selectionList, selectionWeights));
+        for (int i = 0; i < upgradeList.Count; i++) selectionWeights.Add(1);
+        currentUpgrades = new List<UpgradeData> {getUpgradeByWeight(selectionList, selectionWeights), getUpgradeByWeight(selectionList, selectionWeights), getUpgradeByWeight(selectionList, selectionWeights)};
+        assignUpgrade(slot1, currentUpgrades[0]);
+        assignUpgrade(slot2, currentUpgrades[1]);
+        assignUpgrade(slot3, currentUpgrades[2]);
     }
 
     void OnDisable()
@@ -75,6 +71,7 @@ public class UpgradePanel : MonoBehaviour
         listSet = true;
     }
 
+    //Currently unused. I'm leaving this here in case we need to go back to it in the future
     public List<UpgradeData> GetUpgrades()
     {
         if (!listSet)
@@ -91,6 +88,7 @@ public class UpgradePanel : MonoBehaviour
         return new List<UpgradeData> { upgradeList[0], upgradeList[1], upgradeList[2] };
     }
 
+    //Currently unused. I'm leaving this here in case we need to go back to it in the future
     private void shuffle()
     {
         int n = upgradeList.Count;
@@ -106,23 +104,17 @@ public class UpgradePanel : MonoBehaviour
 
     //This method will (hopefully) replace shuffle
     private UpgradeData getUpgradeByWeight(List<UpgradeData> upgrades, List<int> weights){
-        Debug.Log("Starting getUpgradeByWeight");
         int totalWeight = 0;
-        foreach (int weight in weights) totalWeight += weight;
+        for (int j = 0; j < weights.Count; j++) totalWeight += weights[j];
         int weightTarget = rnd.Next(0, totalWeight);
         int currentWeight = 0;
-        int i;
-        Debug.Log("Beginning of for loop");
-        for (i = 0; i < upgrades.Count; i++){
+        int i = 0;
+        for (; i < upgrades.Count; i++){
             currentWeight += weights[i];
             if (weightTarget < currentWeight) break;
         }
-        Debug.Log("End of for loop");
-        Debug.Log("returnable");
         UpgradeData returnable = upgrades[i];
-        Debug.Log("upgrades");
         upgrades.RemoveAt(i);
-        Debug.Log("weights");
         weights.RemoveAt(i);
         return returnable;
     }
