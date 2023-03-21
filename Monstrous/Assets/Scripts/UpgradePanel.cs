@@ -40,9 +40,7 @@ public class UpgradePanel : MonoBehaviour
 
         List<UpgradeData> selectionList = new List<UpgradeData>();
         for (int i = 0; i < upgradeList.Count; i++) selectionList.Add(upgradeList[i]);
-        List<int> selectionWeights = new List<int>();
-        for (int i = 0; i < upgradeList.Count; i++) selectionWeights.Add(1);
-        currentUpgrades = new List<UpgradeData> {getUpgradeByWeight(selectionList, selectionWeights), getUpgradeByWeight(selectionList, selectionWeights), getUpgradeByWeight(selectionList, selectionWeights)};
+        currentUpgrades = new List<UpgradeData> {getUpgradeByWeight(selectionList), getUpgradeByWeight(selectionList), getUpgradeByWeight(selectionList)};
         assignUpgrade(slot1, currentUpgrades[0]);
         assignUpgrade(slot2, currentUpgrades[1]);
         assignUpgrade(slot3, currentUpgrades[2]);
@@ -65,7 +63,7 @@ public class UpgradePanel : MonoBehaviour
     {
         foreach (GameObject upObj in GameObject.FindGameObjectsWithTag("Upgrade"))
         {
-            upgradeList.Add(new UpgradeData(upObj.transform.name, upObj.GetComponent<Image>().sprite) );
+            upgradeList.Add(new UpgradeData(upObj.transform.name, upObj.GetComponent<Image>().sprite, 1, "default") );
             Debug.Log(upObj + " : Look Here");
         }
         listSet = true;
@@ -103,19 +101,18 @@ public class UpgradePanel : MonoBehaviour
     }
 
     //This method will (hopefully) replace shuffle
-    private UpgradeData getUpgradeByWeight(List<UpgradeData> upgrades, List<int> weights){
+    private UpgradeData getUpgradeByWeight(List<UpgradeData> upgrades){
         int totalWeight = 0;
-        for (int j = 0; j < weights.Count; j++) totalWeight += weights[j];
+        for (int j = 0; j < upgrades.Count; j++) totalWeight += upgrades[j].defaultWeight;
         int weightTarget = rnd.Next(0, totalWeight);
         int currentWeight = 0;
         int i = 0;
         for (; i < upgrades.Count; i++){
-            currentWeight += weights[i];
+            currentWeight += upgrades[i].defaultWeight;
             if (weightTarget < currentWeight) break;
         }
         UpgradeData returnable = upgrades[i];
         upgrades.RemoveAt(i);
-        weights.RemoveAt(i);
         return returnable;
     }
 
