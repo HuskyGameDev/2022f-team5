@@ -60,15 +60,48 @@ public class EnemySpawner : MonoBehaviour
         biome = chunk.getBiome((int)player.position.x,(int)player.position.y);
 
         yield return new WaitForSeconds(interval);
-        Vector3 clusterhome = new Vector3(Random.Range(player.position.x-15, player.position.x+15), Random.Range(player.position.y-10, player.position.y+10), 0);
-        Vector3 noise = new Vector3 (0,0,0);
 
-        for(int i =0; i<count;i++){
-            noise.x=Random.Range(-2,2);
-            noise.y=Random.Range(-2,2);
-            GameObject newEnemy = Instantiate(enemy, clusterhome-noise , Quaternion.identity);
+        Vector3 clusterHome = Vector3.zero;
+        switch (Random.Range(1,4))
+        {
+            case 1://top edge
+                {
+                    Debug.Log("1");
+                    clusterHome.y = player.position.y + 13f;
+                    clusterHome.x = player.position.x + (float) Random.Range(-20, 20);
+                    break;
+                }
+            case 2://right edge
+                {
+                    Debug.Log("2");
+                    clusterHome.x = player.position.x + 17f;
+                    clusterHome.y = player.position.y + (float)Random.Range(-15, 15);
+                    break;
+                }
+            case 3://bottom edge
+                {
+                    Debug.Log("3");
+                    clusterHome.y = player.position.y - 13f;
+                    clusterHome.x = player.position.x + (float)Random.Range(-20, 20);
+                    break;
+                }
+            case 4://left edge
+                {
+                    Debug.Log("4");
+                    clusterHome.x = player.position.x - 17f;
+                    clusterHome.y = player.position.y + (float)Random.Range(-15, 15);
+                    break;
+                }
+        }
+        Vector3 noise = Vector3.zero;
+        for (int i = 0; i < count; i++)
+        {
+            noise.x = Random.Range(-3, 3);
+            noise.y = Random.Range(-3, 3);
+            GameObject newEnemy = Instantiate(enemy, clusterHome - noise, Quaternion.identity);
             newEnemy.GetComponent<Enemy>().setDiff(diffScale);
         }
+
         StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)],Random.Range(1,4)));
     }
     public float getDiffScale(){

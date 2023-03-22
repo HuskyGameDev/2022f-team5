@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour {
         health = health * diffScale;
         speed = speed*diffScale;
         contactDamage = (contactDamage+ (contactDamage * diffScale))/2;
-        Debug.Log(health);
+        //Debug.Log(health);
         //Debug.Log("on creation of " + this.gameObject.name + ", player is " + player.name);
 
         //Debug.Log(this.gameObject.name + " has " + health);

@@ -19,10 +19,10 @@ public class BasicAttack : MonoBehaviour
         damage = GameObject.FindWithTag("Player").GetComponent<Weapons>().baseAttackBaseDam;
         mainCamera = Camera.main;
         Vector2 temp = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        //direction.x = temp.x - proj.position.x;
-        //direction.y = temp.y - proj.position.y;
         direction = temp - proj.position;
         direction.Normalize();
+        LookAt2D(transform, temp);
+        transform.Rotate(0f, 0f, -90f, Space.Self);
         StartCoroutine(despawnProj());
     }
     // Start is called before the first frame update
@@ -44,6 +44,14 @@ public class BasicAttack : MonoBehaviour
             Instantiate(projectileBreak, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+
+    private void LookAt2D(Transform transform, Vector2 target)
+    {
+        Vector2 current = transform.position;
+        var direction = target - current;
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     IEnumerator despawnProj()

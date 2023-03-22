@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6842888117344591076}
   - component: {fileID: 4944678607317992773}
   - component: {fileID: 2509683679818604832}
-  - component: {fileID: -1883342127204975136}
+  - component: {fileID: 4645677635847360442}
   m_Layer: 0
   m_Name: Shot
   m_TagString: ProjAtk
@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375610235305733443}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.912283, y: 0.22351694, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6842888117344591076
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76,9 +76,9 @@ SpriteRenderer:
   m_SortingLayerID: 296422775
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: daea813f4f8925a4b829950a8e601a5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 2}
@@ -125,8 +125,8 @@ MonoBehaviour:
   speed: 10
   damage: 34
   projectileBreak: {fileID: 7247247948436603112, guid: b4bb7fb2bf8247947b8166094b4d881b, type: 3}
---- !u!58 &-1883342127204975136
-CircleCollider2D:
+--- !u!70 &4645677635847360442
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -139,5 +139,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Size: {x: 0.5644936, y: 1.5057306}
+  m_Direction: 0
