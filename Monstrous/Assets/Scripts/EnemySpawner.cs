@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
     //private GameObject vampFab;
 
     //how long between enemySpawns
-    private float spawnInterval = 3.5f;
+    private float spawnInterval = 3.75f;
 
     private GameObject[] enemies;
     private int num;
@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (timeElapsed >= 10f) // increase difficulty every minute
         {
-            diffScale *= 1.1f;
+            diffScale *= 1.045f;
             Debug.Log(diffScale);
             timeElapsed = 0f;
         }

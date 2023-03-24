@@ -170,18 +170,18 @@ public class UpgradePanel : MonoBehaviour
     private float ASInc = 5;
     public void UpAttackSpeed()
     {
-        player.GetComponent<Weapons>().baseAttackAS /= 1.1f;
+        player.GetComponent<Weapons>().baseAttackAS /= 1.2f;
     }
 
     //name : BaseAtkDamage
-    private float damageInc = 5;
+    private float damageInc = 1.35f;
     public void UpBaseAtkDamage()
     {
-        player.GetComponent<Weapons>().baseAttackBaseDam += damageInc;
+        player.GetComponent<Weapons>().baseAttackBaseDam *= damageInc;
     }
 
     //name : IncHealth
-    private float healthInc = 20;
+    private float healthInc = 35;
     public void UpIncHealth()
     {
         Player play = player.GetComponent<Player>();
@@ -198,7 +198,7 @@ public class UpgradePanel : MonoBehaviour
     }
 
     //name : IncSpeed
-    private float speedInc = .2f;
+    private float speedInc = .25f;
     public void UpIncSpeed()
     {
         Player play = player.GetComponent<Player>();
