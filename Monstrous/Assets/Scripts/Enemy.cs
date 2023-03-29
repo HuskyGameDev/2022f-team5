@@ -78,6 +78,7 @@ public class Enemy : MonoBehaviour {
             dropPart(this.gameObject.GetComponent<Enemy>().enemyType);
             //Debug.Log("entering drop");
             Destroy(this.gameObject);
+            //increase score
         }
     }
 
