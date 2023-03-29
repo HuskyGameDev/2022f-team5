@@ -6,6 +6,7 @@ public class EnemyPart : MonoBehaviour
 {
 
    [SerializeField] public float partValue;
+    public string enemyType;
 
     // Start is called before the first frame update
     void Start()

@@ -101,7 +101,7 @@ public class Enemy : MonoBehaviour {
     {
         yield return new WaitForEndOfFrame();
         sprite.material.color = Color.red;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3f);
         sprite.material.color = Color.white;
         isColliding = false;
     }

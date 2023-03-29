@@ -91,7 +91,9 @@ public class Player : MonoBehaviour
 
         } else if ( other.CompareTag("Pickup") )
         {
-            GainExp(other.gameObject.GetComponent<EnemyPart>().partValue);
+            EnemyPart Temp = other.gameObject.GetComponent<EnemyPart>();
+            GainExp(Temp.partValue);
+            updateWeights(Temp.enemyType);
             Destroy(other.gameObject);
         }
      
@@ -153,5 +155,17 @@ public class Player : MonoBehaviour
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
         facingRight = !facingRight;
+    }
+
+    private void updateWeights(string type)
+    {
+        foreach (GameObject upObj in GameObject.FindGameObjectsWithTag("Upgrade"))
+        {
+            UpgradeData Temp = upObj.GetComponent<UpgradeData>();
+            if (Temp.enemyType == type)
+            {
+                Temp.runningWeight++;
+            }
+        }
     }
 }

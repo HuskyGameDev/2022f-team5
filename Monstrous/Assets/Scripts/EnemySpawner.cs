@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
         if (timeElapsed >= 10f) // increase difficulty every minute
         {
             diffScale *= 1.1f;
-            Debug.Log(diffScale);
+            //Debug.Log(diffScale);
             timeElapsed = 0f;
         }
     
@@ -66,28 +66,28 @@ public class EnemySpawner : MonoBehaviour
         {
             case 1://top edge
                 {
-                    Debug.Log("1");
+                    //Debug.Log("1");
                     clusterHome.y = player.position.y + 13f;
                     clusterHome.x = player.position.x + (float) Random.Range(-20, 20);
                     break;
                 }
             case 2://right edge
                 {
-                    Debug.Log("2");
+                    //Debug.Log("2");
                     clusterHome.x = player.position.x + 17f;
                     clusterHome.y = player.position.y + (float)Random.Range(-15, 15);
                     break;
                 }
             case 3://bottom edge
                 {
-                    Debug.Log("3");
+                    //Debug.Log("3");
                     clusterHome.y = player.position.y - 13f;
                     clusterHome.x = player.position.x + (float)Random.Range(-20, 20);
                     break;
                 }
             case 4://left edge
                 {
-                    Debug.Log("4");
+                    //Debug.Log("4");
                     clusterHome.x = player.position.x - 17f;
                     clusterHome.y = player.position.y + (float)Random.Range(-15, 15);
                     break;

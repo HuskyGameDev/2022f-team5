@@ -9,7 +9,6 @@ public class UpgradePanel : MonoBehaviour
     private float fixedDeltaTime;
     public static bool Paused = false;
     private List<UpgradeData> upgradeList = new List<UpgradeData>();
-    private bool listSet = false;
     Random rnd = new Random();
 
     public Button slot1;
@@ -33,10 +32,7 @@ public class UpgradePanel : MonoBehaviour
         AudioListener.pause = true;
         Paused = true;
 
-        if (!listSet)
-        {
-            setList();
-        }
+        setList();
 
         List<UpgradeData> selectionList = new List<UpgradeData>();
         for (int i = 0; i < upgradeList.Count; i++) selectionList.Add(upgradeList[i]);
@@ -57,19 +53,24 @@ public class UpgradePanel : MonoBehaviour
         unassignUpgrade(slot1, currentUpgrades[0]);
         unassignUpgrade(slot2, currentUpgrades[1]);
         unassignUpgrade(slot3, currentUpgrades[2]);
+
+        foreach (GameObject upObj in GameObject.FindGameObjectsWithTag("Upgrade"))
+        {
+            upObj.GetComponent<UpgradeData>().resetWeight();            
+        }
     }
 
     private void setList()
     {
         foreach (GameObject upObj in GameObject.FindGameObjectsWithTag("Upgrade"))
         {
-            upgradeList.Add(new UpgradeData(upObj.transform.name, upObj.GetComponent<Image>().sprite, 1, "default") );
-            Debug.Log(upObj + " : Look Here");
+            upgradeList.Add(upObj.GetComponent<UpgradeData>());
+            //Debug.Log(upObj + " : Look Here");
         }
-        listSet = true;
     }
 
     //Currently unused. I'm leaving this here in case we need to go back to it in the future
+    /*
     public List<UpgradeData> GetUpgrades()
     {
         if (!listSet)
@@ -80,13 +81,15 @@ public class UpgradePanel : MonoBehaviour
         Debug.Log(upgradeList.Count);
 
         Debug.Log("Before shuffle");
-        shuffle();
+        //shuffle();
         Debug.Log("After shuffle");
 
         return new List<UpgradeData> { upgradeList[0], upgradeList[1], upgradeList[2] };
     }
+    */
 
     //Currently unused. I'm leaving this here in case we need to go back to it in the future
+    /*
     private void shuffle()
     {
         int n = upgradeList.Count;
@@ -99,6 +102,7 @@ public class UpgradePanel : MonoBehaviour
             upgradeList[n] = value;
         }
     }
+    */
 
     //This method will (hopefully) replace shuffle
     private UpgradeData getUpgradeByWeight(List<UpgradeData> upgrades){
@@ -120,20 +124,20 @@ public class UpgradePanel : MonoBehaviour
     {
         switch(upgrade.name)
         {
-            case "AttackSpeed":
-                butt.onClick.AddListener(UpAttackSpeed);
+            case "BaseAtkSpeed":
+                butt.onClick.AddListener(Up_BaseAtkSpeed);
                 break;
             case "BaseAtkDamage":
-                butt.onClick.AddListener(UpBaseAtkDamage);
+                butt.onClick.AddListener(Up_BaseAtkDamage);
                 break;
             case "IncHealth":
-                butt.onClick.AddListener(UpIncHealth);
+                butt.onClick.AddListener(Up_IncHealth);
                 break;
             case "IncSpeed":
-                butt.onClick.AddListener(UpIncSpeed);
+                butt.onClick.AddListener(Up_IncSpeed);
                 break;
             case "MoreShots":
-                butt.onClick.AddListener(UpMoreShots);
+                butt.onClick.AddListener(Up_MoreShots);
                 break;
         }
         butt.GetComponent<Image>().sprite = upgrade.image;
@@ -144,19 +148,19 @@ public class UpgradePanel : MonoBehaviour
         switch (upgrade.name)
         {
             case "AttackSpeed":
-                butt.onClick.RemoveListener(UpAttackSpeed);
+                butt.onClick.RemoveListener(Up_BaseAtkSpeed);
                 break;
             case "BaseAtkDamage":
-                butt.onClick.RemoveListener(UpBaseAtkDamage);
+                butt.onClick.RemoveListener(Up_BaseAtkDamage);
                 break;
             case "IncHealth":
-                butt.onClick.RemoveListener(UpIncHealth);
+                butt.onClick.RemoveListener(Up_IncHealth);
                 break;
             case "IncSpeed":
-                butt.onClick.RemoveListener(UpIncSpeed);
+                butt.onClick.RemoveListener(Up_IncSpeed);
                 break;
             case "MoreShots":
-                butt.onClick.RemoveListener(UpMoreShots);
+                butt.onClick.RemoveListener(Up_MoreShots);
                 break;
         }
     }
@@ -166,42 +170,38 @@ public class UpgradePanel : MonoBehaviour
     //============================================================================
     public GameObject player;
 
-    //name : AttackSpeed
-    private float ASInc = 5;
-    public void UpAttackSpeed()
+    //name : BaseAtkSpeed
+    public void Up_BaseAtkSpeed()
     {
         player.GetComponent<Weapons>().baseAttackAS /= 1.1f;
     }
 
     //name : BaseAtkDamage
-    private float damageInc = 5;
-    public void UpBaseAtkDamage()
+    public void Up_BaseAtkDamage()
     {
-        player.GetComponent<Weapons>().baseAttackBaseDam += damageInc;
+        player.GetComponent<Weapons>().baseAttackBaseDam += 5f;
     }
 
     //name : IncHealth
-    private float healthInc = 20;
-    public void UpIncHealth()
+    public void Up_IncHealth()
     {
         Player play = player.GetComponent<Player>();
         float proportion = play.pHealth / play.pMaxHealth;
-        play.pMaxHealth += healthInc;
+        play.pMaxHealth += 20f;
         play.pHealth = play.pMaxHealth * proportion;
         play.healthBar.UpdateHealthBar(play.pHealth);
     }
 
     //name : MoreShots
-    public void UpMoreShots()
+    public void Up_MoreShots()
     {
         player.GetComponent<Weapons>().baseAttackNumShots++;
     }
 
     //name : IncSpeed
-    private float speedInc = .2f;
-    public void UpIncSpeed()
+    public void Up_IncSpeed()
     {
         Player play = player.GetComponent<Player>();
-        play.moveSpeed += speedInc;
+        play.moveSpeed += .2f;
     }
 }
