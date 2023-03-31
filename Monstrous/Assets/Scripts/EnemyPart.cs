@@ -8,15 +8,8 @@ public class EnemyPart : MonoBehaviour
    [SerializeField] public float partValue;
     public string enemyType;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void setValues(int partValue, string enemyType){
+        this.partValue = partValue;
+        this.enemyType = enemyType;
     }
 }

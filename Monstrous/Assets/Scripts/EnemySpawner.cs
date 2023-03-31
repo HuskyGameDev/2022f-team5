@@ -99,11 +99,12 @@ public class EnemySpawner : MonoBehaviour
             noise.x = Random.Range(-3, 3);
             noise.y = Random.Range(-3, 3);
             GameObject newEnemy = Instantiate(enemy, clusterHome - noise, Quaternion.identity);
-            newEnemy.GetComponent<Enemy>().setDiff(diffScale);
+            newEnemy.GetComponent<EnemyData>().setDiff(diffScale);
         }
 
         StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)],Random.Range(1,4)));
     }
+    
     public float getDiffScale(){
         return diffScale;
     }
