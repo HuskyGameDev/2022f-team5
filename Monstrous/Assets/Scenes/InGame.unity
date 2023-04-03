@@ -1541,6 +1541,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 2937062369136561775, guid: fc3644f876ffa2447b2ee4e3afe1550d, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[0].grassTiles.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1548,6 +1552,10 @@ PrefabInstance:
       propertyPath: biomes.Array.data[0].structures.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[1].enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 137747671023657572, guid: 749ba89a438ed6e40a6d965279774062, type: 3}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[1].grassTiles.Array.size
       value: 3
@@ -1559,7 +1567,7 @@ PrefabInstance:
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[2].enemies.Array.data[0]
       value: 
-      objectReference: {fileID: 1037476648381245672, guid: 42a2d1bd16222b648985e0f776d3095c, type: 3}
+      objectReference: {fileID: 7518529007394784832, guid: be1948231be94cb44b8467c15e7540cf, type: 3}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[2].grassTiles.Array.size
       value: 3

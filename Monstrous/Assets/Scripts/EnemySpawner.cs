@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Monstrous.Generation;
 using Monstrous.Data;
+using Monstrous.AI;
 
 
 public class EnemySpawner : MonoBehaviour
@@ -99,7 +100,7 @@ public class EnemySpawner : MonoBehaviour
             noise.x = Random.Range(-3, 3);
             noise.y = Random.Range(-3, 3);
             GameObject newEnemy = Instantiate(enemy, clusterHome - noise, Quaternion.identity);
-            newEnemy.GetComponent<EnemyData>().setDiff(diffScale);
+            newEnemy.GetComponent<EnemyBase>().difficultyScale = diffScale;
         }
 
         StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)],Random.Range(1,4)));

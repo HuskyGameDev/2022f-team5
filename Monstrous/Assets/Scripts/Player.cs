@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using Monstrous.AI;
 
 public class Player : MonoBehaviour
 {
@@ -85,7 +86,7 @@ public class Player : MonoBehaviour
             isColliding = true;
 
             //Debug.Log("Take Damage");
-            TakeDamage(other.gameObject.GetComponent<Enemy>().contactDamage);
+            TakeDamage(other.gameObject.GetComponent<EnemyBase>().damage);
 
             StartCoroutine(stopColliding());
 
