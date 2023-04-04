@@ -133,6 +133,15 @@ public class UpgradePanel : MonoBehaviour
             case "IncHealth":
                 butt.onClick.AddListener(Up_IncHealth);
                 break;
+            case "BaseAtkSpeedSpid":
+                butt.onClick.AddListener(Up_BaseAtkSpeedSpid);
+                break;
+            case "BaseAtkDamageSkele":
+                butt.onClick.AddListener(Up_BaseAtkDamageSkele);
+                break;
+            case "IncHealthZomb":
+                butt.onClick.AddListener(Up_IncHealthZomb);
+                break;
             case "IncSpeed":
                 butt.onClick.AddListener(Up_IncSpeed);
                 break;
@@ -147,7 +156,7 @@ public class UpgradePanel : MonoBehaviour
     {
         switch (upgrade.name)
         {
-            case "AttackSpeed":
+            case "BaseAtkSpeed":
                 butt.onClick.RemoveListener(Up_BaseAtkSpeed);
                 break;
             case "BaseAtkDamage":
@@ -155,6 +164,15 @@ public class UpgradePanel : MonoBehaviour
                 break;
             case "IncHealth":
                 butt.onClick.RemoveListener(Up_IncHealth);
+                break;
+            case "BaseAtkSpeedSpid":
+                butt.onClick.RemoveListener(Up_BaseAtkSpeedSpid);
+                break;
+            case "BaseAtkDamageSkele":
+                butt.onClick.RemoveListener(Up_BaseAtkDamageSkele);
+                break;
+            case "IncHealthZomb":
+                butt.onClick.RemoveListener(Up_IncHealthZomb);
                 break;
             case "IncSpeed":
                 butt.onClick.RemoveListener(Up_IncSpeed);
@@ -176,10 +194,22 @@ public class UpgradePanel : MonoBehaviour
         player.GetComponent<Weapons>().baseAttackAS /= 1.1f;
     }
 
+    //name : BaseAtkSpeedSpid
+    public void Up_BaseAtkSpeedSpid()
+    {
+        player.GetComponent<Weapons>().baseAttackAS /= 1.25f;
+    }
+
     //name : BaseAtkDamage
     public void Up_BaseAtkDamage()
     {
         player.GetComponent<Weapons>().baseAttackBaseDam += 5f;
+    }
+
+    //name : BaseAtkDamageSkele
+    public void Up_BaseAtkDamageSkele()
+    {
+        player.GetComponent<Weapons>().baseAttackBaseDam += 10f;
     }
 
     //name : IncHealth
@@ -187,7 +217,17 @@ public class UpgradePanel : MonoBehaviour
     {
         Player play = player.GetComponent<Player>();
         float proportion = play.pHealth / play.pMaxHealth;
-        play.pMaxHealth += 20f;
+        play.pMaxHealth += 20f; //<---------------------------value
+        play.pHealth = play.pMaxHealth * proportion;
+        play.healthBar.UpdateHealthBar(play.pHealth);
+    }
+
+    //name : IncHealthZomb
+    public void Up_IncHealthZomb()
+    {
+        Player play = player.GetComponent<Player>();
+        float proportion = play.pHealth / play.pMaxHealth;
+        play.pMaxHealth += 40f; //<---------------------------value
         play.pHealth = play.pMaxHealth * proportion;
         play.healthBar.UpdateHealthBar(play.pHealth);
     }
