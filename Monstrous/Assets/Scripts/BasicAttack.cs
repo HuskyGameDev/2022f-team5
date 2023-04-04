@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Monstrous.AI;
 
 public class BasicAttack : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class BasicAttack : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collided){
+        if (collided.tag == "Enemy") collided.gameObject.GetComponent<EnemyBase>().dealDamage(damage);
         if (collided.gameObject.tag != "Player" && collided.gameObject.tag != "Loader" && collided.gameObject.tag != "Room" && collided.gameObject.tag != "Pickup" && collided.gameObject.tag != "ProjAtk"){
             Instantiate(projectileBreak, transform.position, Quaternion.identity);
             Destroy(gameObject);
