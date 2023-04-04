@@ -2931,7 +2931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: BaseAtkDamage
+  name: BaseAtkDamageSkele
   image: {fileID: 21300000, guid: 1db8cf9e51f770a4eb139bb9528fd199, type: 3}
   enemyType: skeleton
   defaultWeight: 0
@@ -4009,7 +4009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: BaseAtkSpeed
+  name: BaseAtkSpeedSpid
   image: {fileID: 21300000, guid: bb9399c942b1e794690d17e6dcc68819, type: 3}
   enemyType: spider
   defaultWeight: 0
@@ -4072,7 +4072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: IncHealth
+  name: IncHealthZomb
   image: {fileID: 21300000, guid: cc4b010f5240a7a41b47ac2875f827e8, type: 3}
   enemyType: zombie
   defaultWeight: 0
@@ -4480,7 +4480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: MoreShoots
+  name: MoreShots
   image: {fileID: 21300000, guid: a05759ad74e5b3142b45ceedf5f3eba5, type: 3}
   enemyType: base
   defaultWeight: 3
