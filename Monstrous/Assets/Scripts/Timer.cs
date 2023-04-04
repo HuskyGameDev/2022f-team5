@@ -1,31 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public float timeRemaining = 10;
-    public bool timerIsRunning = false;
+    public Text timerText;
+    private float startTime;
+    private bool isTimerRunning;
+
     void Start()
     {
-        timerIsRunning = true;
+        startTime = Time.time;
+        isTimerRunning = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (timerIsRunning)
+        if (isTimerRunning)
         {
-            if(timeRemaining > 0)
-            {
-                timeRemaining -= Time.deltaTime;
-            }
-            else
-            {
-                timeRemaining = 0;
-                timerIsRunning = false;
-            }
+            float timeElapsed = Time.time - startTime;
+            string minutes = ((int)timeElapsed / 60).ToString("00");
+            string seconds = (timeElapsed % 60).ToString("00");
+            string milliseconds = ((timeElapsed * 1000) % 1000).ToString("000");
+            timerText.text = $"{minutes}:{seconds}:{milliseconds}";
         }
+    }
+
+    public void StopTimer()
+    {
+        isTimerRunning = false;
     }
 }
