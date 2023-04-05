@@ -71,7 +71,9 @@ MonoBehaviour:
   dashRange: 7
   dashSpeed: 30
   chargeTime: 1.7
+  dashLength: 2
   dashCooldown: 5
+  collider: {fileID: 4077652660898208933}
 --- !u!82 &4807069584406899144
 AudioSource:
   m_ObjectHideFlags: 0
