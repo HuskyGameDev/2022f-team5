@@ -20,8 +20,8 @@ public class Timer : MonoBehaviour
             float timeElapsed = Time.time - startTime;
             string minutes = ((int)timeElapsed / 60).ToString("00");
             string seconds = (timeElapsed % 60).ToString("00");
-            string milliseconds = ((timeElapsed * 1000) % 1000).ToString("000");
-            timerText.text = $"{minutes}:{seconds}:{milliseconds}";
+           
+            timerText.text = $"{minutes}:{seconds}";
         }
     }
 
