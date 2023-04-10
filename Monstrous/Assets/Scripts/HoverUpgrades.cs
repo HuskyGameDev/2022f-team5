@@ -4,34 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class VolumeManager : MonoBehaviour
+public class HoverUpgrades : MonoBehaviour
 {
 
-    [SerializeField] Slider volumeSlider;
     public GameObject textbox;
     public TextMeshProUGUI hoverText;
+    public TextMeshPro storedText;
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetFloat("soundVolume", 1f);
-        SetVolume();
         textbox.SetActive(false);
-    }
-
-    public void ChangeVolume()
-    {
-        AudioListener.volume = volumeSlider.value;
-    }
-
-    private void SetVolume()
-    {
-        volumeSlider.value = PlayerPrefs.GetFloat("soundVolume");
     }
 
     public void OnMouseOver()
     {
-        hoverText.text = "Volume: " + (int)(volumeSlider.value * 100) + "%";
+        hoverText.text = storedText.text;
         textbox.SetActive(true);
     }
 
