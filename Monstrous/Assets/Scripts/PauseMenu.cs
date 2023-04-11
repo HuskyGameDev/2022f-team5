@@ -7,6 +7,9 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject hp;
+    public GameObject exp;
+    public GameObject volume;
 
 
     // Update is called once per frame
@@ -30,6 +33,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        hp.GetComponent<BoxCollider2D>().enabled = false;
+        exp.GetComponent<BoxCollider2D>().enabled = false;
+        volume.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     void Pause()
@@ -37,6 +43,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        hp.GetComponent<BoxCollider2D>().enabled = true;
+        exp.GetComponent<BoxCollider2D>().enabled = true;
+        volume.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     public void LoadMenu()
