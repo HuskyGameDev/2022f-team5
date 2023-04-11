@@ -33,9 +33,9 @@ namespace Monstrous.AI{
         private bool colliding = false;
 
         private void Start(){
-            health = health * difficultyScale;
+            health = health + (health * (difficultyScale * 0.3f));
             speed = speed + (speed * (difficultyScale * 0.3f));
-            damage = (damage + (damage * difficultyScale))/2;
+            damage = (damage + (damage * difficultyScale * 0.3f));
             player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         }
 
@@ -54,7 +54,7 @@ namespace Monstrous.AI{
         private void die(){
             AudioSource.PlayClipAtPoint(deathSounds[Random.Range(0, deathSounds.Length)], gameObject.transform.position);
             GameObject droppedPart = Instantiate(part, transform.position, Quaternion.identity);
-            droppedPart.GetComponent<EnemyPart>().setValues(200, enemyID);
+            droppedPart.GetComponent<EnemyPart>().setValues( 75, enemyID);
             droppedPart.GetComponent<SpriteRenderer>().sprite = partSprite;
             Destroy(gameObject);
         }
