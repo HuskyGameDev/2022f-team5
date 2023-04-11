@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
     //how long between enemySpawns
     private float spawnInterval = 3.5f;
-
+    
     private GameObject[] enemies;
     private int num;
 
@@ -37,8 +37,8 @@ public class EnemySpawner : MonoBehaviour
         enemies = new GameObject[2] {zombieFab, spidFab};
 
         biome = chunk.getBiome((int)player.position.x,(int)player.position.y);
-      
-        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)], Random.Range(1,4)));
+     
+        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)], (int)diffScale*Random.Range(1,4)));
     }
     
     // Update is called once per frame
@@ -102,8 +102,8 @@ public class EnemySpawner : MonoBehaviour
             GameObject newEnemy = Instantiate(enemy, clusterHome - noise, Quaternion.identity);
             newEnemy.GetComponent<EnemyBase>().difficultyScale = diffScale;
         }
-
-        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)],Random.Range(1,4)));
+       
+        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)],  (int)diffScale*Random.Range(1,4)));
     }
     
     public float getDiffScale(){
