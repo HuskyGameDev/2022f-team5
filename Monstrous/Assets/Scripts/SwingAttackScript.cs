@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using Monstrous.AI;
 
 public class SwingAttackScript : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class SwingAttackScript : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Vector3 pos = swingOrigin == null ? Vector3.zero : swingOrigin.position;
-        DrawWireCapsule(pos, Quaternion.Euler(0, 0, 90), 1f, 4f);
+        DrawWireCapsule(pos, Quaternion.Euler(0, 0, 90), size.x, size.y);
     }
 
     private static void DrawWireCapsule(Vector3 _pos, Quaternion _rot, float _radius, float _height, Color _color = default(Color))
@@ -77,7 +78,7 @@ public class SwingAttackScript : MonoBehaviour
             if(other.gameObject.CompareTag("Enemy"))
             {
                 Debug.Log(other);
-                //other.gameObject.GetComponent<EnemyBase>.dealDamage(SwingAtkDamage);
+                other.gameObject.GetComponent<EnemyBase>().dealDamage(SwingAtkDamage);
             }
         }
     }

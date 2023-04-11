@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
 
         biome = chunk.getBiome((int)player.position.x,(int)player.position.y);
      
-        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)], (int)diffScale*Random.Range(1,4)));
+        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)], (int)diffScale*Random.Range(1,2)));
     }
     
     // Update is called once per frame
@@ -103,7 +103,7 @@ public class EnemySpawner : MonoBehaviour
             newEnemy.GetComponent<EnemyBase>().difficultyScale = diffScale;
         }
        
-        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)],  (int)diffScale*Random.Range(1,4)));
+        StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)],  (int)diffScale*Random.Range(1,2)));
     }
     
     public float getDiffScale(){

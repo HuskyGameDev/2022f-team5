@@ -3571,7 +3571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4997a14f8fc2aa642bf2052550616f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swing: {fileID: 0}
+  swing: {fileID: 435621220}
   slot1: {fileID: 706554469}
   slot2: {fileID: 189868307}
   slot3: {fileID: 1705659154}
@@ -3583,10 +3583,10 @@ MonoBehaviour:
   upgrd3: {fileID: 0}
   hoverText: {fileID: 0}
   player: {fileID: 299809660}
-  meleeUp0: {fileID: 0}
-  meleeUp1: {fileID: 0}
-  meleeUp2: {fileID: 0}
-  meleeUp3: {fileID: 0}
+  meleeUp0: {fileID: 1602626094}
+  meleeUp1: {fileID: 1674097656}
+  meleeUp2: {fileID: 1052618784}
+  meleeUp3: {fileID: 920932158}
 --- !u!1 &1395574103
 GameObject:
   m_ObjectHideFlags: 0
