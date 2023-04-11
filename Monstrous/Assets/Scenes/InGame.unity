@@ -522,6 +522,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
+  description: 
 --- !u!1 &261873663
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +608,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 282273787}
   player: {fileID: 299809662}
+  textbox: {fileID: 0}
+  hoverText: {fileID: 0}
+  storedText: {fileID: 0}
 --- !u!114 &282273787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,6 +1191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 372617773}
+  textbox: {fileID: 0}
+  hoverText: {fileID: 0}
 --- !u!1 &435621216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,6 +1513,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 705569540}
+  hp: {fileID: 0}
+  exp: {fileID: 0}
+  volume: {fileID: 0}
 --- !u!1001 &538210875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2048,6 +2057,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
+  description: 
 --- !u!1 &622171873
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,6 +2121,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
+  description: 
 --- !u!1 &705569540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,6 +2651,70 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &920932158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 920932159}
+  - component: {fileID: 920932161}
+  - component: {fileID: 920932160}
+  m_Layer: 0
+  m_Name: SwingAtkSize
+  m_TagString: Upgrade
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &920932159
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920932158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1450179704}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &920932160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920932158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: SwingAtkSize
+  image: {fileID: 21300000, guid: 05057dd9e7764b94f9e3658da2159226, type: 3}
+  enemyType: zombie
+  defaultWeight: 5
+  runningWeight: 5
+  description: 
+--- !u!222 &920932161
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920932158}
+  m_CullTransparentMesh: 1
 --- !u!1 &956812745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,6 +2930,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983208372}
   m_CullTransparentMesh: 1
+--- !u!1 &1052618784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1052618785}
+  - component: {fileID: 1052618787}
+  - component: {fileID: 1052618786}
+  m_Layer: 0
+  m_Name: SwingAtkDamage
+  m_TagString: Upgrade
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1052618785
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052618784}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1450179704}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1052618786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052618784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: SwingAtkDamage
+  image: {fileID: 21300000, guid: 16f530c768e23014a8ee668ef5c504b9, type: 3}
+  enemyType: zombie
+  defaultWeight: 5
+  runningWeight: 5
+  description: 
+--- !u!222 &1052618787
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052618784}
+  m_CullTransparentMesh: 1
 --- !u!1 &1103752034
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,6 +3125,7 @@ MonoBehaviour:
   enemyType: skeleton
   defaultWeight: 0
   runningWeight: 0
+  description: 
 --- !u!222 &1262151279
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3431,10 +3571,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4997a14f8fc2aa642bf2052550616f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swing: {fileID: 0}
   slot1: {fileID: 706554469}
   slot2: {fileID: 189868307}
   slot3: {fileID: 1705659154}
+  hp: {fileID: 0}
+  exp: {fileID: 0}
+  volume: {fileID: 0}
+  upgrd1: {fileID: 0}
+  upgrd2: {fileID: 0}
+  upgrd3: {fileID: 0}
+  hoverText: {fileID: 0}
   player: {fileID: 299809660}
+  meleeUp1: {fileID: 0}
+  meleeUp2: {fileID: 0}
+  meleeUp3: {fileID: 0}
 --- !u!1 &1395574103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3504,6 +3655,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1403696952}
   player: {fileID: 299809662}
+  textbox: {fileID: 0}
+  hoverText: {fileID: 0}
+  storedText: {fileID: 0}
 --- !u!224 &1403696951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3747,6 +3901,10 @@ Transform:
   - {fileID: 1659049737}
   - {fileID: 1640840835}
   - {fileID: 1262151277}
+  - {fileID: 1602626095}
+  - {fileID: 1674097657}
+  - {fileID: 1052618785}
+  - {fileID: 920932159}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4009,6 +4167,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593181216}
   m_CullTransparentMesh: 1
+--- !u!1 &1602626094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1602626095}
+  - component: {fileID: 1602626097}
+  - component: {fileID: 1602626096}
+  m_Layer: 0
+  m_Name: SwingAtk
+  m_TagString: Upgrade
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1602626095
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602626094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1450179704}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1602626096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602626094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: SwingAtk
+  image: {fileID: 21300000, guid: 53d69635bec380d44b29dbd1c29badc9, type: 3}
+  enemyType: zombie
+  defaultWeight: 0
+  runningWeight: 0
+  description: 
+--- !u!222 &1602626097
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602626094}
+  m_CullTransparentMesh: 1
 --- !u!1 &1640840834
 GameObject:
   m_ObjectHideFlags: 0
@@ -4064,6 +4286,7 @@ MonoBehaviour:
   enemyType: spider
   defaultWeight: 0
   runningWeight: 0
+  description: 
 --- !u!222 &1640840837
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4127,6 +4350,7 @@ MonoBehaviour:
   enemyType: zombie
   defaultWeight: 0
   runningWeight: 0
+  description: 
 --- !u!222 &1659049739
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4134,6 +4358,70 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659049736}
+  m_CullTransparentMesh: 1
+--- !u!1 &1674097656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1674097657}
+  - component: {fileID: 1674097659}
+  - component: {fileID: 1674097658}
+  m_Layer: 0
+  m_Name: SwingAtkSpeed
+  m_TagString: Upgrade
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1674097657
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674097656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1450179704}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1674097658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674097656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: SwingAtkSpeed
+  image: {fileID: 21300000, guid: 3130bc5d2474489459cee935e5ff4dce, type: 3}
+  enemyType: zombie
+  defaultWeight: 5
+  runningWeight: 5
+  description: 
+--- !u!222 &1674097659
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674097656}
   m_CullTransparentMesh: 1
 --- !u!1 &1705659152
 GameObject:
@@ -4331,6 +4619,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
+  description: 
 --- !u!1 &1824102861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4535,6 +4824,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 3
   runningWeight: 3
+  description: 
 --- !u!1 &2007121003
 GameObject:
   m_ObjectHideFlags: 0

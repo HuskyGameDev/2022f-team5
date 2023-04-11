@@ -12,6 +12,8 @@ public class SwingAttackScript : MonoBehaviour
 
     public Transform swingOrigin;
     public Animator animator;
+
+    public 
         
     // Start is called before the first frame update
     void Start()

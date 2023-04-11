@@ -7,6 +7,7 @@ using TMPro;
 
 public class UpgradePanel : MonoBehaviour
 {
+    public SwingAttackScript swing;
     private float fixedDeltaTime;
     public static bool Paused = false;
     private List<UpgradeData> upgradeList = new List<UpgradeData>();
@@ -178,6 +179,18 @@ public class UpgradePanel : MonoBehaviour
             case "MoreShots":
                 butt.onClick.AddListener(Up_MoreShots);
                 break;
+            case "SwingAtk":
+                butt.onClick.AddListener(Up_SwingAtk);
+                break;
+            case "SwingAtkSpeed":
+                butt.onClick.AddListener(Up_SwingAtkSpeed);
+                break;
+            case "SwingAtkDamage":
+                butt.onClick.AddListener(Up_SwingAtkDamage);
+                break;
+            case "SwingAtkSize":
+                butt.onClick.AddListener(Up_SwingAtkSize);
+                break;
         }
         butt.GetComponent<Image>().sprite = upgrade.image;
     }
@@ -209,6 +222,18 @@ public class UpgradePanel : MonoBehaviour
                 break;
             case "MoreShots":
                 butt.onClick.RemoveListener(Up_MoreShots);
+                break;
+            case "SwingAtk":
+                butt.onClick.RemoveListener(Up_SwingAtk);
+                break;
+            case "SwingAtkSpeed":
+                butt.onClick.RemoveListener(Up_SwingAtkSpeed);
+                break;
+            case "SwingAtkDamage":
+                butt.onClick.RemoveListener(Up_SwingAtkDamage);
+                break;
+            case "SwingAtkSize":
+                butt.onClick.RemoveListener(Up_SwingAtkSize);
                 break;
         }
     }
@@ -273,5 +298,30 @@ public class UpgradePanel : MonoBehaviour
     {
         Player play = player.GetComponent<Player>();
         play.moveSpeed += .2f;
+    }
+
+    public void Up_SwingAtk()
+    {
+        swing.gameObject.SetActive(true);
+    }
+
+    public GameObject meleeUp1;
+    public GameObject meleeUp2;
+    public GameObject meleeUp3;
+
+    public void Up_SwingAtkSpeed()
+    {
+        swing.SwingAtkAS /= 1.15f;
+    }
+
+    public void Up_SwingAtkDamage()
+    {
+        swing.SwingAtkDamage += 15f;
+    }
+
+    public void Up_SwingAtkSize()
+    {
+        swing.size.x *= 1.3f;
+        swing.size.y *= 1.3f;
     }
 }
