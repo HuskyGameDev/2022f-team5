@@ -303,8 +303,13 @@ public class UpgradePanel : MonoBehaviour
     public void Up_SwingAtk()
     {
         swing.gameObject.SetActive(true);
+        meleeUp1.SetActive(true);
+        meleeUp2.SetActive(true);
+        meleeUp3.SetActive(true);
+        Destroy(meleeUp0);
     }
 
+    public GameObject meleeUp0;
     public GameObject meleeUp1;
     public GameObject meleeUp2;
     public GameObject meleeUp3;

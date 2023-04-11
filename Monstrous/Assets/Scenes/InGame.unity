@@ -522,7 +522,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
-  description: 
+  description: Increase your maximum health
 --- !u!1 &261873663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &435621217
 Transform:
   m_ObjectHideFlags: 0
@@ -2057,7 +2057,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
-  description: 
+  description: Increase attack speed of your starting attack
 --- !u!1 &622171873
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,7 +2121,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
-  description: 
+  description: Increase the damage of your starting attack
 --- !u!1 &705569540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2706,7 +2706,7 @@ MonoBehaviour:
   enemyType: zombie
   defaultWeight: 5
   runningWeight: 5
-  description: 
+  description: Increase the attack area of your zombie arm
 --- !u!222 &920932161
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2985,7 +2985,7 @@ MonoBehaviour:
   enemyType: zombie
   defaultWeight: 5
   runningWeight: 5
-  description: 
+  description: Increase the damage of your zombie arm
 --- !u!222 &1052618787
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3125,7 +3125,7 @@ MonoBehaviour:
   enemyType: skeleton
   defaultWeight: 0
   runningWeight: 0
-  description: 
+  description: Increase the damage of your starting attack
 --- !u!222 &1262151279
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3583,6 +3583,7 @@ MonoBehaviour:
   upgrd3: {fileID: 0}
   hoverText: {fileID: 0}
   player: {fileID: 299809660}
+  meleeUp0: {fileID: 0}
   meleeUp1: {fileID: 0}
   meleeUp2: {fileID: 0}
   meleeUp3: {fileID: 0}
@@ -4222,7 +4223,7 @@ MonoBehaviour:
   enemyType: zombie
   defaultWeight: 0
   runningWeight: 0
-  description: 
+  description: Gain an additional melee attack
 --- !u!222 &1602626097
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4286,7 +4287,7 @@ MonoBehaviour:
   enemyType: spider
   defaultWeight: 0
   runningWeight: 0
-  description: 
+  description: Increase attack speed of your starting attack
 --- !u!222 &1640840837
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4350,7 +4351,7 @@ MonoBehaviour:
   enemyType: zombie
   defaultWeight: 0
   runningWeight: 0
-  description: 
+  description: Increase your maximum health
 --- !u!222 &1659049739
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4414,7 +4415,7 @@ MonoBehaviour:
   enemyType: zombie
   defaultWeight: 5
   runningWeight: 5
-  description: 
+  description: Increase the attack speed of your zombie arm
 --- !u!222 &1674097659
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4619,7 +4620,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
-  description: 
+  description: Increase your movement speed
 --- !u!1 &1824102861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4824,7 +4825,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 3
   runningWeight: 3
-  description: 
+  description: Add an addition projectile to your starting attack
 --- !u!1 &2007121003
 GameObject:
   m_ObjectHideFlags: 0

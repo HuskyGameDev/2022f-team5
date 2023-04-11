@@ -18,10 +18,7 @@ public class SwingAttackScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //collecting the Swing upgrade will enable the attack
-        //will also add/enable accociated upgrades
-
-        
+                
     }
 
     void Update()
@@ -70,7 +67,6 @@ public class SwingAttackScript : MonoBehaviour
             //draw center
             Handles.DrawWireDisc(Vector3.up * pointOffset, Vector3.up, _radius);
             Handles.DrawWireDisc(Vector3.down * pointOffset, Vector3.up, _radius);
-
         }
     }
 
