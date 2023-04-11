@@ -522,6 +522,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
+  description: 
 --- !u!1 &261873663
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +608,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 282273787}
   player: {fileID: 299809662}
+  textbox: {fileID: 0}
+  hoverText: {fileID: 0}
+  storedText: {fileID: 0}
 --- !u!114 &282273787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,6 +1191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 372617773}
+  textbox: {fileID: 0}
+  hoverText: {fileID: 0}
 --- !u!1 &435621216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,6 +1406,7 @@ GameObject:
   - component: {fileID: 520707499}
   - component: {fileID: 520707498}
   - component: {fileID: 520707502}
+  - component: {fileID: 520707503}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1486,6 +1493,7 @@ RectTransform:
   - {fileID: 1349847029}
   - {fileID: 705569541}
   - {fileID: 372617772}
+  - {fileID: 1946209383}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1507,6 +1515,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 705569540}
+  hp: {fileID: 0}
+  exp: {fileID: 0}
+  volume: {fileID: 0}
+--- !u!114 &520707503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520707497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1966cb8b8c1709c4ea8eeb6b24f35f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 1946209384}
 --- !u!1001 &538210875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2048,6 +2072,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
+  description: 
 --- !u!1 &622171873
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,6 +2136,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
+  description: 
 --- !u!1 &705569540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,6 +3012,7 @@ MonoBehaviour:
   enemyType: skeleton
   defaultWeight: 0
   runningWeight: 0
+  description: 
 --- !u!222 &1262151279
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3434,6 +3461,13 @@ MonoBehaviour:
   slot1: {fileID: 706554469}
   slot2: {fileID: 189868307}
   slot3: {fileID: 1705659154}
+  hp: {fileID: 0}
+  exp: {fileID: 0}
+  volume: {fileID: 0}
+  upgrd1: {fileID: 0}
+  upgrd2: {fileID: 0}
+  upgrd3: {fileID: 0}
+  hoverText: {fileID: 0}
   player: {fileID: 299809660}
 --- !u!1 &1395574103
 GameObject:
@@ -3504,6 +3538,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1403696952}
   player: {fileID: 299809662}
+  textbox: {fileID: 0}
+  hoverText: {fileID: 0}
+  storedText: {fileID: 0}
 --- !u!224 &1403696951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4064,6 +4101,7 @@ MonoBehaviour:
   enemyType: spider
   defaultWeight: 0
   runningWeight: 0
+  description: 
 --- !u!222 &1640840837
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4127,6 +4165,7 @@ MonoBehaviour:
   enemyType: zombie
   defaultWeight: 0
   runningWeight: 0
+  description: 
 --- !u!222 &1659049739
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4331,6 +4370,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
+  description: 
 --- !u!1 &1824102861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4399,6 +4439,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1946209382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1946209383}
+  - component: {fileID: 1946209385}
+  - component: {fileID: 1946209384}
+  m_Layer: 5
+  m_Name: TimerText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1946209383
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946209382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 520707501}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 300, y: -30}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1946209384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946209382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1946209385
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946209382}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1964178081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4535,6 +4655,7 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 3
   runningWeight: 3
+  description: 
 --- !u!1 &2007121003
 GameObject:
   m_ObjectHideFlags: 0
