@@ -522,6 +522,37 @@ MonoBehaviour:
   enemyType: base
   defaultWeight: 10
   runningWeight: 10
+--- !u!1 &261873663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 261873664}
+  m_Layer: 0
+  m_Name: swingOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &261873664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261873663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 435621217}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &282273784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,13 +1198,14 @@ GameObject:
   - component: {fileID: 435621217}
   - component: {fileID: 435621219}
   - component: {fileID: 435621218}
+  - component: {fileID: 435621220}
   m_Layer: 0
   m_Name: SwingAttack
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &435621217
 Transform:
   m_ObjectHideFlags: 0
@@ -1183,9 +1215,10 @@ Transform:
   m_GameObject: {fileID: 435621216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.36, y: 1.09, z: 0}
-  m_LocalScale: {x: 14, y: 14, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 261873664}
   m_Father: {fileID: 299809664}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1261,6 +1294,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &435621220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435621216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8c5421aba751e40abc1b841e102e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwingAtkDamage: 60
+  SwingAtkAS: 5
+  size: {x: 4, y: 1}
+  swingOrigin: {fileID: 261873664}
+  animator: {fileID: 435621218}
 --- !u!1 &494494911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,7 +2335,7 @@ GameObject:
   m_Layer: 0
   m_Name: BasicAttack
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2931,7 +2981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: BaseAtkDamage
+  name: BaseAtkDamageSkele
   image: {fileID: 21300000, guid: 1db8cf9e51f770a4eb139bb9528fd199, type: 3}
   enemyType: skeleton
   defaultWeight: 0
@@ -4009,7 +4059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: BaseAtkSpeed
+  name: BaseAtkSpeedSpid
   image: {fileID: 21300000, guid: bb9399c942b1e794690d17e6dcc68819, type: 3}
   enemyType: spider
   defaultWeight: 0
@@ -4072,7 +4122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: IncHealth
+  name: IncHealthZomb
   image: {fileID: 21300000, guid: cc4b010f5240a7a41b47ac2875f827e8, type: 3}
   enemyType: zombie
   defaultWeight: 0
@@ -4480,7 +4530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c827684f9ed34f881bd2d43fe6345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: MoreShoots
+  name: MoreShots
   image: {fileID: 21300000, guid: a05759ad74e5b3142b45ceedf5f3eba5, type: 3}
   enemyType: base
   defaultWeight: 3

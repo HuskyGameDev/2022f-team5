@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
+using TMPro;
 
 public class UpgradePanel : MonoBehaviour
 {
@@ -15,6 +16,16 @@ public class UpgradePanel : MonoBehaviour
     public Button slot2;
     public Button slot3;
     private List<UpgradeData> currentUpgrades = new List<UpgradeData>();
+
+    public GameObject hp;
+    public GameObject exp;
+    public GameObject volume;
+
+    public TextMeshPro upgrd1;
+    public TextMeshPro upgrd2;
+    public TextMeshPro upgrd3;
+
+    public TextMeshProUGUI hoverText;
 
     void Awake()
     {
@@ -40,6 +51,15 @@ public class UpgradePanel : MonoBehaviour
         assignUpgrade(slot1, currentUpgrades[0]);
         assignUpgrade(slot2, currentUpgrades[1]);
         assignUpgrade(slot3, currentUpgrades[2]);
+
+        upgrd1.text = currentUpgrades[0].description;
+        upgrd2.text = currentUpgrades[1].description;
+        upgrd3.text = currentUpgrades[2].description;
+
+        hp.GetComponent<BoxCollider2D>().enabled = true;
+        exp.GetComponent<BoxCollider2D>().enabled = true;
+        volume.GetComponent<BoxCollider2D>().enabled = true;
+
     }
 
     void OnDisable()
@@ -54,10 +74,20 @@ public class UpgradePanel : MonoBehaviour
         unassignUpgrade(slot2, currentUpgrades[1]);
         unassignUpgrade(slot3, currentUpgrades[2]);
 
+        upgrd1.text = "";
+        upgrd2.text = "";
+        upgrd3.text = "";
+        hoverText.text = "";
+
         foreach (GameObject upObj in GameObject.FindGameObjectsWithTag("Upgrade"))
         {
             upObj.GetComponent<UpgradeData>().resetWeight();            
         }
+
+        hp.GetComponent<BoxCollider2D>().enabled = false;
+        exp.GetComponent<BoxCollider2D>().enabled = false;
+        volume.GetComponent<BoxCollider2D>().enabled = false;
+
     }
 
     private void setList()
