@@ -57,7 +57,7 @@ MonoBehaviour:
   invulnerabilityTime: 0.3
   enemyID: spider
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}
-  partSprite: {fileID: 21300000, guid: d6a44ab95b0def041a7929981a2c23a1, type: 3}
+  partSprite: {fileID: 21300000, guid: 29ccda65fb30eb04e9af781cb562ca23, type: 3}
   source: {fileID: 4807069584406899144}
   damageSounds:
   - {fileID: 8300000, guid: df8250d527de7f741b2ec5a5b13dadb6, type: 3}

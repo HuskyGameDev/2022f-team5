@@ -43,9 +43,10 @@ public class SwingAttackScript : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Vector3 pos = swingOrigin == null ? Vector3.zero : swingOrigin.position;
-        DrawWireCapsule(pos, Quaternion.Euler(0, 0, 90), size.x, size.y);
+        //DrawWireCapsule(pos, Quaternion.Euler(0, 0, 90), size.x, size.y);
     }
 
+    /*
     private static void DrawWireCapsule(Vector3 _pos, Quaternion _rot, float _radius, float _height, Color _color = default(Color))
     {
         if (_color != default(Color))
@@ -70,6 +71,7 @@ public class SwingAttackScript : MonoBehaviour
             Handles.DrawWireDisc(Vector3.down * pointOffset, Vector3.up, _radius);
         }
     }
+    */
 
     private void SwingCollide()
     {
