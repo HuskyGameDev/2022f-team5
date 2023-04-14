@@ -5,10 +5,10 @@ namespace Monstrous.AI{
     public class EnemyBase : MonoBehaviour
     {
         [Header("Stats")]
-        public float health = 50f;
+        public float health = 65f;
         public float speed = 3f;
-        public float damage = 10f;
-        public float invulnerabilityTime = 0.05f;
+        public float damage = 13f;
+        public float invulnerabilityTime = 0.025f;
         public string enemyID;
 
         [Header("Parts")]
@@ -34,7 +34,7 @@ namespace Monstrous.AI{
         private void Start(){
             health = health + (health * (difficultyScale * 0.3f));
             speed = speed + (speed * (difficultyScale * 0.3f));
-            damage = (damage + (damage * difficultyScale * 0.3f));
+            damage = (damage + (damage * difficultyScale * 0.33f));
             player = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
         }

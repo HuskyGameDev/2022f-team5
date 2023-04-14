@@ -246,25 +246,27 @@ public class UpgradePanel : MonoBehaviour
     //name : BaseAtkSpeed
     public void Up_BaseAtkSpeed()
     {
-        player.GetComponent<Weapons>().baseAttackAS /= 1.1f;
+        player.GetComponent<Weapons>().baseAttackAS /= 1.2f;
     }
 
     //name : BaseAtkSpeedSpid
     public void Up_BaseAtkSpeedSpid()
     {
-        player.GetComponent<Weapons>().baseAttackAS /= 1.25f;
+        player.GetComponent<Weapons>().baseAttackAS /= 1.4f;
     }
 
     //name : BaseAtkDamage
+    private float damageInc = 1.30f;
+    private float damageIncSkele = 1.42f;
     public void Up_BaseAtkDamage()
     {
-        player.GetComponent<Weapons>().baseAttackBaseDam += 5f;
+        player.GetComponent<Weapons>().baseAttackBaseDam *= damageInc;
     }
 
     //name : BaseAtkDamageSkele
     public void Up_BaseAtkDamageSkele()
     {
-        player.GetComponent<Weapons>().baseAttackBaseDam += 10f;
+        player.GetComponent<Weapons>().baseAttackBaseDam *= damageIncSkele;
     }
 
     //name : IncHealth
@@ -272,7 +274,7 @@ public class UpgradePanel : MonoBehaviour
     {
         Player play = player.GetComponent<Player>();
         float proportion = play.pHealth / play.pMaxHealth;
-        play.pMaxHealth += 20f; //<---------------------------value
+        play.pMaxHealth += 35f; //<---------------------------value
         play.pHealth = play.pMaxHealth * proportion;
         play.healthBar.UpdateHealthBar(play.pHealth);
     }
@@ -297,7 +299,7 @@ public class UpgradePanel : MonoBehaviour
     public void Up_IncSpeed()
     {
         Player play = player.GetComponent<Player>();
-        play.moveSpeed += .2f;
+        play.moveSpeed += .25f;
     }
 
     public void Up_SwingAtk()
@@ -319,9 +321,10 @@ public class UpgradePanel : MonoBehaviour
         swing.SwingAtkAS /= 1.15f;
     }
 
+    private float swingDamageInc = 1.20f;
     public void Up_SwingAtkDamage()
     {
-        swing.SwingAtkDamage += 15f;
+        swing.SwingAtkDamage *= swingDamageInc;
     }
 
     public void Up_SwingAtkSize()
