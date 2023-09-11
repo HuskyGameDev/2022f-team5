@@ -10,11 +10,6 @@ using Monstrous.AI;
 public class EnemySpawner : MonoBehaviour
 {
     public Transform player;
-    public GameObject enemyTemp;
-    
-    public GameObject zombieFab;
-
-    public GameObject spidFab;
     public Biome biome;
     public ChunkController chunk;
     public float timeElapsed;
@@ -34,7 +29,6 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         //removed enemyTemp as a possible spawn because it didn't have the enemy class methods needed for collision
-        enemies = new GameObject[2] {zombieFab, spidFab};
 
         biome = chunk.getBiome((int)player.position.x,(int)player.position.y);
      

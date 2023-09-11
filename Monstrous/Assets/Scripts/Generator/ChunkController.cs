@@ -21,6 +21,7 @@ namespace Monstrous.Generation{
         public float biomeScale = 50;
         public float structureFrequency = 10;
         private DataHolder data;
+        private Biome[] biomes;
         private Player player;
         private System.Random prng;
         private float offsetX;
@@ -43,6 +44,18 @@ namespace Monstrous.Generation{
             //Chooses the offsets in perlin noise
             offsetX = prng.Next(-100000, 100000);
             offsetY = prng.Next(-100000, 100000);
+            //Randomizes biome layout
+            biomes = new Biome[data.biomes.Length];
+            Debug.Log(biomes[0].biomeID);
+            int l = 0;
+            foreach (Biome biome in data.biomes){
+                int index;
+                do{
+                    index = prng.Next(0, biomes.Length);
+                }while (biomes[index].biomeID != null);
+                biomes[index] = data.biomes[l];
+                l++;
+            }
             //Sets scrolling variables
             rightIndex = bgWidth - 1;
             topIndex = bgHeight - 1;
@@ -56,9 +69,9 @@ namespace Monstrous.Generation{
 
         public Biome getBiome(int x, int y){
             float noise = Mathf.PerlinNoise((x + offsetX) / biomeScale, (y + offsetY) / biomeScale);
-            int index = (int) (noise * data.biomes.Length);
-            index = Mathf.Clamp(index, 0, data.biomes.Length - 1);
-            return data.biomes[index];
+            int index = (int) (noise * biomes.Length);
+            index = Mathf.Clamp(index, 0, biomes.Length - 1);
+            return biomes[index];
         }
         
 
