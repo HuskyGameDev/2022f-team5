@@ -6,7 +6,10 @@ namespace Monstrous.AI{
     public class BeetleAI : EnemyBase{
         void FixedUpdate(){
             //TODO: Add the actual behavior here
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, playerLoc.position, speed * Time.fixedDeltaTime);
         }
+
+        public override void onAttack(){}
+        public override void onDeath(){}
     }
 }

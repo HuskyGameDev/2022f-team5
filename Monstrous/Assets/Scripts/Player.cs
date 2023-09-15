@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     public float pMaxHealth = 100;
     public float expValue = 0;
     public float moveSpeed = 5f;
+    public float speedDebuff = 1f;
 
     // 
     public float levelNum = 0f;
@@ -62,7 +63,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         //movement
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * (moveSpeed / speedDebuff) * Time.fixedDeltaTime);
         if( ! (movement.Equals( Vector2.zero ) ) )
         {
             steps1.enabled = true;
@@ -82,11 +83,12 @@ public class Player : MonoBehaviour
         //Debug.Log(this.gameObject.name + " collided with " + other.name);
         if ( other.CompareTag("Enemy") )
         {
-             if (isColliding) return;
+            if (isColliding) return;
             isColliding = true;
 
             //Debug.Log("Take Damage");
             TakeDamage(other.gameObject.GetComponent<EnemyBase>().damage);
+            other.gameObject.GetComponent<EnemyBase>().onAttack();
 
             StartCoroutine(stopColliding());
 
@@ -100,10 +102,9 @@ public class Player : MonoBehaviour
      
     }
     
-    private void TakeDamage(float dam)
-    {
+    public void TakeDamage(float dam){
         pHealth = pHealth - dam;
-       healthBar.UpdateHealthBar(pHealth);
+        healthBar.UpdateHealthBar(pHealth);
         if (pHealth <= 0)
         {
             //Destroy(this.gameObject);

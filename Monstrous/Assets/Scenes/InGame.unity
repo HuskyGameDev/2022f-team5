@@ -2456,6 +2456,10 @@ PrefabInstance:
       value: desert
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[1].enemies.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2487,6 +2491,10 @@ PrefabInstance:
       propertyPath: biomes.Array.data[0].enemies.Array.data[0]
       value: 
       objectReference: {fileID: 5789028764125476146, guid: e518f6245da28704990f7a424991ec93, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 1342783162070252478, guid: f1bbd078e65747b4da473dd5bb6e8722, type: 3}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[0].grassTiles.Array.size
       value: 3

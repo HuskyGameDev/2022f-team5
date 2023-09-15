@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace Monstrous.AI{
-    public class EnemyBase : MonoBehaviour
+    public abstract class EnemyBase : MonoBehaviour
     {
         [Header("Stats")]
         public float health = 65f;
@@ -26,7 +26,8 @@ namespace Monstrous.AI{
         public SpriteRenderer renderer;
 
         [Header("Extra Public Variables")]
-        public Transform player;
+        public Player player;
+        public Transform playerLoc;
         public float difficultyScale = 0f;
         public int destroyRange = 50;
     
@@ -36,11 +37,12 @@ namespace Monstrous.AI{
             health = health + (health * (difficultyScale * 0.3f));
             speed = speed + (speed * (difficultyScale * 0.3f));
             damage = (damage + (damage * difficultyScale * 0.33f));
-            player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+            player = GameObject.FindWithTag("Player").GetComponent<Player>();
+            playerLoc = GameObject.FindWithTag("Player").GetComponent<Transform>();
         }
 
         private void Update(){
-            if (Vector2.Distance(transform.position, player.position) > destroyRange) Destroy(gameObject);
+            if (Vector2.Distance(transform.position, playerLoc.position) > destroyRange) Destroy(gameObject);
         }
 
         public void dealDamage(float strength){
@@ -56,6 +58,7 @@ namespace Monstrous.AI{
         }
 
         private void die(){
+            onDeath();
             AudioSource.PlayClipAtPoint(deathSounds[Random.Range(0, deathSounds.Length)], gameObject.transform.position);
             GameObject droppedPart = Instantiate(part, transform.position, Quaternion.identity);
             droppedPart.GetComponent<EnemyPart>().setValues( 75, enemyID);
@@ -72,5 +75,9 @@ namespace Monstrous.AI{
             renderer.material.color = Color.white;
             colliding = false;
         }
+
+        //Overridden by individual AI scripts to do things when attacking
+        public abstract void onAttack();
+        public abstract void onDeath();
     }
 }

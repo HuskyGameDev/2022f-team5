@@ -23,6 +23,7 @@ namespace Monstrous.Generation{
         private DataHolder data;
         private Biome[] biomes;
         private Player player;
+        private Transform playerLoc;
         private System.Random prng;
         private float offsetX;
         private float offsetY;
@@ -33,11 +34,14 @@ namespace Monstrous.Generation{
         private int topIndex;
         private int bottomIndex = 0;
         private GameObject[,] nodes;
+        private Vector2 lastSpot;
 
         public void Awake(){
             nodes = new GameObject[bgWidth, bgHeight];
             data = GameObject.FindWithTag("DataHolder").GetComponent<DataHolder>();
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
+            playerLoc = player.GetComponent<Transform>();
+            lastSpot = playerLoc.position;
             //Creates a psudo-random number generator based on the seed
             if (randomizeSeed) seed = Random.Range(-2147483648, 2147483647);
             prng = new System.Random(seed);
@@ -76,7 +80,9 @@ namespace Monstrous.Generation{
         
 
         public void FixedUpdate(){
-            movement += player.movement * player.moveSpeed * Time.fixedDeltaTime;
+            //movement += player.movement * player.moveSpeed * Time.fixedDeltaTime;
+            movement += new Vector2(playerLoc.position.x, playerLoc.position.y) - lastSpot;
+            lastSpot = new Vector2(playerLoc.position.x, playerLoc.position.y);
             while (movement.x > chunkWidth){
                 for(int i = 0; i < bgHeight; i++){
                     ChunkGenerator node = nodes[leftIndex, i].GetComponent<ChunkGenerator>();

@@ -17,11 +17,11 @@ namespace Monstrous.AI{
 
         void FixedUpdate(){
             timer += Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, playerLoc.position, speed * Time.fixedDeltaTime);
             if (timer >= targetTime){
                 timer = 0f;
                 targetTime = Random.Range(minimumCooldown, maximumCooldown);
-                Vector3 dir = player.position - transform.position;
+                Vector3 dir = playerLoc.position - transform.position;
                 if (right){
                     body.AddForce(-Vector3.Cross(dir, Vector3.up).normalized * strafeSpeed);
                 }else{
@@ -30,5 +30,8 @@ namespace Monstrous.AI{
                 right = !right;
             }
         }
+
+        public override void onAttack(){}
+        public override void onDeath(){}
     }
 }

@@ -7,7 +7,7 @@ namespace Monstrous.AI{
         public EnemyBase enemyBase;
         void FixedUpdate(){
             //update the position of the enemy to be closer to the player
-            if(enemyBase.player.position.x > transform.position.x){
+            if(enemyBase.playerLoc.position.x > transform.position.x){
                 enemyBase.renderer.flipX = false;
             }
             else{
