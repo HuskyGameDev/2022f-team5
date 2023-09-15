@@ -28,6 +28,7 @@ namespace Monstrous.AI{
         [Header("Extra Public Variables")]
         public Transform player;
         public float difficultyScale = 0f;
+        public int destroyRange = 50;
     
         private bool colliding = false;
 
@@ -36,7 +37,10 @@ namespace Monstrous.AI{
             speed = speed + (speed * (difficultyScale * 0.3f));
             damage = (damage + (damage * difficultyScale * 0.33f));
             player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        }
 
+        private void Update(){
+            if (Vector2.Distance(transform.position, player.position) > destroyRange) Destroy(gameObject);
         }
 
         public void dealDamage(float strength){
