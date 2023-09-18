@@ -4,7 +4,9 @@ using UnityEngine;
 
 namespace Monstrous.AI{
     public class HellhoundAI : EnemyBase{
+        [Header("Hellhound")]
         [SerializeField] private float debuffStrength = 0.5f;
+        [SerializeField] private float munchDelay = 2f;
         private Vector2 playerOffset;
         private bool attacking = false;
 
@@ -19,19 +21,19 @@ namespace Monstrous.AI{
         public override void onAttack(){
             if (!attacking){
                 playerOffset = transform.position - playerLoc.position;
-                StartCoroutine(munching());
                 player.speedDebuff += debuffStrength;
                 attacking = true;
+                StartCoroutine(munching());
             }
         }
 
         public override void onDeath(){
-            player.speedDebuff -= debuffStrength;
+            if (attacking) player.speedDebuff -= debuffStrength;
         }
 
         private IEnumerator munching(){
-            yield return new WaitForSeconds(1f);
-            player.TakeDamage(damage);
+            yield return new WaitForSeconds(munchDelay);
+            player.TakeDamage(damage / 2);
             StartCoroutine(munching());
         }
     }

@@ -54,7 +54,7 @@ MonoBehaviour:
   health: 50
   speed: 1.7
   damage: 10
-  invulnerabilityTime: 0.3
+  invulnerabilityTime: 0.1
   enemyID: kobold
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}
   partSprite: {fileID: 21300000, guid: 2929a55c5492dc2498a262d26b501396, type: 3}
@@ -67,7 +67,9 @@ MonoBehaviour:
   animator: {fileID: 8816028494753994112}
   renderer: {fileID: 8823162890959425916}
   player: {fileID: 0}
+  playerLoc: {fileID: 0}
   difficultyScale: 0
+  destroyRange: 50
   minimumCooldown: 0.3
   maximumCooldown: 2
   strafeSpeed: 50
