@@ -14,15 +14,11 @@ public class EnemySpawner : MonoBehaviour
     public ChunkController chunk;
     public float timeElapsed;
     public float diffScale=1;
-    //used for later enemy types
-    //[SerializeField]
-    //private GameObject skeleFab;
-    //[SerializeField]
-    //private GameObject vampFab;
-
-    //how long between enemySpawns
-    private float spawnInterval = 3.75f;
     
+    //how long between enemySpawns
+    [SerializeField] private float spawnInterval = 3.75f;
+    [SerializeField] private float bossSpawnInterval = 600f;
+
     private GameObject[] enemies;
     private int num;
 
@@ -100,6 +96,36 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(spawnEnemy(spawnInterval, biome.enemies[Random.Range(0,biome.enemies.Length)],  (int)diffScale*Random.Range(1,2)));
     }
     
+    private IEnumerator spawnBoss(float bossInterval){
+        biome = chunk.getBiome((int)player.position.x,(int)player.position.y);
+        yield return new WaitForSeconds(bossInterval);
+
+        Vector3 home = Vector3.zero;
+        switch (Random.Range(1,4)){
+            case 1://top edge
+                home.y = player.position.y + 13f;
+                home.x = player.position.x + (float) Random.Range(-20, 20);
+                break;
+            case 2://right edge
+                home.x = player.position.x + 17f;
+                home.y = player.position.y + (float)Random.Range(-15, 15);
+                break;
+            case 3://bottom edge
+                home.y = player.position.y - 13f;
+                home.x = player.position.x + (float)Random.Range(-20, 20);
+                break;
+            case 4://left edge
+                home.x = player.position.x - 17f;
+                home.y = player.position.y + (float)Random.Range(-15, 15);
+                break;
+        }
+        biome = chunk.getBiome((int) home.x, (int) home.y);
+        GameObject newEnemy = Instantiate(biome.bosses[Random.Range(0, biome.bosses.Length)], home, Quaternion.identity);
+        newEnemy.GetComponent<EnemyBase>().difficultyScale = diffScale;
+
+        StartCoroutine(spawnBoss(bossInterval));
+    }
+
     public float getDiffScale(){
         return diffScale;
     }

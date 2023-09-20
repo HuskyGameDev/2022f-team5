@@ -14,5 +14,6 @@ namespace Monstrous.Data{
         public GameObject[] structures;
         public int[] structureWeights;
         public GameObject[] enemies;
+        public GameObject[] bosses;
     }
 }

@@ -893,6 +893,7 @@ MonoBehaviour:
   pMaxHealth: 100
   expValue: 99
   moveSpeed: 3
+  speedDebuff: 1
   levelNum: 1
   levelUpExp: 0
 --- !u!212 &299809663
@@ -2456,6 +2457,22 @@ PrefabInstance:
       value: desert
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].bosses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[1].bosses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[2].bosses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[3].bosses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[0].enemies.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2472,17 +2489,33 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[0].bosses.Array.data[0]
+      value: 
+      objectReference: {fileID: 7031380081949734087, guid: 8e7f8845d87dabb44b0fbce818cc73fd, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[0].pathTiles.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[1].bosses.Array.data[0]
+      value: 
+      objectReference: {fileID: 4421447205180772920, guid: c34daaa3cde41d443adf15b2a414f103, type: 3}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[1].pathTiles.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[2].bosses.Array.data[0]
+      value: 
+      objectReference: {fileID: 302075674197517217, guid: c79898e9c1327a547a62299d1bb71c1d, type: 3}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[2].pathTiles.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: biomes.Array.data[3].bosses.Array.data[0]
+      value: 
+      objectReference: {fileID: 661897385720863431, guid: cabbecc2dbdd1d344ae0f93b923fa2ce, type: 3}
     - target: {fileID: 2570576165038498571, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: biomes.Array.data[3].pathTiles.Array.size
       value: 3
