@@ -171,9 +171,9 @@ MonoBehaviour:
   partSprite: {fileID: 21300000, guid: 7a005e9fa0a1dff44915aeeb4e8ace2f, type: 3}
   source: {fileID: -4474896260631860337}
   damageSounds:
-  - {fileID: 8300000, guid: 128e4d515eafe4c45ab7bed358354ec3, type: 3}
+  - {fileID: 8300000, guid: 0f24ac9720115d748849da70f39ca3ec, type: 3}
   deathSounds:
-  - {fileID: 8300000, guid: 5c93615dbaf22bd46941926bea9f283c, type: 3}
+  - {fileID: 8300000, guid: 32cc681d01a99154697aa0ba60e817ab, type: 3}
   body: {fileID: 7844372629366758588}
   animator: {fileID: 621606965632936682}
   renderer: {fileID: 2165528548615589504}

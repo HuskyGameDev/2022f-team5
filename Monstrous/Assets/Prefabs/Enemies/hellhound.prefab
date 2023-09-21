@@ -60,15 +60,18 @@ MonoBehaviour:
   partSprite: {fileID: 21300000, guid: 58e292036e90c0f408abd69e0a12d958, type: 3}
   source: {fileID: -4164400666209534877}
   damageSounds:
-  - {fileID: 8300000, guid: 128e4d515eafe4c45ab7bed358354ec3, type: 3}
+  - {fileID: 8300000, guid: aa8e90c080f3f6a4297e961632652100, type: 3}
   deathSounds:
-  - {fileID: 8300000, guid: 5c93615dbaf22bd46941926bea9f283c, type: 3}
+  - {fileID: 8300000, guid: c56084ec1580bc949ab38badcfdfc8e1, type: 3}
   body: {fileID: 4549479263233278818}
   animator: {fileID: 2908388248564351089}
   renderer: {fileID: -5548587029189763450}
   player: {fileID: 0}
+  playerLoc: {fileID: 0}
   difficultyScale: 0
   destroyRange: 50
+  debuffStrength: 0.5
+  munchDelay: 2
 --- !u!212 &-5548587029189763450
 SpriteRenderer:
   m_ObjectHideFlags: 0
