@@ -60,9 +60,9 @@ MonoBehaviour:
   partSprite: {fileID: 21300000, guid: 2929a55c5492dc2498a262d26b501396, type: 3}
   source: {fileID: 5393048334356532172}
   damageSounds:
-  - {fileID: 8300000, guid: 128e4d515eafe4c45ab7bed358354ec3, type: 3}
+  - {fileID: 8300000, guid: 3c27a02fd0e23584c9118b1c0881ddf1, type: 3}
   deathSounds:
-  - {fileID: 8300000, guid: 5c93615dbaf22bd46941926bea9f283c, type: 3}
+  - {fileID: 8300000, guid: b803df5e95fdb9d4a9c80f9acc64fa47, type: 3}
   body: {fileID: -7715271979321196698}
   animator: {fileID: 8816028494753994112}
   renderer: {fileID: 8823162890959425916}

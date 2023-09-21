@@ -60,13 +60,14 @@ MonoBehaviour:
   partSprite: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
   source: {fileID: -8080521643406620942}
   damageSounds:
-  - {fileID: 8300000, guid: 128e4d515eafe4c45ab7bed358354ec3, type: 3}
+  - {fileID: 8300000, guid: 6ef642a1c7c3fa34a8ea6a11c2d0b233, type: 3}
   deathSounds:
-  - {fileID: 8300000, guid: 5c93615dbaf22bd46941926bea9f283c, type: 3}
+  - {fileID: 8300000, guid: 818de6dc285e7c9499da44ac4b12cd60, type: 3}
   body: {fileID: -5835840115270097542}
   animator: {fileID: 2165706215859047581}
   renderer: {fileID: -6704019056051283582}
   player: {fileID: 0}
+  playerLoc: {fileID: 0}
   difficultyScale: 0
   destroyRange: 50
   bobbingStrength: 10

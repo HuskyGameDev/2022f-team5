@@ -14,29 +14,28 @@ public class VolumeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetFloat("soundVolume", 1f);
+        hoverText.text = "VOLUME: " + (float)volumeSlider.value;
+
         SetVolume();
-        textbox.SetActive(false);
     }
 
     public void ChangeVolume()
     {
-        AudioListener.volume = volumeSlider.value;
+        //AudioListener.volume = volumeSlider.value;
+        hoverText.text = "VOLUME: " + (int)(volumeSlider.value * 100) + "%";
     }
 
     private void SetVolume()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("soundVolume");
+
     }
 
-    public void OnMouseOver()
+    public void SaveVolume()
     {
-        hoverText.text = "Volume: " + (int)(volumeSlider.value * 100) + "%";
-        textbox.SetActive(true);
+        PlayerPrefs.SetFloat("soundVolume", volumeSlider.value);
+        AudioListener.volume = PlayerPrefs.GetFloat("soundVolume");
+        Debug.Log("sound is: " + PlayerPrefs.GetFloat("soundVolume"));
     }
 
-    public void OnMouseExit()
-    {
-        textbox.SetActive(false);
-    }
 }
