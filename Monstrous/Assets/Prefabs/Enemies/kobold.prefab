@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   speed: 1.7
-  damage: 10
+  damage: 8
   invulnerabilityTime: 0.1
   enemyID: kobold
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}
@@ -330,3 +330,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBase: {fileID: 6079939794835901673}
+  invert: 0

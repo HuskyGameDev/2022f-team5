@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137747671023657572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.019821, y: 0.060988, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.1830189, y: 1.1830189, z: 1.1830189}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51,9 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e98763617761694cb7b5c5cdf1489ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  speed: 3.5
-  damage: 3
+  health: 10
+  speed: 3
+  damage: 2
   invulnerabilityTime: 0.1
   enemyID: bat
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}
@@ -326,3 +326,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBase: {fileID: -5278050059013813928}
+  invert: 0

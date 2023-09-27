@@ -162,9 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a0733d8457f96428e2446de1a253e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 80
   speed: 1
-  damage: 10
+  damage: 6
   invulnerabilityTime: 0.2
   enemyID: 
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}

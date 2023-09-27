@@ -4,13 +4,14 @@ using UnityEngine;
 
 namespace Monstrous.AI{
     public class FacePlayer : MonoBehaviour{
-        public EnemyBase enemyBase;
+        [SerializeField] private EnemyBase enemyBase;
+        [SerializeField] private bool invert = false;
         void FixedUpdate(){
             //update the position of the enemy to be closer to the player
             if(enemyBase.playerLoc.position.x > transform.position.x){
-                enemyBase.renderer.flipX = false;
+                enemyBase.renderer.flipX = invert;
             }else{
-                enemyBase.renderer.flipX = true;
+                enemyBase.renderer.flipX = !invert;
             }
         }
     }

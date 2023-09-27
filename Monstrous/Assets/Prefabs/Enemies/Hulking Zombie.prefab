@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4453168130742294486}
   - component: {fileID: 6244256594571762512}
+  - component: {fileID: -293895364322468491}
   - component: {fileID: -2363366164449915793}
   - component: {fileID: 3210103663076904022}
   - component: {fileID: -6695909433060576783}
@@ -70,6 +71,19 @@ MonoBehaviour:
   playerLoc: {fileID: 0}
   difficultyScale: 0
   destroyRange: 100
+--- !u!114 &-293895364322468491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302075674197517217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ef13b65fbe47d42af2e047ed015406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSound: {fileID: 8300000, guid: 6374692828ed93b4f857b02641e1d690, type: 3}
 --- !u!212 &-2363366164449915793
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -176,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBase: {fileID: 6244256594571762512}
+  invert: 0
 --- !u!82 &4634475468119305090
 AudioSource:
   m_ObjectHideFlags: 0

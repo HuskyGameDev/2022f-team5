@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 999241426829810406}
   - component: {fileID: 4217947578531298291}
+  - component: {fileID: -8519870404945771398}
   - component: {fileID: 4114824952491983469}
   - component: {fileID: -2893189416040560092}
   - component: {fileID: -1285632586509931059}
@@ -68,6 +69,19 @@ MonoBehaviour:
   playerLoc: {fileID: 0}
   difficultyScale: 0
   destroyRange: 100
+--- !u!114 &-8519870404945771398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031380081949734087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ef13b65fbe47d42af2e047ed015406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSound: {fileID: 8300000, guid: 90dab394d8954a84fb5a5005519c0464, type: 3}
 --- !u!212 &4114824952491983469
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -270,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBase: {fileID: 4217947578531298291}
+  invert: 0
 --- !u!61 &3666033722633916924
 BoxCollider2D:
   m_ObjectHideFlags: 0

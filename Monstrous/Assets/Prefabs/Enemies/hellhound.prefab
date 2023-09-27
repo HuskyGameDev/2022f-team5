@@ -51,9 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862ac7844d781c84e8d7fd21de0bdbbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  speed: 2
-  damage: 10
+  health: 40
+  speed: 1.8
+  damage: 8
   invulnerabilityTime: 0.1
   enemyID: hellhound
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}
@@ -326,3 +326,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBase: {fileID: -907777833582502066}
+  invert: 0

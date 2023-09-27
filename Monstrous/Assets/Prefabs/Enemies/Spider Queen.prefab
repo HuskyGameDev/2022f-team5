@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBase: {fileID: -2905557611392396362}
+  invert: 0
 --- !u!82 &-3795062770103437449
 AudioSource:
   m_ObjectHideFlags: 0
