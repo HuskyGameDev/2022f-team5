@@ -16,6 +16,12 @@ public class Weapons : MonoBehaviour
     [Header("Swing Attack")]
     public Transform swingStart;
 
+    [Header("Bone Attack")]
+    public Transform boneStart;
+    public GameObject boneShot;
+    public float boneAttackAS = 1.0f;
+    private float boneTiming = 0.0f;
+    public float boneAttackBaseDam = 34;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +38,13 @@ public class Weapons : MonoBehaviour
             timing = 0.0f;
             BaseAttackShoot();
         }
+
+        boneTiming += Time.deltaTime;
+        if (boneTiming > boneAttackAS)
+        {
+            boneTiming = 0.0f;
+            BoneAttackThrow();
+        }
     }
 
     void BaseAttackShoot()
@@ -45,5 +58,10 @@ public class Weapons : MonoBehaviour
         yield return new WaitForSeconds((float)(baseAttackShotDur / baseAttackNumShots));
         if(shots > 1)
             StartCoroutine(ShootShot(shots - 1));
+    }
+
+    void BoneAttackThrow()
+    {
+        Instantiate(boneShot, boneStart.position, Quaternion.identity);
     }
 }
