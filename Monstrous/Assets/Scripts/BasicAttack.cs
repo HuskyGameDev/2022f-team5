@@ -12,12 +12,14 @@ public class BasicAttack : MonoBehaviour
 
     public float speed = 20;
     public float damage;
+    public float pierce;
 
     public GameObject projectileBreak;
 
     void Awake()
     {
         damage = GameObject.FindWithTag("Player").GetComponent<Weapons>().baseAttackBaseDam;
+        pierce = GameObject.FindWithTag("Player").GetComponent<Weapons>().baseAttackPCount;
         mainCamera = Camera.main;
         Vector2 temp = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         direction = temp - proj.position;
@@ -40,11 +42,17 @@ public class BasicAttack : MonoBehaviour
 
     }
 
+    //modify to add pierce mec, 
     private void OnTriggerEnter2D(Collider2D collided){
         if (collided.tag == "Enemy") collided.gameObject.GetComponent<EnemyBase>().dealDamage(damage);
-        if (collided.gameObject.tag != "Player" && collided.gameObject.tag != "Loader" && collided.gameObject.tag != "Room" && collided.gameObject.tag != "Pickup" && collided.gameObject.tag != "ProjAtk"){
-            Instantiate(projectileBreak, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+        if (collided.gameObject.tag == "Enemy" || collided.gameObject.tag == "Obstacle")
+        {
+            pierce -= 1;
+            if(pierce == 0 )
+            {
+                Instantiate(projectileBreak, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }            
         }
     }
 

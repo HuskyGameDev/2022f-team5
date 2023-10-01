@@ -983,6 +983,7 @@ MonoBehaviour:
   baseAttackAS: 1
   baseAttackBaseDam: 34
   baseAttackNumShots: 1
+  baseAttackPCount: 1
   swingStart: {fileID: 435621217}
   boneStart: {fileID: 1571994236}
   boneShot: {fileID: 9154608228306925210, guid: 3d60d0d70ebf0924da002506289d03f0, type: 3}

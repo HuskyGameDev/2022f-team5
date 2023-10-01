@@ -12,6 +12,7 @@ public class Weapons : MonoBehaviour
     public float baseAttackBaseDam = 34;
     public int baseAttackNumShots = 5;
     private float baseAttackShotDur = 0.5f; //the length of time during which all shots are fired per attack
+    public float baseAttackPCount = 1.0f;
 
     [Header("Swing Attack")]
     public Transform swingStart;

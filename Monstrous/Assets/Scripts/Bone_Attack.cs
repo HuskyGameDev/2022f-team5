@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Monstrous.AI;
 
 public class Bone_Attack : MonoBehaviour
 {
@@ -40,7 +42,7 @@ public class Bone_Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collided){
         if (collided.tag == "Enemy") collided.gameObject.GetComponent<EnemyBase>().dealDamage(damage);
-        if (collided.gameObject.tag = "Obstacle")
+        if (collided.gameObject.tag == "Obstacle")
         {
             Instantiate(projectileBreak, transform.position, Quaternion.identity);
             Destroy(gameObject);
