@@ -35,11 +35,13 @@ public class Bone_Attack : MonoBehaviour
     void FixedUpdate()
     {
         proj.MovePosition(proj.position + direction * speed * Time.fixedDeltaTime);
+        //rotate some amount
     }
 
     private void OnTriggerEnter2D(Collider2D collided){
         if (collided.tag == "Enemy") collided.gameObject.GetComponent<EnemyBase>().dealDamage(damage);
-        if (collided.gameObject.tag != "Player" && collided.gameObject.tag != "Loader" && collided.gameObject.tag != "Room" && collided.gameObject.tag != "Pickup" && collided.gameObject.tag != "ProjAtk"){
+        if (collided.gameObject.tag = "Obstacle")
+        {
             Instantiate(projectileBreak, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

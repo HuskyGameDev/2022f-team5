@@ -12,6 +12,7 @@ TagManager:
   - Loader
   - Door
   - Room
+  - Obstacles
   layers:
   - Default
   - TransparentFX
