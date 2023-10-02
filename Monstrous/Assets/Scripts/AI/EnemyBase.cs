@@ -33,7 +33,7 @@ namespace Monstrous.AI{
     
         private bool colliding = false;
 
-        private void Start(){
+        public void Start(){
             health = health + (health * (difficultyScale * 0.3f));
             speed = speed + (speed * (difficultyScale * 0.3f));
             damage = (damage + (damage * difficultyScale * 0.33f));
@@ -41,7 +41,7 @@ namespace Monstrous.AI{
             playerLoc = GameObject.FindWithTag("Player").GetComponent<Transform>();
         }
 
-        private void Update(){
+        public void Update(){
             if (Vector2.Distance(transform.position, playerLoc.position) > destroyRange) Destroy(gameObject);
         }
 

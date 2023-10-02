@@ -7,13 +7,15 @@ namespace Monstrous.AI{
         private enum States{
             DEFAULT,
             LEAPING,
-            THROWING
+            THROWING,
+            NULL
         }
 
-        [SerializeField] private States state;
+        [SerializeField] private States state = States.DEFAULT;
         [SerializeField] private GameObject shadow;
         [SerializeField] private float stateChangeTimer = 5f;
         [SerializeField] private float rangedAttackDistance = 5f;
+        [SerializeField] private float jumpTime = 3f;
         private States queuedState;
 
         public void Start(){
@@ -25,9 +27,9 @@ namespace Monstrous.AI{
             switch (state){
                 case States.DEFAULT:
                     transform.position = Vector2.MoveTowards(transform.position, playerLoc.position, speed * Time.fixedDeltaTime);
-                    if (queuedState != null){
+                    if (queuedState != States.NULL){
                         state = queuedState;
-                        queuedState = null;
+                        queuedState = States.NULL;
                     }
                     break;
                 case States.LEAPING:
