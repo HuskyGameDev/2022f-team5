@@ -29,11 +29,11 @@ public class Bone_Attack : MonoBehaviour
         Vector2 temp = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         direction = temp - proj.position;
         direction.Normalize();
-        LookAt2D(transform, temp);
         transform.Rotate(0f, 0f, -90f, Space.Self);
         moveMethod = MoveThrow;
         
-        target = GameObject.FindWithTag("Temp").GetComponent<Transform>();
+        //target = GameObject.FindWithTag("Temp").GetComponent<Transform>();
+        target = direction * 25.0f;
     }
 
     // Start is called before the first frame update
@@ -67,14 +67,6 @@ public class Bone_Attack : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    private void LookAt2D(Transform transform, Vector2 target)
-    {
-        Vector2 current = transform.position;
-        var direction = target - current;
-        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     //boomerang will start by moving away
