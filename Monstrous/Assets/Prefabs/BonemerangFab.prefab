@@ -123,7 +123,6 @@ MonoBehaviour:
   proj: {fileID: -3512878471779699112}
   target: {fileID: 0}
   mainCamera: {fileID: 0}
-  speed: 20
   damage: 0
   projectileBreak: {fileID: 7247247948436603112, guid: b4bb7fb2bf8247947b8166094b4d881b, type: 3}
 --- !u!70 &-8672785667832094930
@@ -140,5 +139,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3.2, y: 3.2}
+  m_Size: {x: 0.5, y: 2.6}
   m_Direction: 0
