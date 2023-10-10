@@ -44,7 +44,10 @@ public class BasicAttack : MonoBehaviour
 
     //modify to add pierce mec, 
     private void OnTriggerEnter2D(Collider2D collided){
-        if (collided.tag == "Enemy") collided.gameObject.GetComponent<EnemyBase>().dealDamage(damage);
+        if (collided.tag == "Enemy")
+        {
+            collided.gameObject.GetComponent<EnemyBase>().dealDamage(damage);
+        } 
         if (collided.gameObject.tag == "Enemy" || collided.gameObject.tag == "Obstacle")
         {
             pierce -= 1;
