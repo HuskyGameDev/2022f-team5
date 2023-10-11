@@ -33,7 +33,7 @@ public class Bone_Attack : MonoBehaviour
         moveMethod = MoveThrow;
         
         //target = GameObject.FindWithTag("Temp").GetComponent<Transform>();
-        target = direction * 25.0f;
+        target = direction * 15.0f;
     }
 
     // Update is called once per frame

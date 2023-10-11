@@ -4,19 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using Monstrous.AI;
+using Monstrous.Camera;
 
 public class Player : MonoBehaviour
 {
     
     // objects
     public Rigidbody2D rb;
-    //public Animator animator;
     public HealthBar healthBar;
     public HealthBar expBar;
     public AudioSource steps1;
     public AudioSource steps2;
     public GameObject upgrades;
     public SpriteRenderer sprite;
+    [SerializeField] private Camera mainCamera;
 
     // variables
     [SerializeField]
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
         gameObject.tag = "Player";
         steps1.enabled = false;
         steps2.enabled = false;
+        mainCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -105,6 +107,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float dam){
         pHealth = pHealth - dam;
         healthBar.UpdateHealthBar(pHealth);
+        //mainCamera.gameObject.GetComponent<CameraMovement>().knockCam();
         if (pHealth <= 0)
         {
             //Destroy(this.gameObject);

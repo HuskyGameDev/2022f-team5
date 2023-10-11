@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Weapons : MonoBehaviour
 {
+    //controller
+    private delegate void attackMethod();
+    attackMethod attacks;
+
     [Header("Basic Attack")]
     public Transform start;
     public GameObject shot;
@@ -27,25 +30,13 @@ public class Weapons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        attacks = attack_base;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timing += Time.deltaTime;
-        if (timing > baseAttackAS)
-        {
-            timing = 0.0f;
-            BaseAttackShoot();
-        }
-
-        boneTiming += Time.deltaTime;
-        if (boneTiming > boneAttackAS)
-        {
-            boneTiming = 0.0f;
-            BoneAttackThrow();
-        }
+        attacks();
     }
 
     void BaseAttackShoot()
@@ -64,5 +55,37 @@ public class Weapons : MonoBehaviour
     void BoneAttackThrow()
     {
         Instantiate(boneShot, boneStart.position, Quaternion.identity);
+    }
+
+    void attack_base()
+    {
+        timing += Time.deltaTime;
+        if (timing > baseAttackAS)
+        {
+            timing = 0.0f;
+            BaseAttackShoot();
+        }
+    }
+
+    void attack_base_bone()
+    {
+        timing += Time.deltaTime;
+        if (timing > baseAttackAS)
+        {
+            timing = 0.0f;
+            BaseAttackShoot();
+        }
+
+        boneTiming += Time.deltaTime;
+        if (boneTiming > boneAttackAS)
+        {
+            boneTiming = 0.0f;
+            BoneAttackThrow();
+        }
+    }
+
+    public void gainBoomerang()
+    {
+        attacks = attack_base_bone;
     }
 }
