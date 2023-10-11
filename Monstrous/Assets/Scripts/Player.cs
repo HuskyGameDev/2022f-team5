@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float dam){
         pHealth = pHealth - dam;
         healthBar.UpdateHealthBar(pHealth);
-        mainCamera.gameObject.GetComponent<CameraMovement>().knockCam();
+        //mainCamera.gameObject.GetComponent<CameraMovement>().knockCam();
         if (pHealth <= 0)
         {
             //Destroy(this.gameObject);

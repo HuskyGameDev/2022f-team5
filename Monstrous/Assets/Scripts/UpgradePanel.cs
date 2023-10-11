@@ -191,6 +191,9 @@ public class UpgradePanel : MonoBehaviour
             case "SwingAtkSize":
                 butt.onClick.AddListener(Up_SwingAtkSize);
                 break;
+            case "Bonemerang":
+                butt.onClick.AddListener(Up_Bonemerang);
+                break;
         }
         butt.GetComponent<Image>().sprite = upgrade.image;
     }
@@ -234,6 +237,9 @@ public class UpgradePanel : MonoBehaviour
                 break;
             case "SwingAtkSize":
                 butt.onClick.RemoveListener(Up_SwingAtkSize);
+                break;
+            case "Bonemerang":
+                butt.onClick.RemoveListener(Up_Bonemerang);
                 break;
         }
     }
@@ -331,5 +337,11 @@ public class UpgradePanel : MonoBehaviour
     {
         swing.size.x *= 1.3f;
         swing.size.y *= 1.3f;
+    }
+
+    public void Up_Bonemerang()
+    {
+        player.GetComponent<Weapons>().gainBoomerang();
+        Destroy(GameObject.Find("Bonemerang"));
     }
 }

@@ -60,14 +60,14 @@ TagManager:
   - name: Pickups
     uniqueID: 2188368545
     locked: 0
+  - name: Structures
+    uniqueID: 1422086275
+    locked: 0
   - name: Weapons
     uniqueID: 296422775
     locked: 0
   - name: Player
     uniqueID: 1278825641
-    locked: 0
-  - name: Structures
-    uniqueID: 1422086275
     locked: 0
   - name: UI
     uniqueID: 3435615969
