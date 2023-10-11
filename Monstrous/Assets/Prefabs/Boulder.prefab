@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
-  rollSpeed: 5
+  rollSpeed: 100
   damage: 50
   body: {fileID: 7954970363352679373}
 --- !u!50 &7954970363352679373

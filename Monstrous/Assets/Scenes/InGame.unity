@@ -2383,6 +2383,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498569, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: bossSpawnInterval
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498570, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -5032,7 +5036,7 @@ Transform:
   - {fileID: 920932159}
   - {fileID: 980502460}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1528546187 stripped
 MonoBehaviour:
@@ -6070,7 +6074,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2279152817290122016, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2279152817290122016, guid: c6280ae0c4fa0664ab4d9c154585308a, type: 3}
       propertyPath: m_LocalPosition.x

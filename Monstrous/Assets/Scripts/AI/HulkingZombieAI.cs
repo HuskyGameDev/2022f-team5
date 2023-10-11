@@ -19,6 +19,10 @@ namespace Monstrous.AI{
         private States queuedState;
         private bool started = false;
         private Vector3 target;
+        private float timer;
+        private Vector3 center;
+        private Vector3 startCenter;
+        private Vector3 endCenter;
 
         public void Start(){
             base.Start();
@@ -39,10 +43,17 @@ namespace Monstrous.AI{
                     if (!started){
                         target = playerLoc.position;
                         started = true;
+                        timer = 0f;
+                        center = (transform.position + target) / 2;
+                        center -= new Vector3(0, 3, 0);
+                        startCenter = transform.position - center;
+                        endCenter = target - center;
                     }
-                    Vector3.Slerp(transform.position, target, Time.deltaTime);
+                    transform.position = Vector3.Slerp(startCenter, endCenter, timer / jumpTime) + center;
+                    timer += Time.deltaTime;
                     if (Vector3.Distance(transform.position, target) < 0.5f){
                         state = States.DEFAULT;
+                        started = false;
                     }
                     break;
                 case States.THROWING:

@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 300
-  speed: 0.5
+  speed: 0.8
   damage: 20
   invulnerabilityTime: 0.025
   enemyID: hulkingZombie
@@ -74,7 +74,7 @@ MonoBehaviour:
   state: 0
   stateChangeTimer: 5
   rangedAttackDistance: 5
-  jumpTime: 3
+  jumpTime: 1.5
   boulder: {fileID: 4635955783350464841, guid: 48a85580058be4f40bca30d2a8d989c8, type: 3}
 --- !u!114 &-293895364322468491
 MonoBehaviour:
@@ -153,8 +153,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 500
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
         biome = chunk.getBiome((int)player.position.x,(int)player.position.y);
      
         StartCoroutine(spawnEnemy());
+        StartCoroutine(spawnBoss());
     }
     
     // Update is called once per frame
@@ -87,7 +88,7 @@ public class EnemySpawner : MonoBehaviour
         biome = chunk.getBiome((int) clusterHome.x, (int) clusterHome.y);
         GameObject enemy = biome.enemies[Random.Range(0, biome.enemies.Length)];
 
-        for (int i = 0; i < (int)diffScale * Random.Range(2,5); i++){
+        for (int i = 0; i < (int) diffScale * Random.Range(2,5); i++){
             noise.x = Random.Range(-3, 3);
             noise.y = Random.Range(-3, 3);
             GameObject newEnemy = Instantiate(enemy, clusterHome - noise, Quaternion.identity);
@@ -97,9 +98,9 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(spawnEnemy());
     }
     
-    private IEnumerator spawnBoss(float bossInterval){
+    private IEnumerator spawnBoss(){
         biome = chunk.getBiome((int)player.position.x,(int)player.position.y);
-        yield return new WaitForSeconds(bossInterval);
+        yield return new WaitForSeconds(bossSpawnInterval);
 
         Vector3 home = Vector3.zero;
         switch (Random.Range(1,4)){
@@ -121,10 +122,11 @@ public class EnemySpawner : MonoBehaviour
                 break;
         }
         biome = chunk.getBiome((int) home.x, (int) home.y);
-        GameObject newEnemy = Instantiate(biome.bosses[Random.Range(0, biome.bosses.Length)], home, Quaternion.identity);
-        newEnemy.GetComponent<EnemyBase>().difficultyScale = diffScale;
-
-        StartCoroutine(spawnBoss(bossInterval));
+        if (biome.bosses.Length > 0){
+            GameObject newEnemy = Instantiate(biome.bosses[Random.Range(0, biome.bosses.Length)], home, Quaternion.identity);
+            newEnemy.GetComponent<EnemyBase>().difficultyScale = diffScale;
+        }
+        StartCoroutine(spawnBoss());
     }
 
     public float getDiffScale(){
