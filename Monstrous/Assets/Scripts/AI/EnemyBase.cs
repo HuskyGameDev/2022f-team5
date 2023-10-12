@@ -34,7 +34,7 @@ namespace Monstrous.AI{
         private bool colliding = false;
 
         public void Start(){
-            health = health + (health * (difficultyScale * 0.13f));
+            health = health + (health * (difficultyScale * 0.55f));
             speed = speed + (speed * (difficultyScale * 0.025f));
             damage = (damage + (damage * difficultyScale * 0.16f));
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
