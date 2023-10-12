@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
             expValue = expValue- levelUpExp; 
         }
         expBar.UpdateHealthBar(expValue);
-        expBar.UpdateHealthBarMax(levelUpExp);
+        expBar.UpdateHealthBarMax(levelUpExp, 0);
     }
 
     private void OnDestroy()

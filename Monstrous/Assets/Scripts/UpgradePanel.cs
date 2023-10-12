@@ -282,7 +282,7 @@ public class UpgradePanel : MonoBehaviour
         float proportion = play.pHealth / play.pMaxHealth;
         play.pMaxHealth += 35f; //<---------------------------value
         play.pHealth = play.pMaxHealth * proportion;
-        play.healthBar.UpdateHealthBarMax(play.pMaxHealth);
+        play.healthBar.UpdateHealthBarMax(play.pMaxHealth, 35f);
         play.healthBar.UpdateHealthBar(play.pHealth);
     }
 
@@ -293,7 +293,7 @@ public class UpgradePanel : MonoBehaviour
         float proportion = play.pHealth / play.pMaxHealth;
         play.pMaxHealth += 40f; //<---------------------------value
         play.pHealth = play.pMaxHealth * proportion;
-        play.healthBar.UpdateHealthBarMax(play.pMaxHealth);
+        play.healthBar.UpdateHealthBarMax(play.pMaxHealth, 40f);
         play.healthBar.UpdateHealthBar(play.pHealth);
     }
 
