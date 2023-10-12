@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (timeElapsed >= 10f) // increase difficulty every minute
         {
-            diffScale *= 1.045f;
+            diffScale *= 1.085f;
             //Debug.Log(diffScale);
             timeElapsed = 0f;
         }

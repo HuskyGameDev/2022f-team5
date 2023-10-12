@@ -6,8 +6,8 @@ using Monstrous.AI;
 
 public class SwingAttackScript : MonoBehaviour
 {
-    public float SwingAtkDamage = 60f;
-    public float SwingAtkAS = 5.0f;
+    public float SwingAtkDamage = 70f;
+    public float SwingAtkAS = 2.5f;
     private float timing = 2.5f;
     public Vector2 size;
 

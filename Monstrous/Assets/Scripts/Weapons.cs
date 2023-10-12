@@ -12,9 +12,9 @@ public class Weapons : MonoBehaviour
     public GameObject shot;
     public float baseAttackAS = 1.0f;
     private float timing = 0.0f;
-    public float baseAttackBaseDam = 34;
+    public float baseAttackBaseDam = 45;
     public int baseAttackNumShots = 5;
-    private float baseAttackShotDur = 0.5f; //the length of time during which all shots are fired per attack
+    private float baseAttackShotDur = 0.25f; //the length of time during which all shots are fired per attack
     public float baseAttackPCount = 1.0f;
 
     [Header("Swing Attack")]
@@ -25,7 +25,7 @@ public class Weapons : MonoBehaviour
     public GameObject boneShot;
     public float boneAttackAS = 1.0f;
     private float boneTiming = 0.0f;
-    public float boneAttackBaseDam = 34;
+    public float boneAttackBaseDam = 40;
 
     // Start is called before the first frame update
     void Start()

@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
         expValue = expValue + exp;
 
         //Exp curve 
-        levelUpExp = (float)(100 + Mathf.Pow(levelNum/0.15f, 2f) );
+        levelUpExp = (float)(100 + Mathf.Pow(levelNum/0.65f, 2f) );
 
          //Debug.Log(levelUpExp);
          //Debug.Log(levelNum);

@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39ff05e89fbcc54f9b0bd53993b3a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
-  speed: 1
-  damage: 20
+  health: 4000
+  speed: 0.7
+  damage: 27
   invulnerabilityTime: 0.025
   enemyID: hulkingZombie
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}
@@ -78,6 +78,7 @@ MonoBehaviour:
   jumpTime: 1.5
   boulder: {fileID: 4635955783350464841, guid: 48a85580058be4f40bca30d2a8d989c8, type: 3}
   baseBoulderDamage: 50
+  baseBoulderSpeed: 8
   particles: {fileID: 3126251966314061282}
   damagedLayers:
     serializedVersion: 2

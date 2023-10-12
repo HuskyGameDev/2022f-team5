@@ -51,9 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e98763617761694cb7b5c5cdf1489ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  speed: 3
-  damage: 2
+  health: 8
+  speed: 3.5
+  damage: 1
   invulnerabilityTime: 0.1
   enemyID: bat
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}

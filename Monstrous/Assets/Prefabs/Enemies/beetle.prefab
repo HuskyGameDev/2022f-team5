@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 75
   speed: 0.7
-  damage: 8
+  damage: 4
   invulnerabilityTime: 0.1
   enemyID: beetle
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}
