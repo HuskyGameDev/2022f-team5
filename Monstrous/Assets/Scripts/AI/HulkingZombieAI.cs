@@ -16,6 +16,11 @@ namespace Monstrous.AI{
         [SerializeField] private float rangedAttackDistance = 5f;
         [SerializeField] private float jumpTime = 3f;
         [SerializeField] private GameObject boulder;
+        [SerializeField] private float baseBoulderDamage = 50f;
+        [SerializeField] private ParticleSystem particles;
+        [SerializeField] private LayerMask damagedLayers;
+        [SerializeField] private float jumpDamageRadius = 2.5f;
+        [SerializeField] private float jumpDamageRatio = 1.2f;
         private States queuedState;
         private bool started = false;
         private Vector3 target;
@@ -54,12 +59,23 @@ namespace Monstrous.AI{
                     if (Vector3.Distance(transform.position, target) < 0.5f){
                         state = States.DEFAULT;
                         started = false;
+                        particles.Play();
+                        Collider2D[] collided = Physics2D.OverlapCircleAll(transform.position, jumpDamageRadius, damagedLayers);
+                        foreach (Collider2D c in collided){
+                            if (c.tag == "Enemy" && c.GetComponent<HulkingZombieAI>() == null){
+                                c.GetComponent<EnemyBase>().dealDamage(damage * jumpDamageRatio);
+                            }else if (c.tag == "Player"){
+                                c.GetComponent<Player>().TakeDamage(damage * jumpDamageRatio);
+                            }
+                        }
                     }
                     break;
                 case States.THROWING:
                     Debug.Log("Throwing");
                     GameObject b = Instantiate(boulder, transform.position, Quaternion.identity);
-                    b.GetComponent<Boulder>().direction = (playerLoc.position - transform.position).normalized;
+                    Boulder bould = b.GetComponent<Boulder>();
+                    bould.direction = (playerLoc.position - transform.position).normalized;
+                    bould.damage = baseBoulderDamage;
                     state = States.DEFAULT;
                     break;
             }
