@@ -5,14 +5,18 @@ using Monstrous.AI;
 
 public class Boulder : MonoBehaviour{
     public Vector3 direction;
-    [SerializeField] private float rollSpeed = 5f;
+    public float rollSpeed = 5f;
     public float damage = 50f;
     [SerializeField] private Rigidbody2D body;
     [SerializeField] private float deathTimer = 10f;
 
+    void Start(){
+        StartCoroutine(die());
+    }
+
     // Update is called once per frame
-    void Update(){
-        body.MovePosition(transform.position + (direction * rollSpeed * Time.deltaTime));
+    void FixedUpdate(){
+        body.MovePosition(transform.position + (direction * rollSpeed * Time.fixedDeltaTime));
     }
 
     public void OnTriggerEnter2D(Collider2D c){

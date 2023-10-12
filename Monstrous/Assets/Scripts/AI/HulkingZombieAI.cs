@@ -17,6 +17,7 @@ namespace Monstrous.AI{
         [SerializeField] private float jumpTime = 3f;
         [SerializeField] private GameObject boulder;
         [SerializeField] private float baseBoulderDamage = 50f;
+        [SerializeField] private float baseBoulderSpeed = 8f;
         [SerializeField] private ParticleSystem particles;
         [SerializeField] private LayerMask damagedLayers;
         [SerializeField] private float jumpDamageRadius = 2.5f;
@@ -76,6 +77,7 @@ namespace Monstrous.AI{
                     Boulder bould = b.GetComponent<Boulder>();
                     bould.direction = (playerLoc.position - transform.position).normalized;
                     bould.damage = baseBoulderDamage;
+                    bould.rollSpeed = baseBoulderSpeed;
                     state = States.DEFAULT;
                     break;
             }

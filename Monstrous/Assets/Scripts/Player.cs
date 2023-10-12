@@ -85,15 +85,9 @@ public class Player : MonoBehaviour
         //Debug.Log(this.gameObject.name + " collided with " + other.name);
         if ( other.CompareTag("Enemy") )
         {
-            if (isColliding) return;
-            isColliding = true;
-
             //Debug.Log("Take Damage");
             TakeDamage(other.gameObject.GetComponent<EnemyBase>().damage);
             other.gameObject.GetComponent<EnemyBase>().onAttack();
-
-            StartCoroutine(stopColliding());
-
         } else if ( other.CompareTag("Pickup") )
         {
             EnemyPart Temp = other.gameObject.GetComponent<EnemyPart>();
@@ -105,6 +99,9 @@ public class Player : MonoBehaviour
     }
     
     public void TakeDamage(float dam){
+        if (isColliding) return;
+        isColliding = true;
+        StartCoroutine(stopColliding());
         pHealth = pHealth - dam;
         healthBar.UpdateHealthBar(pHealth);
         //mainCamera.gameObject.GetComponent<CameraMovement>().knockCam();

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7954970363352679373}
   m_Layer: 0
   m_Name: Boulder
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,9 +130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
-  rollSpeed: 100
+  rollSpeed: 7
   damage: 50
   body: {fileID: 7954970363352679373}
+  deathTimer: 30
 --- !u!50 &7954970363352679373
 Rigidbody2D:
   serializedVersion: 4

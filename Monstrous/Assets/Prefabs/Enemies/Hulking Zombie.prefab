@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 300
-  speed: 0.8
+  speed: 1
   damage: 20
   invulnerabilityTime: 0.025
   enemyID: hulkingZombie
@@ -77,6 +77,7 @@ MonoBehaviour:
   rangedAttackDistance: 5
   jumpTime: 1.5
   boulder: {fileID: 4635955783350464841, guid: 48a85580058be4f40bca30d2a8d989c8, type: 3}
+  baseBoulderDamage: 50
   particles: {fileID: 3126251966314061282}
   damagedLayers:
     serializedVersion: 2
