@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public AudioSource steps2;
     public GameObject upgrades;
     public SpriteRenderer sprite;
+    public SpriteRenderer vignette;
     [SerializeField] private Camera mainCamera;
 
     // variables
@@ -58,6 +59,11 @@ public class Player : MonoBehaviour
         else if(movement.x < 0 && facingRight)
         {
             flipChar();
+        }
+
+        if ((pHealth / pMaxHealth > 0.35) && (vignette.enabled == true))
+        {
+            vignette.enabled = false;
         }
     }
 
@@ -105,6 +111,10 @@ public class Player : MonoBehaviour
         pHealth = pHealth - dam;
         healthBar.UpdateHealthBar(pHealth);
         //mainCamera.gameObject.GetComponent<CameraMovement>().knockCam();
+        if((pHealth/pMaxHealth <= 0.35) && (vignette.enabled == false))
+        {
+            vignette.enabled = true;
+        }
         if (pHealth <= 0)
         {
             //Destroy(this.gameObject);
