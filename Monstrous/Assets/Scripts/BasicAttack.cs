@@ -18,8 +18,6 @@ public class BasicAttack : MonoBehaviour
 
     void Awake()
     {
-        damage = GameObject.FindWithTag("Player").GetComponent<Weapons>().baseAttackBaseDam;
-        pierce = GameObject.FindWithTag("Player").GetComponent<Weapons>().baseAttackPCount;
         mainCamera = Camera.main;
         Vector2 temp = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         direction = temp - proj.position;
@@ -27,11 +25,6 @@ public class BasicAttack : MonoBehaviour
         LookAt2D(transform, temp);
         transform.Rotate(0f, 0f, -90f, Space.Self);
         StartCoroutine(despawnProj());
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-       
     }
 
     // Update is called once per frame
@@ -48,13 +41,13 @@ public class BasicAttack : MonoBehaviour
         {
             collided.gameObject.GetComponent<EnemyBase>().dealDamage(damage);
         } 
-        if (collided.gameObject.tag == "Enemy" || collided.gameObject.tag == "Obstacle")
+        if (collided.gameObject.tag == "Enemy" || collided.gameObject.tag == "Obstacles")
         {
-            pierce -= 1;
-            if(pierce == 0 )
-            {
+            if(pierce == 0){
                 Instantiate(projectileBreak, transform.position, Quaternion.identity);
                 Destroy(gameObject);
+            }else{
+                pierce -= 1;
             }            
         }
     }

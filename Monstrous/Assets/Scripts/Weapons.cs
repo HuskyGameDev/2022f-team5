@@ -15,7 +15,7 @@ public class Weapons : MonoBehaviour
     public float baseAttackBaseDam = 45;
     public int baseAttackNumShots = 5;
     private float baseAttackShotDur = 0.25f; //the length of time during which all shots are fired per attack
-    public float baseAttackPCount = 1.0f;
+    public int baseAttackPCount = 0;
 
     [Header("Swing Attack")]
     public Transform swingStart;
@@ -46,7 +46,9 @@ public class Weapons : MonoBehaviour
 
     private IEnumerator ShootShot(int shots) //if anybody has a better name for this feel free to refactor
     {
-        Instantiate(shot, start.position, Quaternion.identity);
+        BasicAttack arrow = Instantiate(shot, start.position, Quaternion.identity).GetComponent<BasicAttack>();
+        arrow.damage = baseAttackBaseDam;
+        arrow.pierce = baseAttackPCount;
         yield return new WaitForSeconds((float)(baseAttackShotDur / baseAttackNumShots));
         if(shots > 1)
             StartCoroutine(ShootShot(shots - 1));

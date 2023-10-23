@@ -14,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
     public ChunkController chunk;
     public float timeElapsed;
     public float diffScale=1;
+    public AnimationCurve spawningScale;
     
     //how long between enemySpawns
     [SerializeField] private float spawnInterval = 3.75f;
@@ -88,7 +89,7 @@ public class EnemySpawner : MonoBehaviour
         biome = chunk.getBiome((int) clusterHome.x, (int) clusterHome.y);
         GameObject enemy = biome.enemies[Random.Range(0, biome.enemies.Length)];
 
-        for (int i = 0; i < (int) diffScale * Random.Range(2,5); i++){
+        for (int i = 0; i < (int) spawningScale.Evaluate(diffScale) * Random.Range(2,4); i++){
             noise.x = Random.Range(-3, 3);
             noise.y = Random.Range(-3, 3);
             GameObject newEnemy = Instantiate(enemy, clusterHome - noise, Quaternion.identity);

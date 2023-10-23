@@ -46,6 +46,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   biomes:
+  - biomeID: volcano
+    grassTiles:
+    - {fileID: 21300000, guid: 68b8c8e5bed968c46aaf7a93c43ef6c4, type: 3}
+    - {fileID: 21300000, guid: 25ea0cecf1438334d9ce2cd4cd01a6bd, type: 3}
+    - {fileID: 21300000, guid: 872c4b94de546174d98e240c234945a6, type: 3}
+    secondaryTiles:
+    - {fileID: 21300000, guid: ff278a1238503b349945afa9a7b20915, type: 3}
+    - {fileID: 21300000, guid: 7bdae332448b56f48a2a007e283f8577, type: 3}
+    - {fileID: 21300000, guid: a377bf60f76e1054bb9b8d782ba84be7, type: 3}
+    pathTiles:
+    - {fileID: 21300000, guid: b02e3bab15a900e4f9c3b3c9fd5fbdab, type: 3}
+    - {fileID: 21300000, guid: a8306b2fe39a9a249b32085a8b43af7a, type: 3}
+    - {fileID: 21300000, guid: e81fe4001ae99d04ca51f7356f2e7ea2, type: 3}
+    structures:
+    - {fileID: 1549157941741390554, guid: 501fdd174e0010a42816c53ff16bfacb, type: 3}
+    structureWeights: 01000000
+    enemies:
+    - {fileID: 5789028764125476146, guid: e518f6245da28704990f7a424991ec93, type: 3}
+    - {fileID: 1342783162070252478, guid: f1bbd078e65747b4da473dd5bb6e8722, type: 3}
+    bosses:
+    - {fileID: 7031380081949734087, guid: 8e7f8845d87dabb44b0fbce818cc73fd, type: 3}
   - biomeID: plains
     grassTiles:
     - {fileID: 21300000, guid: 3e855966a9b83e64880f43f74f7b00a5, type: 3}
@@ -57,8 +78,18 @@ MonoBehaviour:
     - {fileID: 21300000, guid: b0439ed1a3b74ac4aaf1a010d64ad03d, type: 3}
     - {fileID: 21300000, guid: e289b6bb01507c846a2511296b13c2bc, type: 3}
     - {fileID: 21300000, guid: 1c445fa3e8a6f254db99aab95882b705, type: 3}
+    structures:
+    - {fileID: 1549157941741390554, guid: 501fdd174e0010a42816c53ff16bfacb, type: 3}
+    - {fileID: 5317476302342926259, guid: 6cff4cd6de88c7246b688f78eb4a34b2, type: 3}
+    - {fileID: 3913731962679824365, guid: 356d1af589b8382468c2fd2439a91779, type: 3}
+    - {fileID: 6434226170534762625, guid: fabcb191585f4974ea99713b5bd88608, type: 3}
+    - {fileID: 1226886491697088564, guid: 810998c4054df7b4080f22e54619b821, type: 3}
+    structureWeights: 0200000001000000010000000300000001000000
     enemies:
-    - {fileID: 2118126249402630671, guid: cc932c2bf73a747459472d9819e3e14c, type: 3}
+    - {fileID: 2937062369136561775, guid: fc3644f876ffa2447b2ee4e3afe1550d, type: 3}
+    - {fileID: 6093683310351451403, guid: 000eb7978541aff4986b896412fc2f4f, type: 3}
+    bosses:
+    - {fileID: 4421447205180772920, guid: c34daaa3cde41d443adf15b2a414f103, type: 3}
   - biomeID: rottingPlains
     grassTiles:
     - {fileID: 21300000, guid: 0b8d5a1d75d876e4ebe6462628535b11, type: 3}
@@ -72,8 +103,16 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 2bbdd395ce5759e4b902f0c0a7be6eae, type: 3}
     - {fileID: 21300000, guid: 34b423da622bf8d4982f27122b7affb4, type: 3}
     - {fileID: 21300000, guid: 8bd09156f6cbce44aa5470ef13f766ba, type: 3}
+    structures:
+    - {fileID: 1549157941741390554, guid: 501fdd174e0010a42816c53ff16bfacb, type: 3}
+    - {fileID: 6471536164146169291, guid: 4640745dd5da2714d824b92e16835a34, type: 3}
+    - {fileID: 1226886491697088564, guid: 810998c4054df7b4080f22e54619b821, type: 3}
+    structureWeights: 020000000200000001000000
     enemies:
-    - {fileID: 1037476648381245672, guid: 42a2d1bd16222b648985e0f776d3095c, type: 3}
+    - {fileID: 137747671023657572, guid: 749ba89a438ed6e40a6d965279774062, type: 3}
+    - {fileID: 137747671023657572, guid: c9c0150c82470e34696a2c7c7cb7f09b, type: 3}
+    bosses:
+    - {fileID: 302075674197517217, guid: c79898e9c1327a547a62299d1bb71c1d, type: 3}
   - biomeID: desert
     grassTiles:
     - {fileID: 21300000, guid: 3be0e834ad39cb14ea65cd4600a1190d, type: 3}
@@ -87,7 +126,13 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 3be0e834ad39cb14ea65cd4600a1190d, type: 3}
     - {fileID: 21300000, guid: cfa03e1031934524584a19bb64b4cba9, type: 3}
     - {fileID: 21300000, guid: f7f28fe82e48dc746b08d45d9cca0947, type: 3}
-    enemies: []
+    structures:
+    - {fileID: 1549157941741390554, guid: 501fdd174e0010a42816c53ff16bfacb, type: 3}
+    structureWeights: 01000000
+    enemies:
+    - {fileID: 7518529007394784832, guid: be1948231be94cb44b8467c15e7540cf, type: 3}
+    bosses:
+    - {fileID: 661897385720863431, guid: cabbecc2dbdd1d344ae0f93b923fa2ce, type: 3}
 --- !u!114 &2570576165038498569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +146,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  enemyTemp: {fileID: 6040528396874739707, guid: 80d5e636405f6be43b10aa63146cf2a7, type: 3}
-  zombieFab: {fileID: 1037476648381245672, guid: 42a2d1bd16222b648985e0f776d3095c, type: 3}
-  spidFab: {fileID: 2118126249402630671, guid: cc932c2bf73a747459472d9819e3e14c, type: 3}
+  biome:
+    biomeID: 
+    grassTiles: []
+    secondaryTiles: []
+    pathTiles: []
+    structures: []
+    structureWeights: 
+    enemies: []
+    bosses: []
+  chunk: {fileID: 0}
+  timeElapsed: 0
+  diffScale: 1
+  spawningScale:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.6684202
+      value: 1.5693262
+      inSlope: 0.55198675
+      outSlope: 0.55198675
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.55371803
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 10.334678
+      value: 6.875848
+      inSlope: 0.35536388
+      outSlope: 0.35536388
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.2703678
+    - serializedVersion: 3
+      time: 15
+      value: 8
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spawnInterval: 3.75
+  bossSpawnInterval: 300
