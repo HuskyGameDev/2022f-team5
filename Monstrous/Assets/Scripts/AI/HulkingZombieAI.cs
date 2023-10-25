@@ -45,7 +45,6 @@ namespace Monstrous.AI{
                     }
                     break;
                 case States.LEAPING:
-                    Debug.Log("Jumping");
                     if (!started){
                         target = playerLoc.position;
                         started = true;
@@ -72,7 +71,6 @@ namespace Monstrous.AI{
                     }
                     break;
                 case States.THROWING:
-                    Debug.Log("Throwing");
                     GameObject b = Instantiate(boulder, transform.position, Quaternion.identity);
                     Boulder bould = b.GetComponent<Boulder>();
                     bould.direction = (playerLoc.position - transform.position).normalized;
