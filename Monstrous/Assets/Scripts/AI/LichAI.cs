@@ -35,6 +35,7 @@ namespace Monstrous.AI{
         private void FixedUpdate(){
             switch (state){
                 case States.DEFAULT:
+                    Debug.Log("Shmoovin");
                     float distance = Vector3.Distance(playerLoc.position, transform.position);
                     if (distance > desiredDistance + distanceVariability){
                         transform.position = Vector2.MoveTowards(transform.position, playerLoc.position, speed * Time.fixedDeltaTime);
@@ -47,6 +48,7 @@ namespace Monstrous.AI{
                     }
                     break;
                 case States.FIRING:
+                    Debug.Log("Gun");
                     if (!started){
                         timer = 0;
                         started = true;
@@ -58,21 +60,22 @@ namespace Monstrous.AI{
                     }
                     break;
                 case States.SUMMONING:
-                    
+                    Debug.Log("Summoning (forever)");
                     break;
             }
         }
 
         private IEnumerator bulletSpawner(float waitTime, Transform loc){
             yield return new WaitForSeconds(waitTime);
-            Instantiate(bullet, loc.position, Quaternion.identity);
+            Blast blast = Instantiate(bullet, loc.position, Quaternion.identity).GetComponent<Blast>();
+            blast.waitTime = bulletFireDelay;
         }
 
         private IEnumerator stateSwitcher(){
             yield return new WaitForSeconds(stateChangeTimer);
             float distance = Vector3.Distance(transform.position, playerLoc.position);
             if (distance > desiredDistance - distanceVariability && distance < desiredDistance + distanceVariability){
-                switch (Random.Range(0, 2)){
+                switch (Random.Range(0, 1)){ //CHANGE THIS TO (0, 2) TO RE-ENABLE SUMMONING
                     case 0:
                         queuedState = States.FIRING;
                         break;
