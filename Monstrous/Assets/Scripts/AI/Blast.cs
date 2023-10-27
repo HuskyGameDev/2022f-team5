@@ -10,6 +10,7 @@ namespace Monstrous.AI{
         public float waitTime;
         [SerializeField] private float deathTimer = 10f;
         [SerializeField] private Rigidbody2D body;
+        [SerializeField] private GameObject deathParticles;
         private bool started = false;
 
         void Start(){
@@ -30,7 +31,16 @@ namespace Monstrous.AI{
 
         private IEnumerator die(){
             yield return new WaitForSeconds(deathTimer);
+            Instantiate(deathParticles, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
+
+        private void OnTriggerEnter2D(Collider2D collided){
+            if (collided.tag == "Player"){
+                collided.GetComponent<Player>().TakeDamage(damage);
+                Instantiate(deathParticles, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
         }
     }
 }

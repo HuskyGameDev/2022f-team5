@@ -2411,7 +2411,7 @@ RectTransform:
   - {fileID: 323498420}
   - {fileID: 91598661}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2472,15 +2472,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498569, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: spawningScale.m_Curve.Array.data[0].time
-      value: -0.05109024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498569, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: spawningScale.m_Curve.Array.data[0].value
-      value: 8.108856
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498570, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2570576165038498570, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: m_LocalPosition.x
