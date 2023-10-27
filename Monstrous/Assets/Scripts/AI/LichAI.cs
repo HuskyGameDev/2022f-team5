@@ -20,6 +20,7 @@ namespace Monstrous.AI{
         [SerializeField] private GameObject bullet;
         [SerializeField] private float bulletSpawnTimeDif = 0.25f;
         [SerializeField] private float bulletFireDelay = 0.5f;
+        [SerializeField] private float aimVariability = 0.05f;
         [Header("Summoning")]
         [SerializeField] private GameObject[] summonableEnemies;
         private States queuedState;
@@ -35,12 +36,11 @@ namespace Monstrous.AI{
         private void FixedUpdate(){
             switch (state){
                 case States.DEFAULT:
-                    Debug.Log("Shmoovin");
                     float distance = Vector3.Distance(playerLoc.position, transform.position);
                     if (distance > desiredDistance + distanceVariability){
                         transform.position = Vector2.MoveTowards(transform.position, playerLoc.position, speed * Time.fixedDeltaTime);
                     }else if(distance < desiredDistance - distanceVariability){
-                        transform.position = Vector2.MoveTowards(transform.position, -1 * playerLoc.position, speed * Time.fixedDeltaTime);
+                        transform.position = Vector2.MoveTowards(transform.position, (-1* (playerLoc.position - transform.position)) + transform.position, speed * Time.fixedDeltaTime);
                     }
                     if (queuedState != States.NULL){
                         state = queuedState;
@@ -48,7 +48,6 @@ namespace Monstrous.AI{
                     }
                     break;
                 case States.FIRING:
-                    Debug.Log("Gun");
                     if (!started){
                         timer = 0;
                         started = true;
@@ -57,10 +56,20 @@ namespace Monstrous.AI{
                     timer += Time.fixedDeltaTime;
                     if (timer >= magicLocs.Length * bulletSpawnTimeDif + (2 * bulletFireDelay)){
                         state = States.DEFAULT;
+                        started = false;
                     }
                     break;
                 case States.SUMMONING:
-                    Debug.Log("Summoning (forever)");
+                    if (!started){
+                        timer = 0;
+                        started = true;
+                        for (int i = 0; i < magicLocs.Length; i++) StartCoroutine(undeadSpawner(i * bulletSpawnTimeDif, magicLocs[i]));
+                    }
+                    timer += Time.fixedDeltaTime;
+                    if (timer >= magicLocs.Length * bulletSpawnTimeDif + (2 * bulletFireDelay)){
+                        state = States.DEFAULT;
+                        started = false;
+                    }
                     break;
             }
         }
@@ -69,13 +78,21 @@ namespace Monstrous.AI{
             yield return new WaitForSeconds(waitTime);
             Blast blast = Instantiate(bullet, loc.position, Quaternion.identity).GetComponent<Blast>();
             blast.waitTime = bulletFireDelay;
+            blast.direction = playerLoc.position - transform.position;
+            blast.direction = new Vector3(blast.direction.x + Random.Range(-1 * aimVariability, aimVariability), blast.direction.y + Random.Range(-1 * aimVariability, aimVariability), 0).normalized;
+        }
+
+        private IEnumerator undeadSpawner(float waitTime, Transform loc){
+            yield return new WaitForSeconds(waitTime);
+            EnemyBase enemy = Instantiate(summonableEnemies[Random.Range(0, summonableEnemies.Length)], loc.position, Quaternion.identity).GetComponent<EnemyBase>();
+            enemy.difficultyScale = difficultyScale;
         }
 
         private IEnumerator stateSwitcher(){
             yield return new WaitForSeconds(stateChangeTimer);
             float distance = Vector3.Distance(transform.position, playerLoc.position);
             if (distance > desiredDistance - distanceVariability && distance < desiredDistance + distanceVariability){
-                switch (Random.Range(0, 1)){ //CHANGE THIS TO (0, 2) TO RE-ENABLE SUMMONING
+                switch (Random.Range(0, 2)){
                     case 0:
                         queuedState = States.FIRING;
                         break;

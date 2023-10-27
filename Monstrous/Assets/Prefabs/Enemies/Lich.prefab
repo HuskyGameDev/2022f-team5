@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
-  speed: 1
+  speed: 2
   damage: 20
   invulnerabilityTime: 0.025
   enemyID: lich
@@ -79,8 +79,8 @@ MonoBehaviour:
   difficultyScale: 0
   destroyRange: 100
   state: 0
-  stateChangeTimer: 2
-  desiredDistance: 5
+  stateChangeTimer: 5
+  desiredDistance: 8
   distanceVariability: 2
   magicLocs:
   - {fileID: 2342490053666577650}
@@ -94,7 +94,10 @@ MonoBehaviour:
   bullet: {fileID: 1944729981040883474, guid: b68a3e597cebf6f47ac75137b6e479ce, type: 3}
   bulletSpawnTimeDif: 0.25
   bulletFireDelay: 0.5
-  summonableEnemies: []
+  aimVariability: 2
+  summonableEnemies:
+  - {fileID: 137747671023657572, guid: 749ba89a438ed6e40a6d965279774062, type: 3}
+  - {fileID: 7518529007394784832, guid: be1948231be94cb44b8467c15e7540cf, type: 3}
 --- !u!212 &-5052020745471837057
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -180,7 +183,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 100
-  m_LinearDrag: 0
+  m_LinearDrag: 0.3
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
