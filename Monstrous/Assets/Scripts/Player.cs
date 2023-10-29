@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System;
 using Monstrous.AI;
 using Monstrous.Camera;
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour
     public AudioSource steps2;
     public GameObject upgrades;
     public SpriteRenderer sprite;
-    public SpriteRenderer vignette;
+    public Image vignette;
     [SerializeField] private Camera mainCamera;
 
     // variables
@@ -61,7 +62,7 @@ public class Player : MonoBehaviour
             flipChar();
         }
 
-        if ((pHealth / pMaxHealth > 0.35) && (vignette.enabled == true))
+        if ((pHealth /*/ pMaxHealth*/ > 35) && (vignette.enabled == true))
         {
             vignette.enabled = false;
         }
@@ -111,7 +112,7 @@ public class Player : MonoBehaviour
         pHealth = pHealth - dam;
         healthBar.UpdateHealthBar(pHealth);
         //mainCamera.gameObject.GetComponent<CameraMovement>().knockCam();
-        if((pHealth/pMaxHealth <= 0.35) && (vignette.enabled == false))
+        if((pHealth/*/pMaxHealth*/ <= 35) && (vignette.enabled == false))
         {
             vignette.enabled = true;
         }
