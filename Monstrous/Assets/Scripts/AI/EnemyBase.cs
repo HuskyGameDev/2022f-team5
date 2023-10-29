@@ -6,7 +6,7 @@ namespace Monstrous.AI{
     {
         [Header("Stats")]
         public float health = 65f;
-        public float speed = 3f;
+        public float baseSpeed = 3f;
         public float damage = 13f;
         public float invulnerabilityTime = 0.025f;
         public string enemyID;
@@ -30,12 +30,14 @@ namespace Monstrous.AI{
         public Transform playerLoc;
         public float difficultyScale = 0f;
         public int destroyRange = 50;
+        public float speedDebuff = 1f;
+        public float speed = 3f;
     
         private bool colliding = false;
 
         public void Start(){
             health = health + (health * (difficultyScale * 0.55f));
-            speed = speed + (speed * (difficultyScale * 0.025f));
+            baseSpeed = baseSpeed + (baseSpeed * (difficultyScale * 0.025f));
             damage = (damage + (damage * difficultyScale * 0.16f));
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
             playerLoc = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -43,6 +45,7 @@ namespace Monstrous.AI{
 
         public void Update(){
             if (Vector2.Distance(transform.position, playerLoc.position) > destroyRange) Destroy(gameObject);
+            speed = baseSpeed / speedDebuff;
         }
 
         public void dealDamage(float strength){

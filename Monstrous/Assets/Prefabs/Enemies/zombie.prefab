@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 40
-  speed: 1.5
+  baseSpeed: 1.5
   damage: 9
   invulnerabilityTime: 0.025
   enemyID: zombie
@@ -70,6 +70,8 @@ MonoBehaviour:
   playerLoc: {fileID: 0}
   difficultyScale: 0
   destroyRange: 50
+  speedDebuff: 1
+  speed: 1.5
 --- !u!212 &-6704019056051283582
 SpriteRenderer:
   m_ObjectHideFlags: 0

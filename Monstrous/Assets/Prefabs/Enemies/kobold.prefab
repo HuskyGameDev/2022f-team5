@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  speed: 1.5
+  baseSpeed: 1.5
   damage: 8
   invulnerabilityTime: 0.025
   enemyID: kobold
@@ -70,6 +70,8 @@ MonoBehaviour:
   playerLoc: {fileID: 0}
   difficultyScale: 0
   destroyRange: 50
+  speedDebuff: 1
+  speed: 1.5
   minimumCooldown: 0.3
   maximumCooldown: 2
   strafeSpeed: 50

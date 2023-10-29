@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 8
-  speed: 3.5
+  baseSpeed: 3.5
   damage: 1
   invulnerabilityTime: 0.1
   enemyID: bat
@@ -70,6 +70,8 @@ MonoBehaviour:
   playerLoc: {fileID: 0}
   difficultyScale: 0
   destroyRange: 50
+  speedDebuff: 1
+  speed: 3.5
   bobbingStrength: 10
   bobbingFrequency: 3
 --- !u!212 &-6704019056051283582

@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 40
-  speed: 1.8
+  baseSpeed: 1.8
   damage: 8
   invulnerabilityTime: 0.025
   enemyID: hellhound
@@ -70,6 +70,8 @@ MonoBehaviour:
   playerLoc: {fileID: 0}
   difficultyScale: 0
   destroyRange: 50
+  speedDebuff: 1
+  speed: 1.8
   debuffStrength: 0.5
   munchDelay: 2
 --- !u!212 &-5548587029189763450

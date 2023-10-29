@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
-  speed: 2
+  baseSpeed: 2
   damage: 20
   invulnerabilityTime: 0.025
   enemyID: lich
@@ -78,6 +78,8 @@ MonoBehaviour:
   playerLoc: {fileID: 0}
   difficultyScale: 0
   destroyRange: 100
+  speedDebuff: 1
+  speed: 2
   state: 0
   stateChangeTimer: 5
   desiredDistance: 8

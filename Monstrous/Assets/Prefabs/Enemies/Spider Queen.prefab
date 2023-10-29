@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 65
-  speed: 5
+  baseSpeed: 3
   damage: 15
   invulnerabilityTime: 0.025
   enemyID: spiderQueen
@@ -70,6 +70,13 @@ MonoBehaviour:
   playerLoc: {fileID: 0}
   difficultyScale: 0
   destroyRange: 100
+  speedDebuff: 1
+  speed: 5
+  state: 0
+  stateChangeTimer: 5
+  rangedDistance: 7
+  web: {fileID: 642789655846134800, guid: 36e7d7c1cb2317647bcf64039edb335a, type: 3}
+  spit: {fileID: 4286543709894652604, guid: 242bf7ecd80831c4e9b357303c041efe, type: 3}
 --- !u!212 &8024335332181549582
 SpriteRenderer:
   m_ObjectHideFlags: 0

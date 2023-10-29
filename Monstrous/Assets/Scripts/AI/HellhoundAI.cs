@@ -14,7 +14,7 @@ namespace Monstrous.AI{
             if (attacking){
                 transform.position = playerLoc.position + new Vector3(playerOffset.x, playerOffset.y, 0);
             }else{
-                transform.position = Vector2.MoveTowards(transform.position, playerLoc.position, speed * Time.fixedDeltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, playerLoc.position, (speed / speedDebuff) * Time.fixedDeltaTime);
             }
         }
     
