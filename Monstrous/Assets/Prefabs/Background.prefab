@@ -47,12 +47,12 @@ MonoBehaviour:
   chunk: {fileID: 4932939116197280398, guid: eff30d9e8a138744ebac61b9f94a987d, type: 3}
   bgWidth: 13
   bgHeight: 9
-  chunkWidth: 4
-  chunkHeight: 4
+  chunkWidth: 5
+  chunkHeight: 5
   textureWidth: 8
   textureHeight: 8
   randomizeSeed: 1
   seed: 0
   scale: 5
   biomeScale: 100
-  structureFrequency: 20
+  structureFrequency: 15

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2771794110523119484}
+  - component: {fileID: 188135467236522750}
   - component: {fileID: 5462234303603917984}
   - component: {fileID: 1341285318745239794}
   m_Layer: 0
@@ -27,12 +28,34 @@ Transform:
   m_GameObject: {fileID: 642789655846134800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.8208, y: 2.8208, z: 2.8208}
+  m_LocalScale: {x: 2.172552, y: 2.172552, z: 2.172552}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188135467236522750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642789655846134800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f524f255d080944ab6c0d777737560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deploySpeed: 8
+  spinSpeed: 500
+  slowdownModifier: 0.5
+  exceptions:
+  - spider
+  - spiderQueen
+  - beetle
+  - bat
+  collider: {fileID: 1341285318745239794}
+  targetLoc: {x: 0, y: 0, z: 0}
 --- !u!212 &5462234303603917984
 SpriteRenderer:
   m_ObjectHideFlags: 0

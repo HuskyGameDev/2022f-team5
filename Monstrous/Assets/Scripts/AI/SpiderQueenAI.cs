@@ -16,6 +16,7 @@ namespace Monstrous.AI{
         [SerializeField] private float rangedDistance = 7f;
         [SerializeField] private GameObject web;
         [SerializeField] private GameObject spit;
+        [SerializeField] private float waitTimer = 0.6f;
         private States queuedState;
         private bool started = false;
         private Vector3 target;
@@ -39,8 +40,14 @@ namespace Monstrous.AI{
                     if (!started){
                         timer = 0;
                         started = true;
+                        Web webb = Instantiate(web, transform.position, Quaternion.identity).GetComponent<Web>();
+                        webb.targetLoc = playerLoc.position;
                     }
                     timer += Time.fixedDeltaTime;
+                    if (timer > waitTimer){
+                        state = States.DEFAULT;
+                        started = false;
+                    }
                     break;
                 case States.SPITTING:
                     if (!started){
@@ -48,6 +55,10 @@ namespace Monstrous.AI{
                         started = true;
                     }
                     timer += Time.fixedDeltaTime;
+                    if (timer > waitTimer){
+                        state = States.DEFAULT;
+                        started = false;
+                    }
                     break;
             }
         }
