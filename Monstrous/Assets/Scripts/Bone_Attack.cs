@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System;
 using Monstrous.AI;
 
@@ -11,26 +12,31 @@ public class Bone_Attack : MonoBehaviour
     private Vector3 start;
     private Vector2 direction;
     [SerializeField] private Camera mainCamera;
-    public float damage;
     public GameObject projectileBreak;
     public Transform player;
+    public InputAction aimControls;
     private delegate void MoveBoomerang();
     MoveBoomerang moveMethod;
     private float positionCalc = 0f;
     private bool returning = false;
 
     //Awake
-    void Start()
+    void Awake()
     {
-        damage = GameObject.FindWithTag("Player").GetComponent<Weapons>().boneAttackBaseDam;
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         mainCamera = Camera.main;
         start = transform.position;
+
+        // old system
         Vector2 temp = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         direction = temp - proj.position;
         direction.Normalize();
         transform.Rotate(0f, 0f, -90f, Space.Self);
-        moveMethod = MoveThrow;
+        
+
+        //new system
+        //Debug.Log(Player.aimControls.ReadValue<Vector2>());
+        //direction = aimControls.ReadValue<Vector2>() - proj.position;
         
         //target = GameObject.FindWithTag("Temp").GetComponent<Transform>();
         target = direction * 15.0f;
@@ -51,7 +57,7 @@ public class Bone_Attack : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collided){
-        if (collided.tag == "Enemy") collided.gameObject.GetComponent<EnemyBase>().dealDamage(damage);
+        if (collided.tag == "Enemy") collided.gameObject.GetComponent<EnemyBase>().dealDamage(Weapons.boneAttackBaseDam);
         if (collided.gameObject.tag == "Obstacle")
         {
             Instantiate(projectileBreak, transform.position, Quaternion.identity);

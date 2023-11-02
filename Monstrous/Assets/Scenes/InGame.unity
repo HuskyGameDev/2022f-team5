@@ -889,6 +889,55 @@ MonoBehaviour:
   steps2: {fileID: 299809667}
   upgrades: {fileID: 1349847028}
   sprite: {fileID: 299809663}
+  playerControls:
+    m_Name: Player Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c7c18ca7-7071-441b-8983-dfb413c75d7b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 9e5cfdfa-7fa8-4fa5-b4c6-c28b2c1ceee8
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 9a4b3981-0c5d-4a47-8265-fe5935aed4aa
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: down
+      m_Id: ef64c6fa-f7e6-4574-b2a4-0879468c682c
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 2a9558a2-7899-475f-92f9-733d3d97ceec
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: right
+      m_Id: f391f81e-745c-4e56-8828-d2c4dc798609
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    m_Flags: 0
   vignette: {fileID: 390686315}
   mainCamera: {fileID: 0}
   movement: {x: 0, y: 0}
@@ -991,7 +1040,6 @@ MonoBehaviour:
   boneStart: {fileID: 1571994236}
   boneShot: {fileID: 9154608228306925210, guid: 3d60d0d70ebf0924da002506289d03f0, type: 3}
   boneAttackAS: 4
-  boneAttackBaseDam: 55
 --- !u!82 &299809667
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2612,7 +2660,7 @@ GameObject:
   m_Layer: 0
   m_Name: BaseAtkSpeed
   m_TagString: Upgrade
-  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4723,7 +4771,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450179703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3683205, y: -1.1975412, z: -0.7611864}
+  m_LocalPosition: {x: 17.84, y: -7.31, z: -0.7611864}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

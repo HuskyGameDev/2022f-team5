@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System;
 using Monstrous.AI;
 using Monstrous.Camera;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     public AudioSource steps2;
     public GameObject upgrades;
     public SpriteRenderer sprite;
+    public InputAction playerControls;
     public Image vignette;
     [SerializeField] private Camera mainCamera;
 
@@ -50,8 +52,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         //input
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement = playerControls.ReadValue<Vector2>();
+        movement.Normalize(); //doesn't seem to actually normalize, diagonal movement still looks faster than linear
 
         if(movement.x > 0 && !facingRight)
         {
@@ -72,7 +74,8 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         //movement
-        rb.MovePosition(rb.position + movement * (moveSpeed / speedDebuff) * Time.fixedDeltaTime);
+        //rb.MovePosition(rb.position + movement * (moveSpeed / speedDebuff) * Time.fixedDeltaTime);
+        rb.velocity = new Vector2(movement.x *moveSpeed, movement.y * moveSpeed);
         if( ! (movement.Equals( Vector2.zero ) ) )
         {
             steps1.enabled = true;
@@ -180,5 +183,14 @@ public class Player : MonoBehaviour
                 Temp.runningWeight++;
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+    private void OnDisable()
+    {
+        playerControls.Disable();
     }
 }

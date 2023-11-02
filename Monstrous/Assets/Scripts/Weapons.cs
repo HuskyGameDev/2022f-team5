@@ -25,7 +25,7 @@ public class Weapons : MonoBehaviour
     public GameObject boneShot;
     public float boneAttackAS = 1.0f;
     private float boneTiming = 0.0f;
-    public float boneAttackBaseDam = 40;
+    public static float boneAttackBaseDam = 40;
 
     // Start is called before the first frame update
     void Start()
