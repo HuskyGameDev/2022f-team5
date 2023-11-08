@@ -16,6 +16,8 @@ namespace Monstrous.AI{
         [SerializeField] private float rangedDistance = 7f;
         [SerializeField] private GameObject web;
         [SerializeField] private GameObject spit;
+        [SerializeField] private float fireDelay = 0.4f;
+        [SerializeField] private int spitCount = 3;
         [SerializeField] private float waitTimer = 0.6f;
         private States queuedState;
         private bool started = false;
@@ -53,6 +55,9 @@ namespace Monstrous.AI{
                     if (!started){
                         timer = 0;
                         started = true;
+                        for (int i = 0; i < spitCount; i++){
+                            StartCoroutine(spitAcid(fireDelay * i));
+                        }
                     }
                     timer += Time.fixedDeltaTime;
                     if (timer > waitTimer){
@@ -61,6 +66,12 @@ namespace Monstrous.AI{
                     }
                     break;
             }
+        }
+
+        private IEnumerator spitAcid(float wait){
+            yield return new WaitForSeconds(wait);
+            Spit projectile = Instantiate(spit, transform.position, Quaternion.identity).GetComponent<Spit>();
+            projectile.target = playerLoc.position;
         }
 
         private IEnumerator stateSwitcher(){
