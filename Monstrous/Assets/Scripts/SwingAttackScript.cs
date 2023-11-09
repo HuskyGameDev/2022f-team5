@@ -81,6 +81,9 @@ public class SwingAttackScript : MonoBehaviour
             {
                 Debug.Log(other);
                 other.gameObject.GetComponent<EnemyBase>().dealDamage(SwingAtkDamage);
+                Rigidbody2D otherRB = other.gameObject.GetComponent<Rigidbody2D>();
+                Vector2 knockback = new Vector2(50, 50);
+                otherRB.AddForce(knockback, ForceMode2D.Impulse);
             }
         }
     }
