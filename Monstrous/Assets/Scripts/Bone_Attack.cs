@@ -33,7 +33,7 @@ public class Bone_Attack : MonoBehaviour
         moveMethod = MoveThrow;
         target = direction;
 
-        Vector2 direction2 = Weapons.aimControls.ReadValue<Vector2>();
+        //Vector2 direction2 = Weapons.aimControls.ReadValue<Vector2>();
 
         locator = GameObject.FindGameObjectWithTag("locator");
     }
