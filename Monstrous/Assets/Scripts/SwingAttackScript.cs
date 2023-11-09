@@ -82,7 +82,18 @@ public class SwingAttackScript : MonoBehaviour
                 Debug.Log(other);
                 other.gameObject.GetComponent<EnemyBase>().dealDamage(SwingAtkDamage);
                 Rigidbody2D otherRB = other.gameObject.GetComponent<Rigidbody2D>();
-                Vector2 knockback = new Vector2(50, 50);
+                Vector2 difference = other.transform.position - transform.position;
+                float xmodify = 1f;
+                float ymodify = 1f;
+                if(difference.x < 0)
+                {
+                    xmodify = -1f;
+                }
+                if(difference.y < 1)
+                {
+                    ymodify = -1f;
+                }
+                Vector2 knockback = new Vector2(xmodify * 20 * (otherRB.mass / 10), ymodify * 20 * (otherRB.mass / 10));
                 otherRB.AddForce(knockback, ForceMode2D.Impulse);
             }
         }
