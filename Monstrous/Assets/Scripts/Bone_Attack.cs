@@ -18,7 +18,9 @@ public class Bone_Attack : MonoBehaviour
     private delegate void MoveBoomerang();
     MoveBoomerang moveMethod;
     private float positionCalc = 0f;
+    private float lifetime = 0f;
     private bool returning = false;
+    private float refrenceVal = 1.03f;
 
     //Awake
     void Awake()
@@ -26,34 +28,28 @@ public class Bone_Attack : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         mainCamera = Camera.main;
         start = transform.position;
-
-        // old system
-        Vector2 temp = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        direction = temp - proj.position;
-        direction.Normalize();
+        direction = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         transform.Rotate(0f, 0f, -90f, Space.Self);
-        
-
-        //new system
-        //Debug.Log(Player.aimControls.ReadValue<Vector2>());
-        //direction = aimControls.ReadValue<Vector2>() - proj.position;
-        
-        //target = GameObject.FindWithTag("Temp").GetComponent<Transform>();
-        target = direction * 15.0f;
+        moveMethod = MoveThrow;
+        target = direction;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        positionCalc += 0.8f * Time.deltaTime;
+        lifetime+=Time.deltaTime;
         transform.Rotate(0.0f, 0.0f, 12.0f, Space.Self);
+        //position is calculated like y=-(x-z)^2+z^2
+        //      where x is lifetime
+        //      and z is reference value, tweek this to adjust how far and how long the boomerang travels
+        positionCalc = -(Mathf.Pow(lifetime-refrenceVal, 2)) + Mathf.Pow(refrenceVal,2);
         moveMethod();
-        if((Vector3.Distance(transform.position, target) <= 1f) && !returning )
+        if(lifetime>refrenceVal)
         {
             moveMethod = MoveReturn;
-            positionCalc = 0f;
             returning = true;
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collided){
@@ -72,12 +68,12 @@ public class Bone_Attack : MonoBehaviour
     //boomerang will start by moving away
     private void MoveThrow()
     {
-        transform.position = Vector3.Lerp(start, target, positionCalc);
+        transform.position = Vector3.LerpUnclamped(start, target, positionCalc);
     }
 
     //after reaching the target, instead move back to the player
     private void MoveReturn()
     {
-        transform.position = Vector3.Lerp(target, player.position, positionCalc);
+        transform.position = Vector3.LerpUnclamped(player.position, target, positionCalc);
     }
 }

@@ -20,7 +20,7 @@ public class BasicAttack : MonoBehaviour
     void Awake()
     {
         mainCamera = Camera.main;
-        Vector2 temp = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 temp = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         direction = temp - proj.position;
         direction.Normalize();
         LookAt2D(transform, temp);
