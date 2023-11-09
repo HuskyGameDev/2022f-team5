@@ -14,6 +14,7 @@ TagManager:
   - Room
   - Obstacles
   - Temp
+  - locator
   layers:
   - Default
   - TransparentFX

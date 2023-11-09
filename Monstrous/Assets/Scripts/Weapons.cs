@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 public class Weapons : MonoBehaviour
 {
     //controller
     private delegate void attackMethod();
     attackMethod attacks;
+    public static InputAction aimControls;
 
     [Header("Basic Attack")]
     public Transform start;
@@ -31,6 +34,7 @@ public class Weapons : MonoBehaviour
     void Start()
     {
         attacks = attack_base;
+        gainBoomerang();
     }
 
     // Update is called once per frame

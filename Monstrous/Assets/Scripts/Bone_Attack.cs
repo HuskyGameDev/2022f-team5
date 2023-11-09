@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 using Monstrous.AI;
-
 public class Bone_Attack : MonoBehaviour
 {
     public Rigidbody2D proj;
@@ -14,13 +13,14 @@ public class Bone_Attack : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     public GameObject projectileBreak;
     public Transform player;
-    public InputAction aimControls;
     private delegate void MoveBoomerang();
     MoveBoomerang moveMethod;
     private float positionCalc = 0f;
     private float lifetime = 0f;
     private bool returning = false;
     private float refrenceVal = 1.03f;
+
+    public GameObject locator;
 
     //Awake
     void Awake()
@@ -32,6 +32,10 @@ public class Bone_Attack : MonoBehaviour
         transform.Rotate(0f, 0f, -90f, Space.Self);
         moveMethod = MoveThrow;
         target = direction;
+
+        Vector2 direction2 = Weapons.aimControls.ReadValue<Vector2>();
+
+        locator = GameObject.FindGameObjectWithTag("locator");
     }
 
     // Update is called once per frame
@@ -50,6 +54,7 @@ public class Bone_Attack : MonoBehaviour
             returning = true;
         }
 
+        locator.transform.position = target;
     }
 
     private void OnTriggerEnter2D(Collider2D collided){
