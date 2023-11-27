@@ -19,11 +19,16 @@ namespace Monstrous.AI{
         [SerializeField] private float chargeLength = 1f;
         [SerializeField] private ParticleSystem chargeParticles;
         [SerializeField] private ParticleSystem breathParticles;
+        [SerializeField] private GameObject fire;
+        [SerializeField] private Vector3 mouthPosition;
+        [SerializeField] private float fireDelay;
         [SerializeField] private float swipeTime = 1f;
         [SerializeField] private LayerMask damagedLayers;
         private States queuedState;
         private bool started = false;
         private float timer;
+        private float fireTimer;
+        private Vector3 target;
 
         public void Start(){
             base.Start();
@@ -60,8 +65,17 @@ namespace Monstrous.AI{
                         ParticleSystem.MainModule main = breathParticles.main;
                         main.duration = breathTime;
                         breathParticles.Play();
+                        target = new Vector3(playerLoc.position.x, playerLoc.position.y, playerLoc.position.z);
                     }
                     timer += Time.deltaTime;
+                    fireTimer += Time.deltaTime;
+                    if (fireTimer >= fireDelay){
+                        fireTimer -= fireDelay;
+                        Fire ball = Instantiate(fire, mouthPosition, Quaternion.identity).GetComponent<Fire>();
+                        ball.damage = damage * 0.7f;
+                        ball.speed = 1.5f;
+                        ball.target = target;
+                    }
                     if (timer >= breathTime){
                         started = false;
                         state = States.DEFAULT;
