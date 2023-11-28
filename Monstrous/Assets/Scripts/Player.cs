@@ -17,8 +17,6 @@ public class Player : MonoBehaviour
     public HealthBar expBar;
     public AudioSource steps1;
     public AudioSource steps2;
-    public AudioSource levelUpSound;
-    public AudioClip[] playerSounds;
     public GameObject upgrades;
     public SpriteRenderer sprite;
     public InputAction playerControls;
