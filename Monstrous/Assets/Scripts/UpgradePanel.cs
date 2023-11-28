@@ -28,6 +28,9 @@ public class UpgradePanel : MonoBehaviour
 
     public TextMeshProUGUI hoverText;
 
+    public AudioSource levelUpSound;
+    public AudioClip[] playerSounds;
+
     void Awake()
     {
         //pause time while this is enabled
@@ -39,9 +42,15 @@ public class UpgradePanel : MonoBehaviour
     //when this panel is awakened by the player leveling up, generate an upgrade in each slot
     void OnEnable()
     {
+        if (!levelUpSound.isPlaying)
+        {
+            levelUpSound.clip = playerSounds[0];
+            levelUpSound.Play();
+        }
+
         //pause time while this is enabled
         Time.timeScale = 0f;
-        AudioListener.pause = true;
+        //AudioListener.pause = true;
         Paused = true;
 
         setList();
