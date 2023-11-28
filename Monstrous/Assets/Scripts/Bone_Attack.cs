@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 using Monstrous.AI;
+using System.Net.Mail;
 public class Bone_Attack : MonoBehaviour
 {
     public Rigidbody2D proj;
@@ -19,8 +20,9 @@ public class Bone_Attack : MonoBehaviour
     private float lifetime = 0f;
     private bool returning = false;
     private float refrenceVal = 1.03f;
+    public Vector2 altDirection;
 
-    public GameObject locator;
+    //public GameObject locator;
 
     //Awake
     void Awake()
@@ -31,13 +33,17 @@ public class Bone_Attack : MonoBehaviour
         direction = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         transform.Rotate(0f, 0f, -90f, Space.Self);
         moveMethod = MoveThrow;
-        target = direction;
-
-        //Vector2 direction2 = Weapons.aimControls.ReadValue<Vector2>();
-
-        locator = GameObject.FindGameObjectWithTag("locator");
+        direction = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
     }
 
+    void Start()
+    {
+        if(altDirection == Vector2.zero)
+            target = direction;
+
+        else
+            target = (altDirection * 8.0f) + (Vector2) start;
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -54,7 +60,7 @@ public class Bone_Attack : MonoBehaviour
             returning = true;
         }
 
-        locator.transform.position = target;
+        //locator.transform.position = target;
     }
 
     private void OnTriggerEnter2D(Collider2D collided){

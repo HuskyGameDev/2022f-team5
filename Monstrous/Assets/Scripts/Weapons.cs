@@ -8,7 +8,7 @@ public class Weapons : MonoBehaviour
     //controller
     private delegate void attackMethod();
     attackMethod attacks;
-    public static InputAction aimControls;
+    public InputAction aimControls;
 
     [Header("Basic Attack")]
     public Transform start;
@@ -53,6 +53,7 @@ public class Weapons : MonoBehaviour
         BasicAttack arrow = Instantiate(shot, start.position, Quaternion.identity).GetComponent<BasicAttack>();
         arrow.damage = baseAttackBaseDam;
         arrow.pierce = baseAttackPCount;
+        arrow.altDirection = aimControls.ReadValue<Vector2>();
         yield return new WaitForSeconds((float)(baseAttackShotDur / baseAttackNumShots));
         if(shots > 1)
             StartCoroutine(ShootShot(shots - 1));
@@ -60,7 +61,8 @@ public class Weapons : MonoBehaviour
 
     void BoneAttackThrow()
     {
-        Instantiate(boneShot, boneStart.position, Quaternion.identity);
+        var newBone = Instantiate(boneShot, boneStart.position, Quaternion.identity);
+        newBone.GetComponent<Bone_Attack>().altDirection = aimControls.ReadValue<Vector2>();
     }
 
     void attack_base()
@@ -93,5 +95,14 @@ public class Weapons : MonoBehaviour
     public void gainBoomerang()
     {
         attacks = attack_base_bone;
+    }
+
+    private void OnEnable()
+    {
+        aimControls.Enable();
+    }
+    private void OnDisable()
+    {
+        aimControls.Disable();
     }
 }

@@ -9,6 +9,7 @@ public class BasicAttack : MonoBehaviour
 {
     public Rigidbody2D proj;
     private Vector2 direction;
+    public Vector2 altDirection;
     [SerializeField] private Camera mainCamera;
 
     public float speed = 20;
@@ -28,6 +29,15 @@ public class BasicAttack : MonoBehaviour
         StartCoroutine(despawnProj());
     }
 
+    void Start()
+    {
+        if(altDirection != Vector2.zero)
+        {
+            direction = altDirection;
+            LookAt2D(transform, transform.position + (Vector3) altDirection);
+            transform.Rotate(0f, 0f, -90f, Space.Self);
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
