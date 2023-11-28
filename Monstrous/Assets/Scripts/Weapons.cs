@@ -34,7 +34,6 @@ public class Weapons : MonoBehaviour
     void Start()
     {
         attacks = attack_base;
-        gainBoomerang();
     }
 
     // Update is called once per frame

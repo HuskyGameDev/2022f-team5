@@ -203,12 +203,21 @@ public class UpgradePanel : MonoBehaviour
             case "Bonemerang":
                 butt.onClick.AddListener(Up_Bonemerang);
                 break;
+            case "BoneAtkDamage":
+                butt.onClick.AddListener(Up_BoneAtkDamage);
+                break;
+            case "BoneAtkAS":
+                butt.onClick.AddListener(Up_BoneAttackAS);
+                break;
         }
         butt.GetComponent<Image>().sprite = upgrade.image;
     }
 
     private void unassignUpgrade(Button butt, UpgradeData upgrade)
     {
+        butt.onClick.RemoveAllListeners();
+
+        /**
         switch (upgrade.name)
         {
             case "BaseAtkSpeed":
@@ -250,7 +259,14 @@ public class UpgradePanel : MonoBehaviour
             case "Bonemerang":
                 butt.onClick.RemoveListener(Up_Bonemerang);
                 break;
+            case "BoneAtkDamage":
+                butt.onClick.RemoveListener(Up_BoneAtkDamage);
+                break;
+            case "BoneAtkAS":
+                butt.onClick.RemoveListener(Up_BoneAttackAS);
+                break;
         }
+        */
     }
 
     //============================================================================
@@ -272,7 +288,7 @@ public class UpgradePanel : MonoBehaviour
 
     //name : BaseAtkDamage
     private float damageInc = 1.30f;
-    private float damageIncSkele = 1.42f;
+    private float damageIncSkele = 1.6f;
     public void Up_BaseAtkDamage()
     {
         player.GetComponent<Weapons>().baseAttackBaseDam *= damageInc;
@@ -348,11 +364,26 @@ public class UpgradePanel : MonoBehaviour
     {
         swing.size.x *= 1.3f;
         swing.size.y *= 1.3f;
+        //increase the sprite size
     }
 
+    public GameObject boneUp1;
+    public GameObject boneUp2;
     public void Up_Bonemerang()
     {
         player.GetComponent<Weapons>().gainBoomerang();
         Destroy(GameObject.Find("Bonemerang"));
+        boneUp1.SetActive(true);
+        boneUp2.SetActive(true);
+    }
+
+    public void Up_BoneAtkDamage()
+    {
+        Weapons.boneAttackBaseDam *= damageInc;
+    }
+
+    public void Up_BoneAttackAS()
+    {
+        player.GetComponent<Weapons>().boneAttackAS /= 1.4f;
     }
 }
