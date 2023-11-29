@@ -62,7 +62,9 @@ MonoBehaviour:
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}
   partSprite: {fileID: 21300000, guid: 58e292036e90c0f408abd69e0a12d958, type: 3}
   source: {fileID: -6138348179456803451}
-  damageSounds: []
+  damageSounds:
+  - {fileID: 8300000, guid: 1c69aacc821b0004889e4cabf17963a8, type: 3}
+  - {fileID: 8300000, guid: 4c5b6241c4e5ff4419072bee8a24ba7c, type: 3}
   deathSounds: []
   body: {fileID: -2893189416040560092}
   animator: {fileID: -1285632586509931059}
@@ -99,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ef13b65fbe47d42af2e047ed015406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSound: {fileID: 8300000, guid: 90dab394d8954a84fb5a5005519c0464, type: 3}
+  spawnSound: {fileID: 8300000, guid: db7aaeb4bbd6519429f54da8dc26f6f2, type: 3}
 --- !u!212 &4114824952491983469
 SpriteRenderer:
   m_ObjectHideFlags: 0

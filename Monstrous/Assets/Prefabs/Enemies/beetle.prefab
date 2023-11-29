@@ -60,7 +60,7 @@ MonoBehaviour:
   partSprite: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
   source: {fileID: 2761184850593086912}
   damageSounds:
-  - {fileID: 8300000, guid: bd2daf491998f1340b024f32ab1f2b26, type: 3}
+  - {fileID: 8300000, guid: 5a0f382a039bd134998afa93d2e43831, type: 3}
   deathSounds:
   - {fileID: 8300000, guid: 16f2d590ae926b743b26ecadf4fea15f, type: 3}
   body: {fileID: 7846630373206297149}
