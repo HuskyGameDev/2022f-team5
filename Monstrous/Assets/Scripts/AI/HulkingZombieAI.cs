@@ -55,11 +55,15 @@ namespace Monstrous.AI{
                         endCenter = target - center;
                     }
                     transform.position = Vector3.Slerp(startCenter, endCenter, timer / jumpTime) + center;
+                    attack.clip = attackSounds[0];
+                    attack.Play();
                     timer += Time.deltaTime;
                     if (Vector3.Distance(transform.position, target) < 0.5f){
                         state = States.DEFAULT;
                         started = false;
                         particles.Play();
+                        attack.clip = attackSounds[1];
+                        attack.Play();
                         Collider2D[] collided = Physics2D.OverlapCircleAll(transform.position, jumpDamageRadius, damagedLayers);
                         foreach (Collider2D c in collided){
                             if (c.tag == "Enemy" && c.GetComponent<HulkingZombieAI>() == null){

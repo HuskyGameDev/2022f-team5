@@ -8,6 +8,7 @@ namespace Monstrous.AI{
         public float speed = 5f;
         public float damage = 50f;
         public float waitTime;
+        public AudioSource attack;
         [SerializeField] private float deathTimer = 10f;
         [SerializeField] private Rigidbody2D body;
         [SerializeField] private GameObject deathParticles;

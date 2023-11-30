@@ -27,6 +27,7 @@ namespace Monstrous.AI{
         private bool started = false;
         private Vector3 target;
         private float timer;
+        public AudioSource speak;
 
         public void Start(){
             base.Start();
@@ -63,6 +64,8 @@ namespace Monstrous.AI{
                     if (!started){
                         timer = 0;
                         started = true;
+                        speak.clip = attackSounds[5];
+                        speak.Play();
                         for (int i = 0; i < magicLocs.Length; i++) StartCoroutine(undeadSpawner(i * bulletSpawnTimeDif, magicLocs[i]));
                     }
                     timer += Time.fixedDeltaTime;
@@ -80,12 +83,16 @@ namespace Monstrous.AI{
             blast.waitTime = bulletFireDelay;
             blast.direction = playerLoc.position - transform.position;
             blast.direction = new Vector3(blast.direction.x + Random.Range(-1 * aimVariability, aimVariability), blast.direction.y + Random.Range(-1 * aimVariability, aimVariability), 0).normalized;
+            blast.attack.clip = attackSounds[Random.Range(2, 5)];
+            blast.attack.Play();
         }
 
         private IEnumerator undeadSpawner(float waitTime, Transform loc){
             yield return new WaitForSeconds(waitTime);
             EnemyBase enemy = Instantiate(summonableEnemies[Random.Range(0, summonableEnemies.Length)], loc.position, Quaternion.identity).GetComponent<EnemyBase>();
             enemy.difficultyScale = difficultyScale;
+            attack.clip = attackSounds[Random.Range(0, 2)];
+            attack.Play();
         }
 
         private IEnumerator stateSwitcher(){

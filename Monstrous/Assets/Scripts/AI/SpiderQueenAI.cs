@@ -44,6 +44,8 @@ namespace Monstrous.AI{
                         started = true;
                         Web webb = Instantiate(web, transform.position, Quaternion.identity).GetComponent<Web>();
                         webb.targetLoc = playerLoc.position;
+                        attack.clip = attackSounds[5];
+                        attack.Play();
                     }
                     timer += Time.fixedDeltaTime;
                     if (timer > waitTimer){
@@ -72,6 +74,8 @@ namespace Monstrous.AI{
             yield return new WaitForSeconds(wait);
             Spit projectile = Instantiate(spit, transform.position, Quaternion.identity).GetComponent<Spit>();
             projectile.target = playerLoc.position;
+            attack.clip = attackSounds[Random.Range(0, 5)];
+            attack.Play();
         }
 
         private IEnumerator stateSwitcher(){

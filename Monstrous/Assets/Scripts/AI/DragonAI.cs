@@ -68,6 +68,8 @@ namespace Monstrous.AI{
                         main.duration = breathTime;
                         breathParticles.Play();
                         target = new Vector3(playerLoc.position.x, playerLoc.position.y, playerLoc.position.z);
+                        attack.clip = attackSounds[Random.Range(0, 1)];
+                        attack.Play();
                     }
                     timer += Time.deltaTime;
                     fireTimer += Time.deltaTime;

@@ -19,6 +19,8 @@ namespace Monstrous.AI{
         public AudioSource source;
         public AudioClip[] damageSounds;
         public AudioClip[] deathSounds;
+        public AudioSource attack;
+        public AudioClip[] attackSounds;
 
         [Header("Body")]
         public Rigidbody2D body;
