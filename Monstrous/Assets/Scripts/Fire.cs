@@ -4,12 +4,13 @@ using UnityEngine;
 using Monstrous.AI;
 
 public class Fire : MonoBehaviour{
-    public Vector3 target;
-    public float speed = 1f;
+    public Vector3 direction;
+    public float speed;
     public float damage = 5f;
     [SerializeField] private CircleCollider2D collider;
-    [SerializeField] private float deathTime = 1f;
+    [SerializeField] private float deathTime = 5f;
     [SerializeField] private float finalSize = 3.6f;
+    [SerializeField] private Rigidbody2D body;
     private float timer = 0f;
 
     // Update is called once per frame
@@ -19,19 +20,17 @@ public class Fire : MonoBehaviour{
             Destroy(gameObject);
         }
         collider.radius = finalSize * (timer / deathTime);
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.fixedDeltaTime);
+        body.MovePosition(transform.position + (direction * speed * Time.fixedDeltaTime));
     }
 
-    private void OnCollisionEnter2D(Collision2D collided){
-        if (collided.gameObject.tag == "Player"){
-            collided.gameObject.GetComponent<Player>().TakeDamage(damage);
-        }else if (collided.gameObject.tag == "Enemy" && collided.gameObject != gameObject){
-            collided.gameObject.GetComponent<EnemyBase>().dealDamage(damage);
+    private void OnTriggerEnter2D(Collider2D collided){
+        if (collided.tag == "Player"){
+            collided.GetComponent<Player>().TakeDamage(damage);
+        }else if (collided.tag == "Enemy"){
+            EnemyBase e = collided.GetComponent<EnemyBase>();
+            if (e.enemyID != "dragon"){
+                e.dealDamage(damage);
+            }
         }
-    }
-
-    void OnDrawGizmos(){
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(transform.position, collider.radius);
     }
 }
