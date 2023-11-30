@@ -23,10 +23,15 @@ public class EnemySpawner : MonoBehaviour
     private GameObject[] enemies;
     private int num;
 
+    public AudioSource bgMusic;
+    public AudioClip[] musicList;
+
+    private bool musicChange;
+
     void Start()
     {
         //removed enemyTemp as a possible spawn because it didn't have the enemy class methods needed for collision
-
+        musicChange = false;
         biome = chunk.getBiome((int)player.position.x,(int)player.position.y);
      
         StartCoroutine(spawnEnemy());
@@ -102,6 +107,14 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator spawnBoss(){
         biome = chunk.getBiome((int)player.position.x,(int)player.position.y);
         yield return new WaitForSeconds(bossSpawnInterval);
+
+        if (!musicChange)
+        {
+            musicChange = true;
+            bgMusic = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
+            bgMusic.clip = musicList[3];
+            bgMusic.Play();
+        }
 
         Vector3 home = Vector3.zero;
         switch (Random.Range(1,4)){

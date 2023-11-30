@@ -76,6 +76,12 @@ MonoBehaviour:
   destroyRange: 100
   speedDebuff: 1
   speed: 0.7
+  bgMusic: {fileID: 0}
+  musicList:
+  - {fileID: 8300000, guid: 1e40674bae3acae49a251cf3224ac34f, type: 3}
+  - {fileID: 8300000, guid: c48dc264bb015e94ca317f70b3da3371, type: 3}
+  - {fileID: 8300000, guid: 07633462a12cb354db954533ed98f0d8, type: 3}
+  - {fileID: 8300000, guid: b108ee673e4a68945a2af8155585c85d, type: 3}
   state: 0
   stateChangeTimer: 5
   rangedAttackDistance: 5
@@ -209,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBase: {fileID: 6244256594571762512}
   invert: 0
+  flipX: []
 --- !u!82 &4634475468119305090
 AudioSource:
   m_ObjectHideFlags: 0

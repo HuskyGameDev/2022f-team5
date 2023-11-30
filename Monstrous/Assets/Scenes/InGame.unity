@@ -2602,9 +2602,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 299809664}
     - target: {fileID: 2570576165038498569, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: bgMusic
+      value: 
+      objectReference: {fileID: 615438598}
+    - target: {fileID: 2570576165038498569, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498569, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: musicList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570576165038498569, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: musicList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e40674bae3acae49a251cf3224ac34f, type: 3}
+    - target: {fileID: 2570576165038498569, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: musicList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c48dc264bb015e94ca317f70b3da3371, type: 3}
+    - target: {fileID: 2570576165038498569, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: musicList.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 07633462a12cb354db954533ed98f0d8, type: 3}
+    - target: {fileID: 2570576165038498569, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
+      propertyPath: musicList.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: b108ee673e4a68945a2af8155585c85d, type: 3}
     - target: {fileID: 2570576165038498570, guid: 509e72c31edc055499c3e2c2709618bd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2765,7 +2789,7 @@ GameObject:
   - component: {fileID: 615438598}
   m_Layer: 0
   m_Name: Background Music
-  m_TagString: Untagged
+  m_TagString: Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

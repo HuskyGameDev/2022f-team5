@@ -15,6 +15,7 @@ TagManager:
   - Obstacles
   - Temp
   - locator
+  - Music
   layers:
   - Default
   - TransparentFX
