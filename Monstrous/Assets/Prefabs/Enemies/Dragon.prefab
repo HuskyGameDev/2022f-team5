@@ -121,7 +121,7 @@ MonoBehaviour:
   breathParticles: {fileID: 1075325420869489976}
   fire: {fileID: 6937159250545560125, guid: fa7bb2722d361bf429a7315b0de52e40, type: 3}
   mouthPosition: {fileID: 3660048431123635384}
-  fireDelay: 0.2
+  fireDelay: 0.3
   swipeTime: 1
   damagedLayers:
     serializedVersion: 2
