@@ -72,6 +72,7 @@ MonoBehaviour:
   attackSounds:
   - {fileID: 8300000, guid: be78cd2acfc7dbe49892451c974d9ffc, type: 3}
   - {fileID: 8300000, guid: df89e8bad23b65d4185ffd5ea0a22b87, type: 3}
+  - {fileID: 8300000, guid: 22a06c8941b1ded4791795d516e958ea, type: 3}
   body: {fileID: 3210103663076904022}
   animator: {fileID: -6695909433060576783}
   renderer: {fileID: -2363366164449915793}

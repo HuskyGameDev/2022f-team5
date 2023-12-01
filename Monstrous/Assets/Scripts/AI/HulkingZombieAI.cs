@@ -53,10 +53,10 @@ namespace Monstrous.AI{
                         center -= new Vector3(0, 3, 0);
                         startCenter = transform.position - center;
                         endCenter = target - center;
+                        attack.clip = attackSounds[0];
+                        attack.Play();
                     }
                     transform.position = Vector3.Slerp(startCenter, endCenter, timer / jumpTime) + center;
-                    attack.clip = attackSounds[0];
-                    attack.Play();
                     timer += Time.deltaTime;
                     if (Vector3.Distance(transform.position, target) < 0.5f){
                         state = States.DEFAULT;
@@ -77,6 +77,8 @@ namespace Monstrous.AI{
                 case States.THROWING:
                     GameObject b = Instantiate(boulder, transform.position, Quaternion.identity);
                     Boulder bould = b.GetComponent<Boulder>();
+                    attack.clip = attackSounds[2];
+                    attack.Play();
                     bould.direction = (playerLoc.position - transform.position).normalized;
                     bould.damage = baseBoulderDamage;
                     bould.rollSpeed = baseBoulderSpeed;

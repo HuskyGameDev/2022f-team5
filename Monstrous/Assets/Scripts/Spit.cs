@@ -6,6 +6,7 @@ public class Spit : MonoBehaviour{
     public float travelSpeed = 10f;
     public float damage = 20f;
     public Vector3 target;
+    public AudioSource attack;
     [SerializeField] private GameObject deathParticles;
     [SerializeField] private float destroyDistance = 0.2f;
 

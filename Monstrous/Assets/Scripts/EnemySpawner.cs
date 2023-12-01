@@ -111,7 +111,6 @@ public class EnemySpawner : MonoBehaviour
         if (!musicChange)
         {
             musicChange = true;
-            bgMusic = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
             bgMusic.clip = musicList[3];
             bgMusic.Play();
         }

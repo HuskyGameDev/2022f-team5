@@ -74,8 +74,8 @@ namespace Monstrous.AI{
             yield return new WaitForSeconds(wait);
             Spit projectile = Instantiate(spit, transform.position, Quaternion.identity).GetComponent<Spit>();
             projectile.target = playerLoc.position;
-            attack.clip = attackSounds[Random.Range(0, 5)];
-            attack.Play();
+            projectile.attack.clip = attackSounds[Random.Range(0, 5)];
+            projectile.attack.Play();
         }
 
         private IEnumerator stateSwitcher(){
