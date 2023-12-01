@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e41f01e327703f40ab3cc3eba3434fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 75
+  health: 85
   baseSpeed: 0.7
   damage: 4
   invulnerabilityTime: 0.1
@@ -63,6 +63,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5a0f382a039bd134998afa93d2e43831, type: 3}
   deathSounds:
   - {fileID: 8300000, guid: 16f2d590ae926b743b26ecadf4fea15f, type: 3}
+  attack: {fileID: 0}
+  attackSounds: []
   body: {fileID: 7846630373206297149}
   animator: {fileID: 2264177086141155435}
   renderer: {fileID: -4965440229532034953}
@@ -334,3 +336,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBase: {fileID: 1301195357238416948}
   invert: 0
+  flipX: []

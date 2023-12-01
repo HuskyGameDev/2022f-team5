@@ -87,9 +87,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961171da3c2ccbd45a34f0a9696e50a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 5750
   baseSpeed: 1
-  damage: 20
+  damage: 16
   invulnerabilityTime: 0.025
   enemyID: dragon
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}
@@ -121,7 +121,7 @@ MonoBehaviour:
   breathParticles: {fileID: 1075325420869489976}
   fire: {fileID: 6937159250545560125, guid: fa7bb2722d361bf429a7315b0de52e40, type: 3}
   mouthPosition: {fileID: 3660048431123635384}
-  fireDelay: 0.2
+  fireDelay: 0.3
   swipeTime: 1
   damagedLayers:
     serializedVersion: 2
