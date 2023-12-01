@@ -277,18 +277,18 @@ public class UpgradePanel : MonoBehaviour
     //name : BaseAtkSpeed
     public void Up_BaseAtkSpeed()
     {
-        player.GetComponent<Weapons>().baseAttackAS /= 1.2f;
+        player.GetComponent<Weapons>().baseAttackAS /= 1.4f;
     }
 
     //name : BaseAtkSpeedSpid
     public void Up_BaseAtkSpeedSpid()
     {
-        player.GetComponent<Weapons>().baseAttackAS /= 1.4f;
+        player.GetComponent<Weapons>().baseAttackAS /= 1.65f;
     }
 
     //name : BaseAtkDamage
-    private float damageInc = 1.30f;
-    private float damageIncSkele = 1.6f;
+    private float damageInc = 1.6f;
+    private float damageIncSkele = 1.9f;
     public void Up_BaseAtkDamage()
     {
         player.GetComponent<Weapons>().baseAttackBaseDam *= damageInc;
@@ -305,9 +305,9 @@ public class UpgradePanel : MonoBehaviour
     {
         Player play = player.GetComponent<Player>();
         float proportion = play.pHealth / play.pMaxHealth;
-        play.pMaxHealth += 35f; //<---------------------------value
+        play.pMaxHealth += 100f; //<---------------------------value
         play.pHealth = play.pMaxHealth * proportion;
-        play.healthBar.UpdateHealthBarMax(play.pMaxHealth, 35f);
+        play.healthBar.UpdateHealthBarMax(play.pMaxHealth, 100);
         play.healthBar.UpdateHealthBar(play.pHealth);
     }
 
@@ -316,9 +316,9 @@ public class UpgradePanel : MonoBehaviour
     {
         Player play = player.GetComponent<Player>();
         float proportion = play.pHealth / play.pMaxHealth;
-        play.pMaxHealth += 40f; //<---------------------------value
+        play.pMaxHealth += 200f; //<---------------------------value
         play.pHealth = play.pMaxHealth * proportion;
-        play.healthBar.UpdateHealthBarMax(play.pMaxHealth, 40f);
+        play.healthBar.UpdateHealthBarMax(play.pMaxHealth, 200f);
         play.healthBar.UpdateHealthBar(play.pHealth);
     }
 
@@ -332,7 +332,7 @@ public class UpgradePanel : MonoBehaviour
     public void Up_IncSpeed()
     {
         Player play = player.GetComponent<Player>();
-        play.moveSpeed += .25f;
+        play.moveSpeed += 0.8f;
     }
 
     public void Up_SwingAtk()
@@ -351,10 +351,10 @@ public class UpgradePanel : MonoBehaviour
 
     public void Up_SwingAtkSpeed()
     {
-        swing.SwingAtkAS /= 1.15f;
+        swing.SwingAtkAS /= 1.8f;
     }
 
-    private float swingDamageInc = 1.20f;
+    private float swingDamageInc = 1.7f;
     public void Up_SwingAtkDamage()
     {
         swing.SwingAtkDamage *= swingDamageInc;
@@ -384,6 +384,6 @@ public class UpgradePanel : MonoBehaviour
 
     public void Up_BoneAttackAS()
     {
-        player.GetComponent<Weapons>().boneAttackAS /= 1.4f;
+        player.GetComponent<Weapons>().boneAttackAS /= 1.8f;
     }
 }

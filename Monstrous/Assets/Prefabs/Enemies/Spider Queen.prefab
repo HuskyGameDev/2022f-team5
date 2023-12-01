@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933be23c84c8a2142b8ea6c057c90765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 65
+  health: 3750
   baseSpeed: 3
-  damage: 15
+  damage: 12
   invulnerabilityTime: 0.025
   enemyID: spiderQueen
   part: {fileID: 1801864569102801786, guid: cb2d562cc4773324e9642014fc1de035, type: 3}

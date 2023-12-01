@@ -15,7 +15,7 @@ public class Weapons : MonoBehaviour
     public GameObject shot;
     public float baseAttackAS = 1.0f;
     private float timing = 0.0f;
-    public float baseAttackBaseDam = 45;
+    public float baseAttackBaseDam = 50;
     public int baseAttackNumShots = 5;
     private float baseAttackShotDur = 0.25f; //the length of time during which all shots are fired per attack
     public int baseAttackPCount = 0;
@@ -28,7 +28,7 @@ public class Weapons : MonoBehaviour
     public GameObject boneShot;
     public float boneAttackAS = 1.0f;
     private float boneTiming = 0.0f;
-    public static float boneAttackBaseDam = 40;
+    public static float boneAttackBaseDam = 50;
 
     // Start is called before the first frame update
     void Start()
