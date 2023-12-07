@@ -22,7 +22,7 @@ public class HealthBar : MonoBehaviour
             if (bar.sizeDelta.x + change <= 1365)
             {
                 bar.sizeDelta = new Vector2(bar.sizeDelta.x + change, bar.sizeDelta.y);
-                bar.anchoredPosition = new Vector2(bar.anchoredPosition.x + 10, bar.anchoredPosition.y);
+                bar.anchoredPosition = new Vector2(bar.anchoredPosition.x + (change/3.5f), bar.anchoredPosition.y);
             }
             else
             {
