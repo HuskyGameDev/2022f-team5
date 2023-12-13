@@ -8,7 +8,7 @@ esc - pause game
 
 INSTALL - Right click on the zip folder and choose "Extract All". Once extracted, run the Monstrous.exe file inside. Windows will block running the app, so you will need to click "More Info" and "Run Anyway".
 
-TEAM - Colby Dummer, Jack Snowden, Wyatt Helzer, Chase Bootz, Joshua Radford, Kelso Edwards, Waylon Alvesteffer, Jacob Brendemuehl, Ben Cauley, Kirsten Love, Nolan Casey, Sam Robey.
+TEAM - Colby Dummer, Jack Snowden, Wyatt Helzer, Chase Bootz, Joshua Radford, Kelso Edwards, Waylon Alvesteffer, Jacob Brendemuehl, Ben Cauley, Kirsten Love, Nolan Casey, Sam Robey, Rainey Alexiev, Nate Lyons, Connor Pierson
 
 Sounds used from freesound.org:
 https://freesound.org/people/warrenXG/sounds/502209/
